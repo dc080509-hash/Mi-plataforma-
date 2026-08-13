@@ -3,18 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Plataforma</title> 
+    <title>WARM</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Mi Plataforma</h1>
+    <main class="welcome">
 
-    <p>Bienvenido a nuestra plataforma.</p>
+        <h1>WARM</h1>
 
-    <button>Iniciar sesión</button>
-    <button>Crear cuenta</button>
+        <!-- Espacio reservado para la imagen -->
+        <div class="image-space">
+            <span>Imagen de bienvenida</span>
+        </div>
+
+        <h2>Selecciona tu idioma</h2>
+
+        <select id="language">
+            <option value="es">🇪🇸 Español</option>
+            <option value="en">🇺🇸 English</option>
+        </select>
+
+        <button onclick="continueWelcome()">Continuar</button>
+
+    </main>
+
+    <script>
+        function continueWelcome() {
+            const language = document.getElementById("language").value;
+
+            if (language === "es") {
+                alert("Bienvenido a WARM");
+            } else {
+                alert("Welcome to WARM");
+            }
+        }
+    </script>
 
 </body>
 </html>

@@ -9,36 +9,79 @@
 
 <body>
 
-    <main class="welcome">
+    <!-- PANTALLA 1: IDIOMA -->
+    <section id="screen1" class="screen active">
 
         <h1>WARM</h1>
 
-        <!-- Espacio reservado para la imagen -->
         <div class="image-space">
             <span>Imagen de bienvenida</span>
         </div>
 
-        <h2>Selecciona tu idioma</h2>
+        <h2 id="language-title">Selecciona tu idioma</h2>
 
         <select id="language">
             <option value="es">🇪🇸 Español</option>
             <option value="en">🇺🇸 English</option>
         </select>
 
-        <button onclick="continueWelcome()">Continuar</button>
+        <button onclick="nextScreen()">Continuar</button>
 
-    </main>
+    </section>
+
+
+    <!-- PANTALLA 2: CONEXIONES -->
+    <section id="screen2" class="screen">
+
+        <h1>WARM</h1>
+
+        <div class="image-space">
+            <span>Imagen de bienvenida</span>
+        </div>
+
+        <h2 id="connection-title">
+            Conecta con personas de todo el mundo
+        </h2>
+
+        <p id="connection-text">
+            Descubre nuevas personas, comparte momentos y forma parte
+            de una comunidad global.
+        </p>
+
+        <button onclick="nextScreen()">Siguiente</button>
+
+    </section>
+
 
     <script>
-        function continueWelcome() {
+
+        let currentScreen = 1;
+
+        function nextScreen() {
+
             const language = document.getElementById("language").value;
 
-            if (language === "es") {
-                alert("Bienvenido a WARM");
+            document.getElementById("screen1").classList.remove("active");
+            document.getElementById("screen2").classList.add("active");
+
+            if (language === "en") {
+
+                document.getElementById("connection-title").textContent =
+                    "Connect with people from all over the world";
+
+                document.getElementById("connection-text").textContent =
+                    "Discover new people, share moments and be part of a global community.";
+
             } else {
-                alert("Welcome to WARM");
+
+                document.getElementById("connection-title").textContent =
+                    "Conecta con personas de todo el mundo";
+
+                document.getElementById("connection-text").textContent =
+                    "Descubre nuevas personas, comparte momentos y forma parte de una comunidad global.";
             }
         }
+
     </script>
 
 </body>

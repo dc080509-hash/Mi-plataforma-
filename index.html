@@ -232,6 +232,84 @@
     </button>
 
 </section>
+<!-- PANTALLA 8: PARA TI -->
+<section id="screen8" class="screen">
+
+    <div class="home-header">
+        <h1>WARM</h1>
+
+        <div class="home-tabs">
+            <button class="tab active">Para ti</button>
+            <button class="tab">Descubrir</button>
+            <button class="tab">Internacional</button>
+        </div>
+    </div>
+
+    <div class="feed">
+
+        <div class="post-card">
+
+            <div class="post-user">
+                <div class="post-avatar">Foto</div>
+
+                <div>
+                    <strong>@usuario</strong>
+                    <p>Hace un momento</p>
+                </div>
+            </div>
+
+            <div class="post-content">
+                <div class="post-image">
+                    <span>Foto / Video</span>
+                </div>
+            </div>
+
+            <div class="post-actions">
+                <button>♡</button>
+                <button>💬</button>
+                <button>↗</button>
+            </div>
+
+            <p class="post-text">
+                Comparte momentos, ideas y experiencias con la comunidad WARM.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BARRA INFERIOR -->
+    <nav class="bottom-nav">
+
+        <button class="nav-item active">
+            <span>⌂</span>
+            <small>Inicio</small>
+        </button>
+
+        <button class="nav-item">
+            <span>＋</span>
+            <small>Crear</small>
+        </button>
+
+        <button class="nav-item">
+            <span>♡</span>
+            <small>Deseos</small>
+        </button>
+
+        <button class="nav-item">
+            <span>💬</span>
+            <small>Mensajes</small>
+        </button>
+
+        <button class="nav-item">
+            <span>●</span>
+            <small>Perfil</small>
+        </button>
+
+    </nav>
+
+</section>
+
     <script>
 function goToScreen7() {
 
@@ -384,6 +462,14 @@ function followFounder(button) {
     }
 }
 
+function finishFounders() {
+
+    document.getElementById("screen7")
+        .classList.remove("active");
+
+    document.getElementById("screen8")
+        .classList.add("active");
+}
 </script>
 
 </body>

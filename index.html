@@ -93,8 +93,29 @@
         <button onclick="finishWelcome()">Siguiente</button>
 
     </section>
+    <!-- PANTALLA 5: BIENVENIDA FINAL -->
+    <section id="screen5" class="screen">
 
+        <h1>WARM</h1>
 
+        <div class="image-space">
+            <span>Imagen final</span>
+        </div>
+
+        <h2 id="final-title">
+            Todo empieza aquí
+        </h2>
+
+        <p id="final-text">
+            Únete a una comunidad creada para conectar, compartir y apoyar.
+        </p>
+
+        <button onclick="createAccount()">Crear cuenta</button>
+
+        <button onclick="login()">Iniciar sesión</button>
+
+    </section>
+    
     <script>
 
         let selectedLanguage = "es";
@@ -174,6 +195,42 @@ function goToScreen3() {
 
 
         function finishWelcome() {
+
+    document.getElementById("screen4")
+        .classList.remove("active");
+
+    document.getElementById("screen5")
+        .classList.add("active");
+
+    if (selectedLanguage === "en") {
+
+        document.getElementById("final-title")
+            .textContent =
+            "Everything starts here";
+
+        document.getElementById("final-text")
+            .textContent =
+            "Join a community created to connect, share and support.";
+    }
+}
+
+function createAccount() {
+
+    alert(
+        selectedLanguage === "en"
+        ? "Account creation will be available soon."
+        : "La creación de cuentas estará disponible pronto."
+    );
+}
+
+function login() {
+
+    alert(
+        selectedLanguage === "en"
+        ? "Login will be available soon."
+        : "El inicio de sesión estará disponible pronto."
+    );
+}
 
             alert(
                 selectedLanguage === "en"

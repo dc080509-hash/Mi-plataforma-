@@ -109,13 +109,46 @@
         <p id="final-text">
             Únete a una comunidad creada para conectar, compartir y apoyar.
         </p>
-
-        <button onclick="createAccount()">Crear cuenta</button>
+<button onclick="goToScreen6()">Crear cuenta</button>
 
         <button onclick="login()">Iniciar sesión</button>
 
     </section>
-    
+    <!-- PANTALLA 6: CREAR CUENTA -->
+<section id="screen6" class="screen">
+
+    <h1>WARM</h1>
+
+    <h2 id="signup-title">Crear cuenta</h2>
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Nombre de usuario"
+    >
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Correo electrónico"
+    >
+
+    <input
+        type="date"
+        id="birthdate"
+    >
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Contraseña"
+    >
+
+    <button onclick="createNewAccount()">
+        Crear cuenta
+    </button>
+
+</section>
     <script>
 
         let selectedLanguage = "es";
@@ -231,6 +264,15 @@ function login() {
         : "El inicio de sesión estará disponible pronto."
     );
 }
+function goToScreen6() {
+
+    document.getElementById("screen5")
+        .classList.remove("active");
+
+    document.getElementById("screen6")
+        .classList.add("active");
+}
+
 </script>
 
 </body>

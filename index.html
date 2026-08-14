@@ -144,13 +144,103 @@
         placeholder="Contraseña"
     >
 
-    <button onclick="createNewAccount()">
-        Crear cuenta
+    <button onclick="goToScreen7()">
+    Crear cuenta
+    </button>
+
+</section>
+<!-- PANTALLA 7: SIGUE A LOS FUNDADORES -->
+<section id="screen7" class="screen">
+
+    <h1>WARM</h1>
+
+    <h2 id="founders-title">
+        Sigue a los fundadores
+    </h2>
+
+    <p id="founders-text">
+        Síguelos para estar al tanto de las novedades,
+        anuncios y todo lo que sucede en WARM.
+    </p>
+
+    <div class="founders-list">
+
+        <!-- FUNDADOR 1 -->
+        <div class="founder-card">
+            <div class="founder-image">
+                <span>Foto</span>
+            </div>
+
+            <div class="founder-info">
+                <h3>Fundadora 1</h3>
+                <p>@usuario1</p>
+            </div>
+
+            <button>Seguir</button>
+        </div>
+
+
+        <!-- FUNDADOR 2 -->
+        <div class="founder-card">
+            <div class="founder-image">
+                <span>Foto</span>
+            </div>
+
+            <div class="founder-info">
+                <h3>Fundadora 2</h3>
+                <p>@usuario2</p>
+            </div>
+
+            <button>Seguir</button>
+        </div>
+
+
+        <!-- FUNDADOR 3 -->
+        <div class="founder-card">
+            <div class="founder-image">
+                <span>Foto</span>
+            </div>
+
+            <div class="founder-info">
+                <h3>Fundadora 3</h3>
+                <p>@usuario3</p>
+            </div>
+
+            <button>Seguir</button>
+        </div>
+
+
+        <!-- FUNDADOR 4 -->
+        <div class="founder-card">
+            <div class="founder-image">
+                <span>Foto</span>
+            </div>
+
+            <div class="founder-info">
+                <h3>Fundadora 4</h3>
+                <p>@usuario4</p>
+            </div>
+
+            <button>Seguir</button>
+        </div>
+
+    </div>
+
+
+    <button onclick="finishFounders()">
+        Continuar
     </button>
 
 </section>
     <script>
+function goToScreen7() {
 
+    document.getElementById("screen6")
+        .classList.remove("active");
+
+    document.getElementById("screen7")
+        .classList.add("active");
+}
         let selectedLanguage = "es";
 
 

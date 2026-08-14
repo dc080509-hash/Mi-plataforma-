@@ -239,9 +239,18 @@
         <h1>WARM</h1>
 
         <div class="home-tabs">
-            <button class="tab active">Para ti</button>
-            <button class="tab">Descubrir</button>
-            <button class="tab">Internacional</button>
+            <button class="tab active" onclick="showFeed('forYou', this)">
+    Para ti
+</button>
+
+<button class="tab" onclick="showFeed('discover', this)">
+    Descubrir
+</button>
+
+<button class="tab" onclick="showFeed('international', this)">
+    Internacional
+</button>
+            
         </div>
     </div>
 

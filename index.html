@@ -479,33 +479,48 @@ function finishFounders() {
     document.getElementById("screen8")
         .classList.add("active");
 }
-
 function showFeed(section, button) {
 
-    // Quitar selección de todos los botones
     document.querySelectorAll("#screen8 .home-tabs .tab")
         .forEach(function(tab) {
             tab.classList.remove("active");
         });
 
-    // Activar el botón seleccionado
     button.classList.add("active");
 
-    // Mensaje temporal según la sección
+    document.getElementById("forYouContent")
+        .style.display = "none";
+
+    document.getElementById("discoverContent")
+        .style.display = "none";
+
+    document.getElementById("internationalContent")
+        .style.display = "none";
+
+
     if (section === "forYou") {
 
-        alert("Estás en Para ti.");
+        document.getElementById("forYouContent")
+            .style.display = "block";
 
-    } else if (section === "discover") {
+    }
 
-        alert("Aquí aparecerá Descubrir.");
+    if (section === "discover") {
 
-    } else if (section === "international") {
+        document.getElementById("discoverContent")
+            .style.display = "block";
 
-        alert("Aquí aparecerán los grupos internacionales.");
+    }
+
+    if (section === "international") {
+
+        document.getElementById("internationalContent")
+            .style.display = "block";
 
     }
 }
+
+
 </script>
 
 </body>

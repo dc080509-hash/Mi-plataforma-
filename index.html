@@ -191,7 +191,7 @@
                 <p>@usuario2</p>
             </div>
 
-            
+            <button onclick="followFounder(this)">Seguir</button>
         </div>
 
 
@@ -206,7 +206,7 @@
                 <p>@usuario3</p>
             </div>
 
-            <button>Seguir</button>
+            <button onclick="followFounder(this)">Seguir</button>
         </div>
 
 
@@ -221,7 +221,7 @@
                 <p>@usuario4</p>
             </div>
 
-            <button>Seguir</button>
+            <button onclick="followFounder(this)">Seguir</button>
         </div>
 
     </div>
@@ -371,6 +371,16 @@ function goToScreen6() {
 
     document.getElementById("screen6")
         .classList.add("active");
+}
+function followFounder(button) {
+
+    if (button.textContent === "Seguir") {
+        button.textContent = "Siguiendo ✓";
+        button.classList.add("following");
+    } else {
+        button.textContent = "Seguir";
+        button.classList.remove("following");
+    }
 }
 
 </script>

@@ -74,23 +74,49 @@
 
 
     <script>
-        function nextScreen() {
+<script>
+    let selectedLanguage = "es";
 
-            const language = document.getElementById("language").value;
+    function nextScreen() {
 
-            document.getElementById("screen1").classList.remove("active");
-            document.getElementById("screen2").classList.add("active");
+        selectedLanguage = document.getElementById("language").value;
 
-            if (language === "en") {
-document.getElementById("connection-title").textContent =
-                    "Connect with people from all over the world";
+        document.getElementById("screen1").classList.remove("active");
+        document.getElementById("screen2").classList.add("active");
 
-                document.getElementById("connection-text").textContent =
-                    "Discover new people, share moments and be part of a global community.";
+        if (selectedLanguage === "en") {
 
-            }
+            document.getElementById("connection-title").textContent =
+                "Connect with people from all over the world";
+
+            document.getElementById("connection-text").textContent =
+                "Discover new people, share moments and be part of a global community.";
         }
-    </script>
+    }
+
+    function goToScreen3() {
+
+        document.getElementById("screen2").classList.remove("active");
+        document.getElementById("screen3").classList.add("active");
+
+        if (selectedLanguage === "en") {
+
+            document.getElementById("wishes-title").textContent =
+                "Make your wishes come true";
+
+            document.getElementById("wishes-text").textContent =
+                "Share what you wish for and receive support from people around the world.";
+
+        } else {
+
+            document.getElementById("wishes-title").textContent =
+                "Haz realidad tus deseos";
+
+            document.getElementById("wishes-text").textContent =
+                "Comparte lo que deseas y recibe el apoyo de personas de todo el mundo.";
+        }
+    }
+</script>
 
 </body>
 </html>

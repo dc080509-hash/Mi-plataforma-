@@ -488,35 +488,24 @@ function showFeed(section, button) {
 
     button.classList.add("active");
 
-    document.getElementById("forYouContent")
-        .style.display = "none";
-
-    document.getElementById("discoverContent")
-        .style.display = "none";
-
-    document.getElementById("internationalContent")
-        .style.display = "none";
-
+    document.querySelectorAll("#screen8 .feed-section")
+        .forEach(function(sectionElement) {
+            sectionElement.classList.remove("active");
+        });
 
     if (section === "forYou") {
-
         document.getElementById("forYouContent")
-            .style.display = "block";
-
+            .classList.add("active");
     }
 
     if (section === "discover") {
-
         document.getElementById("discoverContent")
-            .style.display = "block";
-
+            .classList.add("active");
     }
 
     if (section === "international") {
-
         document.getElementById("internationalContent")
-            .style.display = "block";
-
+            .classList.add("active");
     }
 }
 

@@ -329,3 +329,11 @@ button:active {
 #screen8 .bottom-nav .nav-item.active {
     color: #222;
 }
+#screen8 .feed-section {
+    display: none;
+    width: 100%;
+}
+
+#screen8 .feed-section.active {
+    display: block;
+}

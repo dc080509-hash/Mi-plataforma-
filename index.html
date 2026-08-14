@@ -235,13 +235,33 @@
     <script>
 function goToScreen7() {
 
+    const username = document.getElementById("username").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const birthdate = document.getElementById("birthdate").value;
+    const password = document.getElementById("password").value;
+
+    // Comprobar que todos los campos estén llenos
+    if (!username || !email || !birthdate || !password) {
+        alert(
+            selectedLanguage === "en"
+            ? "Please complete all the fields."
+            : "Por favor, completa todos los campos."
+        );
+        return;
+    }
+
+    // Guardar temporalmente los datos de la cuenta
+    localStorage.setItem("warm_username", username);
+    localStorage.setItem("warm_email", email);
+    localStorage.setItem("warm_birthdate", birthdate);
+
+    // Cambiar de pantalla
     document.getElementById("screen6")
         .classList.remove("active");
 
     document.getElementById("screen7")
         .classList.add("active");
 }
-
         function goToScreen2() {
 
             selectedLanguage =
@@ -335,14 +355,6 @@ function goToScreen3() {
     }
 }
 
-function createAccount() {
-
-    alert(
-        selectedLanguage === "en"
-        ? "Account creation will be available soon."
-        : "La creación de cuentas estará disponible pronto."
-    );
-}
 
 function login() {
 

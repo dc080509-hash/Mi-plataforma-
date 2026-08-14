@@ -137,208 +137,53 @@ button:active {
 
     transform: scale(0.98);
 }
-/* ================================
-   PANTALLA 8 - PARA TI
-================================ */
+/* =========================
+   PANTALLA 8 - WARM
+========================= */
 
 #screen8 {
     display: none;
-    padding: 0;
     min-height: 100vh;
+    padding: 0 0 75px 0;
     background: #f7f3f0;
     text-align: left;
     align-items: stretch;
     justify-content: flex-start;
-    padding-bottom: 75px;
 }
 
 #screen8.active {
-    display: flex;
+    display: block;
 }
 
-.home-header {
-    width: 100%;
-    background: white;
-    padding: 20px 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
 
-.home-header h1 {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 18px;
-}
-
-.home-tabs {
-    display: flex;
-    width: 100%;
-    gap: 5px;
-}
-
-.home-tabs .tab {
-    flex: 1;
-    width: auto;
-    margin: 0;
-    padding: 12px 5px;
-    background: transparent;
-    color: #777;
-    border-radius: 0;
-    font-size: 14px;
-}
-
-.home-tabs .tab.active {
-    color: #222;
-    border-bottom: 3px solid #222;
-}
-
-.feed {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 15px;
-}
-
-.post-card {
-    width: 100%;
-    background: white;
-    border-radius: 18px;
-    margin-bottom: 20px;
-    overflow: hidden;
-}
-
-.post-user {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 15px;
-}
-
-.post-avatar {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    color: #777;
-    flex-shrink: 0;
-}
-
-.post-user strong {
-    font-size: 15px;
-}
-
-.post-user p {
-    margin: 2px 0 0;
-    font-size: 12px;
-    color: #888;
-}
-
-.post-content {
-    width: 100%;
-}
-
-.post-image {
-    width: 100%;
-    height: 350px;
-    background: #e9e4e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-}
-
-.post-actions {
-    display: flex;
-    gap: 10px;
-    padding: 10px 15px 0;
-}
-
-.post-actions button {
-    width: auto;
-    margin: 0;
-    padding: 5px;
-    background: transparent;
-    color: #222;
-    font-size: 25px;
-}
-
-.post-text {
-    padding: 0 15px 15px;
-    margin: 8px 0 0;
-    font-size: 14px;
-}
-
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background: white;
-    border-top: 1px solid #ddd;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 20;
-}
-
-.bottom-nav .nav-item {
-    width: 20%;
-    margin: 0;
-    padding: 5px;
-    background: transparent;
-    color: #777;
-    border-radius: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-}
-
-.bottom-nav .nav-item span {
-    font-size: 22px;
-}
-
-.bottom-nav .nav-item small {
-    font-size: 10px;
-}
-
-.bottom-nav .nav-item.active {
-    color: #222;
-}
-/* ===== AJUSTE PANTALLA 8 ===== */
+/* ===== PARTE SUPERIOR ===== */
 
 #screen8 .home-header {
     width: 100%;
     background: white;
-    padding: 18px 12px 0;
-    text-align: center;
+    padding-top: 18px;
 }
 
 #screen8 .home-header h1 {
+    text-align: center;
     font-size: 30px;
-    margin: 0 0 15px;
+    letter-spacing: 4px;
+    margin: 0 0 15px 0;
 }
 
 #screen8 .home-tabs {
-    display: flex;
     width: 100%;
-    justify-content: space-around;
-    align-items: center;
+    display: flex;
+    border-bottom: 1px solid #ddd;
 }
 
 #screen8 .home-tabs .tab {
-    width: auto;
-    max-width: none;
     flex: 1;
+    width: 33.33%;
+    max-width: none;
     margin: 0;
-    padding: 12px 4px;
-    background: transparent;
+    padding: 13px 5px;
+    background: white;
     color: #777;
     border-radius: 0;
     font-size: 14px;
@@ -350,27 +195,25 @@ button:active {
 }
 
 
-/* ===== PUBLICACIONES ===== */
+/* ===== PUBLICACIÓN ===== */
 
 #screen8 .feed {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    padding: 15px;
 }
 
 #screen8 .post-card {
     width: 100%;
     background: white;
-    border-radius: 18px;
-    overflow: hidden;
+    margin-bottom: 15px;
 }
 
 #screen8 .post-user {
     display: flex;
     align-items: center;
-    gap: 12px;
     padding: 15px;
+    gap: 12px;
 }
 
 #screen8 .post-avatar {
@@ -381,27 +224,41 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    font-size: 11px;
+    color: #777;
+}
+
+#screen8 .post-user strong {
+    font-size: 15px;
 }
 
 #screen8 .post-user p {
-    margin: 3px 0 0;
+    margin: 2px 0 0;
     font-size: 12px;
     color: #888;
 }
 
+
+/* ===== FOTO / VIDEO ===== */
+
 #screen8 .post-image {
     width: 100%;
-    height: 330px;
+    height: 350px;
     background: #e9e4e0;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #888;
 }
+
+
+/* ===== BOTONES DE PUBLICACIÓN ===== */
 
 #screen8 .post-actions {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 18px;
     padding: 10px 15px;
 }
 
@@ -409,15 +266,18 @@ button:active {
     width: auto;
     max-width: none;
     margin: 0;
-    padding: 3px;
+    padding: 0;
     background: transparent;
     color: #222;
-    font-size: 24px;
+    font-size: 25px;
 }
 
+
+/* ===== TEXTO ===== */
+
 #screen8 .post-text {
-    padding: 0 15px 15px;
     margin: 0;
+    padding: 0 15px 18px;
     font-size: 14px;
 }
 
@@ -426,15 +286,17 @@ button:active {
 
 #screen8 .bottom-nav {
     position: fixed;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
     height: 70px;
     background: white;
     border-top: 1px solid #ddd;
+
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
+
     z-index: 100;
 }
 
@@ -443,13 +305,16 @@ button:active {
     max-width: none;
     margin: 0;
     padding: 5px 2px;
+
     background: transparent;
     color: #777;
     border-radius: 0;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     gap: 3px;
 }
 

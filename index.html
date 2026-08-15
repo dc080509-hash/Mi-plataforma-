@@ -1085,8 +1085,7 @@ p {
 
         </div>
 
-
-        <!-- CREAR -->
+             <!-- CREAR -->
 
         <div id="createContent"
              class="feed-section">
@@ -1112,8 +1111,7 @@ p {
             </div>
 
         </div>
-
-
+        
         <!-- DESEOS -->
 
         <div id="wishesContent"
@@ -1830,48 +1828,406 @@ function publishTextPost() {
     input.value = "";
 }
 
+/* =========================
+   CREAR PUBLICACIÓN
+========================= */
+
+function hideCreateBoxes() {
+
+    document.getElementById("photoPostBox").style.display = "none";
+    document.getElementById("videoPostBox").style.display = "none";
+    document.getElementById("textPostBox").style.display = "none";
+}
+
+
+/* FOTO */
+
+function openPhotoPost() {
+
+    hideCreateBoxes();
+
+    document.getElementById("photoPostBox")
+        .style.display = "block";
+}
+
+
+/* VIDEO */
+
+function openVideoPost() {
+
+    hideCreateBoxes();
+
+    document.getElementById("videoPostBox")
+        .style.display = "block";
+}
+
+
+/* PUBLICACIÓN DE TEXTO */
+
+function openTextPost() {
+
+    hideCreateBoxes();
+
+    document.getElementById("textPostBox")
+        .style.display = "block";
+}
+
+
+/* PUBLICAR TEXTO */
 
 function publishFromCreate() {
 
-    const input =
-        document.getElementById("createArea");
-
     const text =
-        input.value.trim();
+        document.getElementById("createArea")
+        .value
+        .trim();
 
-    if (!text) return;
+    if (!text) {
 
-    document.getElementById("newPostText")
-        .value = text;
+        alert(
+            selectedLanguage === "en"
+            ? "Write something before posting."
+            : "Escribe algo antes de publicar."
+        );
 
-    showFeed(
-        "discover",
-        document.querySelectorAll(".home-tabs .tab")[1]
-    );
+        return;
+    }
 
-    publishTextPost();
+    addTextPost(text);
 
-    input.value = "";
-}
-
-
-function createPhoto() {
-
-    alert(
-        selectedLanguage === "en"
-        ? "Photo upload will be available soon."
-        : "La carga de fotos estará disponible pronto."
-    );
-}
-
-
-function createVideo() {
+    document.getElementById("createArea").value = "";
 
     alert(
         selectedLanguage === "en"
-        ? "Video upload will be available soon."
-        : "La carga de videos estará disponible pronto."
+        ? "Your post has been published."
+        : "Tu publicación ha sido publicada."
     );
+}
+
+
+/* PUBLICAR FOTO */
+
+function publishPhotoPost() {
+
+    const file =
+        document.getElementById("photoInput").files[0];
+
+    if (!file) {
+
+        alert(
+            selectedLanguage === "en"
+            ? "Select a photo first."
+            : "Primero selecciona una foto."
+        );
+
+        return;
+    }
+
+    const caption =
+        document.getElementById("photoCaption")
+        .value
+        .trim();
+
+    addMediaPost(
+        file,
+        "photo",
+        caption
+    );
+
+    document.getElementById("photoInput").value = "";
+    document.getElementById("photoCaption").value = "";
+
+    alert(
+        selectedLanguage === "en"
+        ? "Your photo has been published."
+        : "Tu foto ha sido publicada."
+    );
+}
+
+
+/* PUBLICAR VIDEO */
+
+function publishVideoPost() {
+
+    const file =
+        document.getElementById("videoInput").files[0];
+
+    if (!file) {
+
+        alert(
+            selectedLanguage === "en"
+            ? "Select a video first."
+            : "Primero selecciona un video."
+        );
+
+        return;
+    }
+
+    const caption =
+        document.getElementById("videoCaption")
+        .value
+        .trim();
+
+    addMediaPost(
+        file,
+        "video",
+        caption
+    );
+
+    document.getElementById("videoInput").value = "";
+    document.getElementById("videoCaption").value = "";
+
+    alert(
+        selectedLanguage === "en"
+        ? "Your video has been published."
+        : "Tu video ha sido publicado."
+    );
+}
+
+
+/* CREAR PUBLICACIÓN DE TEXTO */
+
+function addTextPost(text) {
+
+    const post =
+        document.createElement("div");
+
+    post.className = "text-post";
+
+    post.innerHTML = `
+        <div class="post-user">
+
+            <div class="post-avatar">
+                Foto
+            </div>
+
+            <div>
+                <strong>@usuario</strong>
+                <p>
+                    ${selectedLanguage === "en"
+                        ? "Just now"
+                        : "Hace un momento"}
+                </p>
+            </div>
+
+        </div>
+
+        <p class="tweet-text">
+            ${escapeHTML(text)}
+        </p>
+
+        <div class="post-actions">
+
+            <button onclick="likePost(this)">
+                ♡
+            </button>
+
+            <button onclick="commentPost(this)">
+                💬
+            </button>
+
+            <button onclick="sharePost()">
+                ↗
+            </button>
+
+        </div>
+    `;
+
+    const forYou =
+        document.getElementById("forYouContent");
+
+    if (forYou) {
+
+        forYou.prepend(post);
+    }
+}
+
+
+/* CREAR FOTO O VIDEO */
+
+function addMediaPost(file, type, caption) {
+
+    const post =
+        document.createElement("div");
+
+    post.className = "post-card";
+
+    const url =
+        URL.createObjectURL(file);
+
+    let mediaHTML = "";
+
+    if (type === "photo") {
+
+        mediaHTML = `
+            <img
+                src="${url}"
+                style="
+                    width:100%;
+                    max-height:450px;
+                    object-fit:cover;
+                    border-radius:15px;
+                ">
+        `;
+
+    } else {
+
+        mediaHTML = `
+            <video
+                src="${url}"
+                controls
+                style="
+                    width:100%;
+                    max-height:450px;
+                    border-radius:15px;
+                ">
+            </video>
+        `;
+    }
+
+    post.innerHTML = `
+
+        <div class="post-user">
+
+            <div class="post-avatar">
+                Foto
+            </div>
+
+            <div>
+                <strong>@usuario</strong>
+
+                <p>
+                    ${selectedLanguage === "en"
+                        ? "Just now"
+                        : "Hace un momento"}
+                </p>
+            </div>
+
+        </div>
+
+        <div class="post-content">
+
+            ${mediaHTML}
+
+        </div>
+
+        ${
+            caption
+            ? `<p class="post-text">
+                ${escapeHTML(caption)}
+               </p>`
+            : ""
+        }
+
+        <div class="post-actions">
+
+            <button onclick="likePost(this)">
+                ♡
+            </button>
+
+            <button onclick="commentPost(this)">
+                💬
+            </button>
+
+            <button onclick="sharePost()">
+                ↗
+            </button>
+
+        </div>
+    `;
+
+    const forYou =
+        document.getElementById("forYouContent");
+
+    if (forYou) {
+
+        forYou.prepend(post);
+    }
+}
+
+
+/* LIKE */
+
+function likePost(button) {
+
+    if (button.classList.contains("liked")) {
+
+        button.classList.remove("liked");
+        button.textContent = "♡";
+
+    } else {
+
+        button.classList.add("liked");
+        button.textContent = "♥";
+    }
+}
+
+
+/* COMENTARIOS */
+
+function commentPost(button) {
+
+    const comment =
+        prompt(
+            selectedLanguage === "en"
+            ? "Write a comment:"
+            : "Escribe un comentario:"
+        );
+
+    if (!comment) return;
+
+    const post =
+        button.closest(".post-card, .text-post");
+
+    if (!post) return;
+
+    let comments =
+        post.querySelector(".comments");
+
+    if (!comments) {
+
+        comments =
+            document.createElement("div");
+
+        comments.className = "comments";
+
+        post.appendChild(comments);
+    }
+
+    const newComment =
+        document.createElement("div");
+
+    newComment.className = "comment";
+
+    newComment.textContent =
+        "@usuario: " + comment;
+
+    comments.appendChild(newComment);
+}
+
+
+/* COMPARTIR */
+
+function sharePost() {
+
+    alert(
+        selectedLanguage === "en"
+        ? "Share options will appear here."
+        : "Aquí aparecerán las opciones para compartir."
+    );
+}
+
+
+/* SEGURIDAD PARA TEXTO */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
 }
 
 

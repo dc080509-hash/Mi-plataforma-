@@ -708,49 +708,163 @@ FOTO / VIDEO
 }
 
 /* =========================
-
    PERFIL
-
 ========================= */
 
 .profile {
-
     width: calc(100% - 30px);
-
     max-width: 500px;
-
     margin: 20px auto;
-
-    padding: 20px;
-
+    padding: 0 0 20px;
     background: white;
-
     border-radius: 20px;
-
     text-align: center;
-
+    overflow: hidden;
 }
 
-.profile-avatar {
-
-    width: 90px;
-
-    height: 90px;
-
-    margin: auto;
-
-    border-radius: 50%;
+/* =========================
+   FOTO DE PORTADA
+========================= */
+.profile-cover {
+    width: 100%;
+    height: 210px;
 
     background: #ddd;
+    background-size: cover;
+    background-position: center;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
+    position: relative;
 }
 
+/* =========================
+   FOTO DE PERFIL
+========================= */
+
+.profile-photo {
+    width: 115px;
+    height: 115px;
+
+    border-radius: 50%;
+    background: #eee;
+
+    border: 5px solid white;
+
+    position: absolute;
+    left: 20px;
+    bottom: -55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    z-index: 5;
+}
+
+/* =========================
+   CAMPANITA
+========================= */
+
+.profile-notification {
+    position: absolute;
+    right: 12px;
+    top: 15px;
+
+    font-size: 25px;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+    z-index: 6;
+}
+
+/* =========================
+   TRES RAYITAS / AJUSTES
+========================= */
+.profile-menu {
+    position: absolute;
+    right: 12px;
+    top: 55px;
+
+    font-size: 26px;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+    z-index: 6;
+}
+
+/* =========================
+   INFORMACIÓN
+========================= */
+
+.profile-card h2 {
+    margin-top: 65px;
+    margin-bottom: 5px;
+}
+
+.profile-card p {
+    margin-top: 5px;
+}
+
+/* =========================
+   SEGUIR / MENSAJE
+========================= */
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    margin: 18px 15px;
+}
+
+.profile-actions .main-button {
+    flex: 1;
+    max-width: 180px;
+}
+
+/* =========================
+   FEED
+========================= */
+
+.profile-feed {
+    width: 100%;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.feed-tabs {
+    display: flex;
+    justify-content: space-around;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.feed-tab {
+    background: none;
+    border: none;
+
+    padding: 12px 15px;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.feed-tab.active {
+    border-bottom: 2px solid #000;
+}
+
+#profilePosts {
+    width: 100%;
+}
+
+.empty-profile-feed {
+    padding: 35px 10px;
+    text-align: center;
+    color: #888;
+}
 /* =========================
 
    MÓVIL

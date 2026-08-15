@@ -872,6 +872,82 @@ FOTO / VIDEO
     color: #888;
 }
 /* =========================
+   POSICIÓN FINAL DEL PERFIL
+========================= */
+
+.profile-cover {
+    position: relative !important;
+    width: 100% !important;
+    height: 210px !important;
+}
+
+/* CAMPANITA: EXTREMO DERECHO */
+.profile-cover .profile-notification {
+    position: absolute !important;
+    top: 12px !important;
+    right: 8px !important;
+    left: auto !important;
+    bottom: auto !important;
+
+    width: 42px !important;
+    height: 42px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: transparent !important;
+    border: none !important;
+
+    font-size: 25px !important;
+    z-index: 20 !important;
+}
+
+/* TRES RAYITAS: DEBAJO DE LA CAMPANITA */
+.profile-cover .profile-menu {
+    position: absolute !important;
+    top: 58px !important;
+    right: 8px !important;
+    left: auto !important;
+    bottom: auto !important;
+
+    width: 42px !important;
+    height: 42px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: transparent !important;
+    border: none !important;
+
+    font-size: 27px !important;
+    z-index: 20 !important;
+}
+
+/* FOTO DE PERFIL: GRANDE Y A LA IZQUIERDA */
+.profile-cover + .profile-photo {
+    position: absolute !important;
+
+    left: 20px !important;
+    right: auto !important;
+
+    width: 120px !important;
+    height: 120px !important;
+
+    border-radius: 50% !important;
+
+    margin: 0 !important;
+
+    z-index: 15 !important;
+}
+/* =========================
 
    MÓVIL
 ========================= */

@@ -337,3 +337,63 @@ button:active {
 #screen8 .feed-section.active {
     display: block;
 }
+/* ===== DESCUBRIR ===== */
+
+#screen8 .create-post {
+    width: 100%;
+    background: white;
+    padding: 18px;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+#screen8 .create-post strong {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+#screen8 .post-input {
+    width: 100%;
+    padding: 14px;
+    background: #f3f0ed;
+    border-radius: 12px;
+    color: #888;
+}
+
+#screen8 .create-options {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+#screen8 .create-options button {
+    width: auto;
+    flex: 1;
+    max-width: none;
+    margin: 0;
+    padding: 10px 5px;
+    background: #f3f0ed;
+    color: #222;
+    font-size: 13px;
+}
+
+#screen8 .text-post {
+    width: 100%;
+    background: white;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+#screen8 .tweet-text {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#screen8 .text-post .post-actions {
+    padding-left: 0;
+}

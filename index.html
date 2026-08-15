@@ -1298,98 +1298,146 @@ p {
         </div>
 
 <!-- PERFIL -->
+
 <div id="profileContent" class="feed-section">
 
     <div class="profile-card">
 
         <!-- FOTO DE PORTADA -->
+
         <div class="profile-cover">
-            Foto de portada
+
+            <!-- CAMPANITA -->
+
+            <button class="profile-notification"
+
+                    onclick="showNotifications()"
+
+                    aria-label="Notificaciones">
+
+                🔔
+
+            </button>
+
+            <!-- TRES RAYITAS / AJUSTES -->
+               <button class="profile-menu"
+
+                    onclick="profileSettings()"
+
+                    aria-label="Ajustes">
+
+                ☰
+
+            </button>
+
         </div>
 
         <!-- FOTO DE PERFIL REDONDA -->
+
         <div class="profile-photo">
+
             Foto
+
         </div>
 
         <!-- INFORMACIÓN DEL PERFIL -->
+
         <h2 id="profileUsername">
+
             @usuario
+
         </h2>
 
         <p data-es="Tu perfil WARM"
+
            data-en="Your WARM profile">
+
             Tu perfil WARM
+
         </p>
 
-        <!-- BOTONES DEL PERFIL -->
-        <div class="profile-actions">
+        <!-- SEGUIR Y MENSAJE -->
+              <div class="profile-actions">
 
             <button class="main-button"
+
                     onclick="followProfile()"
+
                     data-es="Seguir"
+
                     data-en="Follow">
+
                 Seguir
+
             </button>
 
             <button class="main-button secondary-button"
+
                     onclick="messageProfile()"
+
                     data-es="Mandar mensaje"
+
                     data-en="Message">
+
                 Mandar mensaje
+
             </button>
 
         </div>
 
-        <!-- AJUSTES Y CERRAR SESIÓN -->
-        <button class="main-button"
-                onclick="profileSettings()"
-                data-es="⚙️ Ajustes"
-                data-en="⚙️ Settings">
-            ⚙️ Ajustes
-        </button>
-
-        <button class="main-button secondary-button"
-                onclick="logout()"
-                data-es="Cerrar sesión"
-                data-en="Log out">
-            Cerrar sesión
-        </button>
-
-
         <!-- FEED DEL PERFIL -->
+
         <div class="profile-feed">
 
             <div class="feed-tabs">
+
                 <button class="feed-tab active"
+
                         data-es="Feed"
+
                         data-en="Feed">
+
                     Feed
+
                 </button>
 
                 <button class="feed-tab"
+
                         data-es="Fotos"
+
                         data-en="Photos">
+
                     Fotos
+
                 </button>
 
                 <button class="feed-tab"
+
                         data-es="Videos"
+
                         data-en="Videos">
+
                     Videos
+
                 </button>
+
             </div>
 
             <!-- PUBLICACIONES -->
-            <div id="profilePosts">
+                 <div id="profilePosts">
 
-                <!-- Aquí aparecerán las fotos, videos, frases
-                     y publicaciones compartidas desde Descubrir -->
+                <!-- Fotos, videos, frases y publicaciones
+
+                     compartidas desde Descubrir aparecerán aquí -->
 
                 <div class="empty-profile-feed"
+
                      data-es="Aún no hay publicaciones"
+
                      data-en="No posts yet">
+
                     Aún no hay publicaciones
+
                 </div>
 
             </div>

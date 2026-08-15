@@ -2559,6 +2559,19 @@ function addWish() {
 
 function newMessage() {
 
+    const followers =
+        Number(localStorage.getItem("followersCount") || 0);
+
+    if (followers < 1000) {
+
+        alert(
+            selectedLanguage === "en"
+            ? "🔒 Messages are locked. Unlock this feature when you reach 1,000 followers."
+            : "🔒 Los mensajes están bloqueados. Desbloquea esta función al llegar a 1,000 seguidores."
+        );
+return;
+    }
+
     const username =
         prompt(
             selectedLanguage === "en"
@@ -2583,7 +2596,6 @@ function newMessage() {
         : "Mensaje enviado a @" + username
     );
 }
-
 
 /* =========================
    PERFIL

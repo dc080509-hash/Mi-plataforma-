@@ -621,8 +621,43 @@ function goToScreen6() {
 
     document.getElementById("screen6")
         .classList.add("active");
-}
 
+
+    if (selectedLanguage === "en") {
+
+        document.getElementById("signup-title")
+            .textContent = "Create account";
+
+        document.getElementById("username")
+            .placeholder = "Username";
+
+        document.getElementById("email")
+            .placeholder = "Email";
+
+        document.getElementById("password")
+            .placeholder = "Password";
+
+        document.getElementById("signup-button")
+            .textContent = "Create account";
+
+    } else {
+
+        document.getElementById("signup-title")
+            .textContent = "Crear cuenta";
+
+        document.getElementById("username")
+            .placeholder = "Nombre de usuario";
+
+        document.getElementById("email")
+            .placeholder = "Correo electrónico";
+
+        document.getElementById("password")
+            .placeholder = "Contraseña";
+
+        document.getElementById("signup-button")
+            .textContent = "Crear cuenta";
+    }
+}
 function followFounder(button) {
 
     if (button.textContent === "Seguir") {

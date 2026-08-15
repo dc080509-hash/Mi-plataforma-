@@ -1,13 +1,24 @@
 * {
 
     box-sizing: border-box;
+
 }
+
+html,
 
 body {
 
     margin: 0;
 
-    min-height: 100vh;
+    padding: 0;
+
+    width: 100%;
+
+    min-height: 100%;
+
+}
+
+body {
 
     font-family: Arial, sans-serif;
 
@@ -16,22 +27,28 @@ body {
     color: #222;
 
 }
+/* =========================
+
+   PANTALLAS
+
+========================= */
 
 .screen {
 
     display: none;
 
+    width: 100%;
+
     min-height: 100vh;
+
+    padding: 30px 20px 100px;
 
     flex-direction: column;
 
     align-items: center;
 
-    justify-content: space-between;
-
-    padding: 35px 25px;
-
     text-align: center;
+
 }
 
 .screen.active {
@@ -40,13 +57,19 @@ body {
 
 }
 
+/* =========================
+
+   TEXTOS
+
+========================= */
+
 h1 {
 
-    margin: 0;
+    margin: 5px 0 20px;
 
-    font-size: 42px;
+    font-size: 40px;
 
-    letter-spacing: 4px;
+    letter-spacing: 5px;
 
 }
 
@@ -60,24 +83,32 @@ h2 {
 
 p {
 
-    max-width: 350px;
+    max-width: 360px;
 
-    font-size: 17px;
+    font-size: 16px;
 
-    line-height: 1.6;
+    line-height: 1.5;
+
 }
 
+/* =========================
+
+   ESPACIO PARA IMÁGENES
+
+========================= */
 .image-space {
 
     width: 100%;
 
-    max-width: 350px;
+    max-width: 360px;
 
-    height: 330px;
+    height: 300px;
 
-    border-radius: 25px;
+    margin: 20px 0;
 
     border: 2px dashed #aaa;
+
+    border-radius: 24px;
 
     display: flex;
 
@@ -87,313 +118,668 @@ p {
 
     color: #888;
 
-    margin: 20px 0;
+    background: #fff;
 
 }
 
-#language {
+/* =========================
+
+   INPUTS
+
+========================= */
+
+input,
+
+select {
 
     width: 100%;
 
-    max-width: 350px;
+    max-width: 360px;
 
     padding: 15px;
 
-    border-radius: 12px;
+    margin: 7px 0;
 
     border: 1px solid #ccc;
 
-    font-size: 16px;
+    border-radius: 12px;
 
     background: white;
 
+    font-size: 16px;
+
+    outline: none;
+
 }
+
+input:focus,
+
+select:focus {
+
+    border-color: #222;
+
+}
+/* =========================
+
+   BOTONES
+
+========================= */
 
 button {
 
+    font-family: Arial, sans-serif;
+
+    cursor: pointer;
+
+}
+
+.screen > button {
+
     width: 100%;
 
-    max-width: 350px;
+    max-width: 360px;
 
-    padding: 16px;
+    padding: 15px;
+
+    margin-top: 12px;
 
     border: none;
 
     border-radius: 12px;
 
-    font-size: 17px;
-
-    cursor: pointer;
-
     background: #222;
 
     color: white;
 
-    margin-top: 15px;
+    font-size: 16px;
 
 }
 
 button:active {
 
-    transform: scale(0.98);
+    transform: scale(.98);
+
 }
+
 /* =========================
-   PANTALLA 8 - WARM
+
+   PANTALLA 8
+
 ========================= */
 
 #screen8 {
+
+    padding: 20px 0 85px;
+
     display: none;
-    min-height: 100vh;
-    padding: 0 0 75px 0;
-    background: #f7f3f0;
-    text-align: left;
+
     align-items: stretch;
-    justify-content: flex-start;
+
+    text-align: left;
+
 }
 
 #screen8.active {
-    display: block;
+
+    display: flex;
+
 }
 
+.home-header {
 
-/* ===== PARTE SUPERIOR ===== */
-
-#screen8 .home-header {
     width: 100%;
-    background: white;
-    padding-top: 18px;
-}
 
-#screen8 .home-header h1 {
+    padding: 10px 18px 0;
+
     text-align: center;
-    font-size: 30px;
-    letter-spacing: 4px;
-    margin: 0 0 15px 0;
+
 }
 
-#screen8 .home-tabs {
-    width: 100%;
-    display: flex;
-    border-bottom: 1px solid #ddd;
-}
+.home-header h1 {
 
-#screen8 .home-tabs .tab {
-    flex: 1;
-    width: 33.33%;
-    max-width: none;
-    margin: 0;
-    padding: 13px 5px;
-    background: white;
-    color: #777;
-    border-radius: 0;
-    font-size: 14px;
-}
-
-#screen8 .home-tabs .tab.active {
-    color: #222;
-    border-bottom: 3px solid #222;
-}
-
-
-/* ===== PUBLICACIÓN ===== */
-
-#screen8 .feed {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#screen8 .post-card {
-    width: 100%;
-    background: white;
     margin-bottom: 15px;
+
 }
 
-#screen8 .post-user {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    gap: 12px;
-}
+/* =========================
 
-#screen8 .post-avatar {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 11px;
-    color: #777;
-}
+   TABS SUPERIORES
 
-#screen8 .post-user strong {
-    font-size: 15px;
-}
+========================= */
 
-#screen8 .post-user p {
-    margin: 2px 0 0;
-    font-size: 12px;
-    color: #888;
-}
+.home-tabs {
 
-
-/* ===== FOTO / VIDEO ===== */
-
-#screen8 .post-image {
     width: 100%;
-    height: 350px;
-    background: #e9e4e0;
+
     display: flex;
-    align-items: center;
+
     justify-content: center;
-    color: #888;
+
+    gap: 5px;
+
+    border-bottom: 1px solid #ddd;
+
 }
 
+.home-tabs .tab {
 
-/* ===== BOTONES DE PUBLICACIÓN ===== */
+    flex: 1;
 
-#screen8 .post-actions {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 10px 15px;
-}
+    padding: 13px 5px;
 
-#screen8 .post-actions button {
-    width: auto;
-    max-width: none;
-    margin: 0;
-    padding: 0;
+    border: none;
+
+    border-radius: 0;
+
     background: transparent;
-    color: #222;
-    font-size: 25px;
-}
 
+    color: #777;
 
-/* ===== TEXTO ===== */
-
-#screen8 .post-text {
-    margin: 0;
-    padding: 0 15px 18px;
     font-size: 14px;
+
 }
 
+.home-tabs .tab.active {
 
-/* ===== BARRA INFERIOR ===== */
+    color: #111;
 
-#screen8 .bottom-nav {
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    font-weight: bold;
+
+    border-bottom: 3px solid #222;
+    }
+
+/* =========================
+
+   FEED
+
+========================= */
+
+.feed {
+
     width: 100%;
-    height: 70px;
+
+    max-width: 600px;
+
+    margin: 0 auto;
+
+}
+
+.feed-section {
+
+    display: none;
+
+    width: 100%;
+
+}
+
+.feed-section.active {
+
+    display: block;
+
+}
+
+.post-card,
+
+.text-post,
+
+.create-post,
+
+.group-card {
+
+    width: calc(100% - 24px);
+
+    margin: 15px auto;
+
+    padding: 16px;
+
     background: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+
+}
+
+/* =========================
+
+   USUARIO
+
+========================= */
+
+.post-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-align: left;
+
+}
+
+.post-user p {
+
+    margin: 3px 0 0;
+
+    font-size: 12px;
+
+    color: #888;
+
+}
+
+.post-avatar {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: #ddd;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 11px;
+
+    color: #777;
+
+    flex-shrink: 0;
+
+}
+
+/* =========================
+FOTO / VIDEO
+
+========================= */
+
+.post-image {
+
+    width: 100%;
+
+    height: 330px;
+
+    margin-top: 14px;
+
+    border-radius: 15px;
+
+    background: #eee;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #888;
+
+}
+
+.post-text,
+
+.tweet-text {
+
+    text-align: left;
+
+    margin: 12px 0;
+
+}
+
+/* =========================
+
+   ACCIONES
+
+========================= */
+
+.post-actions {
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
+}
+
+.post-actions button {
+
+    width: 45px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #f2f2f2;
+
+    font-size: 20px;
+
+}
+
+/* =========================
+
+   CREAR PUBLICACIÓN
+
+========================= */
+
+.post-input {
+
+    width: 100%;
+
+    min-height: 100px;
+
+    margin: 12px 0;
+
+    padding: 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 14px;
+
+    color: #999;
+
+    background: #fafafa;
+
+}
+
+.create-options {
+
+    display: flex;
+
+    gap: 7px;
+
+}
+
+.create-options button {
+
+    flex: 1;
+
+    padding: 11px 5px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #eee;
+
+    font-size: 13px;
+
+}
+/* =========================
+
+   GRUPOS
+
+========================= */
+
+.group-card {
+
+    text-align: left;
+
+}
+
+.group-card h3 {
+
+    margin: 0 0 6px;
+
+}
+
+.group-card p {
+
+    margin: 5px 0 12px;
+
+    color: #666;
+
+}
+
+.group-card button {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #222;
+
+    color: white;
+
+}
+
+/* =========================
+
+   BARRA INFERIOR
+
+========================= */
+
+.bottom-nav {
+
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 72px;
+
+    background: white;
+
     border-top: 1px solid #ddd;
 
     display: flex;
-    align-items: center;
+
     justify-content: space-around;
 
-    z-index: 100;
+    align-items: center;
+
+    z-index: 1000;
+
 }
 
-#screen8 .bottom-nav .nav-item {
-    width: 20%;
-    max-width: none;
-    margin: 0;
-    padding: 5px 2px;
+.nav-item {
+
+    flex: 1;
+
+    height: 100%;
+
+    border: none;
 
     background: transparent;
+
     color: #777;
-    border-radius: 0;
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
+
     justify-content: center;
 
-    gap: 3px;
+    gap: 4px;
+
 }
 
-#screen8 .bottom-nav .nav-item span {
-    font-size: 21px;
+.nav-item span {
+
+    font-size: 22px;
+
 }
 
-#screen8 .bottom-nav .nav-item small {
-    font-size: 10px;
+.nav-item small {
+
+    font-size: 11px;
+
 }
 
-#screen8 .bottom-nav .nav-item.active {
-    color: #222;
-}
-#screen8 .feed-section {
-    display: none;
-    width: 100%;
+.nav-item.active {
+
+    color: #111;
+
+    font-weight: bold;
+
 }
 
-#screen8 .feed-section.active {
-    display: block;
-}
-/* ===== DESCUBRIR ===== */
+/* =========================
 
-#screen8 .create-post {
-    width: 100%;
-    background: white;
-    padding: 18px;
-    border-radius: 16px;
-    margin-bottom: 15px;
-    text-align: left;
-}
+   COMENTARIOS
 
-#screen8 .create-post strong {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 12px;
+========================= */
+
+.comments {
+
+    margin-top: 10px;
+
+    border-top: 1px solid #eee;
+
+    padding-top: 10px;
+
 }
 
-#screen8 .post-input {
-    width: 100%;
-    padding: 14px;
-    background: #f3f0ed;
-    border-radius: 12px;
-    color: #888;
-}
+.comment {
 
-#screen8 .create-options {
-    display: flex;
-    gap: 8px;
-    margin-top: 12px;
-}
+    padding: 7px 0;
 
-#screen8 .create-options button {
-    width: auto;
-    flex: 1;
-    max-width: none;
-    margin: 0;
-    padding: 10px 5px;
-    background: #f3f0ed;
-    color: #222;
-    font-size: 13px;
-}
+    font-size: 14px;
 
-#screen8 .text-post {
-    width: 100%;
-    background: white;
-    border-radius: 16px;
+}
+/* =========================
+
+   MENSAJES
+
+========================= */
+
+.message-box {
+
+    width: calc(100% - 30px);
+
+    max-width: 600px;
+
+    margin: 15px auto;
+
     padding: 15px;
-    margin-bottom: 15px;
+
+    background: white;
+
+    border-radius: 15px;
+
     text-align: left;
+
 }
 
-#screen8 .tweet-text {
-    margin: 10px 0;
-    font-size: 16px;
-    line-height: 1.5;
+.message-input {
+
+    display: flex;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
 }
 
-#screen8 .text-post .post-actions {
-    padding-left: 0;
+.message-input input {
+
+    margin: 0;
+
+}
+
+.message-input button {
+
+    padding: 0 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #222;
+
+    color: white;
+
+}
+
+/* =========================
+
+   PERFIL
+
+========================= */
+
+.profile {
+
+    width: calc(100% - 30px);
+
+    max-width: 500px;
+
+    margin: 20px auto;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+}
+
+.profile-avatar {
+
+    width: 90px;
+
+    height: 90px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    background: #ddd;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+/* =========================
+
+   MÓVIL
+========================= */
+
+@media (max-width: 500px) {
+
+    h1 {
+
+        font-size: 34px;
+
+    }
+
+    h2 {
+
+        font-size: 22px;
+
+    }
+
+    .post-image {
+
+        height: 280px;
+
+    }
+
+    .home-tabs .tab {
+
+        font-size: 12px;
+
+    }
+
 }

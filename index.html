@@ -1084,34 +1084,162 @@ p {
             </div>
 
         </div>
+<!-- CREAR -->
 
-             <!-- CREAR -->
+<div id="createContent" class="feed-section">
 
-        <div id="createContent"
-             class="feed-section">
+    <div class="create-box">
 
-            <div class="create-box">
+        <h2>Crear</h2>
 
-                <h2 data-es="Crear"
-                    data-en="Create">
-                    Crear
-                </h2>
+        <p>¿Qué quieres compartir?</p>
 
-                <textarea id="createArea"
-                          class="post-input"
-                          placeholder="¿Qué quieres compartir?"></textarea>
+        <div class="create-options">
 
-                <button class="main-button"
-                        onclick="publishFromCreate()"
-                        data-es="Publicar"
-                        data-en="Post">
-                    Publicar
-                </button>
+            <button type="button" onclick="openPhotoPost()">
 
-            </div>
+                📷
+
+                <span>Foto</span>
+
+            </button>
+
+            <button type="button" onclick="openVideoPost()">
+
+                🎥
+
+                <span>Video</span>
+
+            </button>
+
+            <button type="button" onclick="openTextPost()">
+
+                ✍️
+
+                <span>Publicación</span>
+
+            </button>
 
         </div>
-        
+              <!-- FOTO -->
+
+        <div id="photoPostBox"
+
+             class="create-type-box"
+
+             style="display:none;">
+
+            <h3>Crear publicación con foto</h3>
+
+            <input
+
+                type="file"
+
+                id="photoInput"
+
+                accept="image/*">
+
+            <textarea
+
+                id="photoCaption"
+
+                class="post-input"
+
+                placeholder="Escribe algo sobre tu foto...">
+
+            </textarea>
+
+            <button
+
+                type="button"
+
+                class="main-button"
+
+                onclick="publishPhotoPost()">
+
+                Publicar foto
+
+            </button>
+
+        </div>
+        <!-- VIDEO -->
+
+        <div id="videoPostBox"
+
+             class="create-type-box"
+
+             style="display:none;">
+
+            <h3>Crear publicación con video</h3>
+
+            <input
+
+                type="file"
+
+                id="videoInput"
+
+                accept="video/*">
+
+            <textarea
+
+                id="videoCaption"
+
+                class="post-input"
+
+                placeholder="Escribe algo sobre tu video...">
+
+            </textarea>
+
+            <button
+
+                type="button"
+
+                class="main-button"
+
+                onclick="publishVideoPost()">
+
+                Publicar video
+
+            </button>
+
+        </div>
+        <!-- TEXTO -->
+
+        <div id="textPostBox"
+
+             class="create-type-box"
+
+             style="display:none;">
+
+            <h3>Crear publicación</h3>
+
+            <textarea
+
+                id="createArea"
+
+                class="post-input"
+
+                placeholder="¿Qué quieres compartir?">
+
+            </textarea>
+
+            <button
+
+                type="button"
+
+                class="main-button"
+
+                onclick="publishFromCreate()">
+
+                Publicar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
         <!-- DESEOS -->
 
         <div id="wishesContent"

@@ -1383,7 +1383,15 @@ p {
            data-en="Your WARM profile">
 
             Tu perfil WARM
+<div class="profile-followers">
+    <strong id="followersCountDisplay">0</strong>
 
+    <span
+        data-es="seguidores"
+        data-en="followers">
+        seguidores
+    </span>
+</div>
         </p>
 <!-- ACCIONES DEL PROPIO PERFIL -->
 <div class="profile-actions">
@@ -1823,7 +1831,74 @@ function followFounder(button) {
     }
 }
 
+/* =========================
+   SEGUIR PERFILES
+========================= */
 
+function followProfile(button, username) {
+
+    const currentUsername =
+        localStorage.getItem("warm_username");
+
+    if (!currentUsername) return;
+
+    /* Lista de usuarios que ya sigues */
+    let following =
+        JSON.parse(
+            localStorage.getItem(
+                "warm_following"
+            ) || "[]"
+        );
+
+    /* Si ya lo sigues, no permite seguir otra vez */
+    if (following.includes(username)) {
+
+        alert(
+            selectedLanguage === "en"
+            ? "You already follow this user."
+            : "Ya sigues a este usuario."
+        );
+
+        return;
+    }
+
+    /* Agregar usuario a la lista */
+    following.push(username);
+
+    localStorage.setItem(
+        "warm_following",
+        JSON.stringify(following)
+    );
+
+    /* Aumentar seguidores */
+    let followers =
+        Number(
+            localStorage.getItem(
+                "followersCount"
+            ) || 0
+        );
+
+    followers++;
+
+    localStorage.setItem(
+        "followersCount",
+        followers.toString()
+    );
+
+    /* Cambiar botón */
+    if (button) {
+
+        button.classList.add("following");
+
+        button.textContent =
+            selectedLanguage === "en"
+            ? "Following ✓"
+            : "Siguiendo ✓";
+    }
+
+    /* Comprobar desbloqueo de mensajes */
+    updateMessagesAccess();
+}
 function finishFounders() {
 
     document.getElementById("screen7")
@@ -2649,6 +2724,26 @@ function logout() {
         : "Has cerrado sesión en la demostración."
     );
 }
+function updateFollowersDisplay() {
+
+    const followers =
+        Number(
+            localStorage.getItem("followersCount") || 0
+        );
+
+    const display =
+        document.getElementById(
+            "followersCountDisplay"
+        );
+
+    if (display) {
+        display.textContent = followers;
+    }
+
+    updateMessagesAccess();
+}
+
+updateFollowersDisplay();
 
 </script>
 

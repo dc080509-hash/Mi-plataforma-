@@ -3085,6 +3085,291 @@ function finishFounders() {
     updateLanguage();
 
 }
+/* =========================
+   PERFIL
+========================= */
+
+function openProfile(username) {
+
+    const currentUsername =
+        localStorage.getItem("warm_username");
+
+    const viewedUsername =
+        username || currentUsername;
+
+    if (!viewedUsername) return;
+
+    document.getElementById("profileName").textContent =
+        "@" + viewedUsername;
+
+
+    /* =========================
+       COMPROBAR DUEÑO
+    ========================= */
+
+    const isOwner =
+        currentUsername === viewedUsername;
+
+
+    const visitorActions =
+        document.getElementById(
+            "visitorProfileActions"
+        );
+
+    const ownerActions =
+        document.getElementById(
+            "ownerProfileActions"
+        );
+
+
+    if (isOwner) {
+
+        visitorActions.style.display = "none";
+        ownerActions.style.display = "flex";
+
+    } else {
+
+        visitorActions.style.display = "flex";
+        ownerActions.style.display = "none";
+
+        updateProfileFollowButton(
+            viewedUsername
+        );
+    }
+
+
+    /* =========================
+       SEGUIDORES
+    ========================= */
+
+    const followersData =
+        JSON.parse(
+            localStorage.getItem(
+                "warm_followers"
+            ) || "{}"
+        );
+
+
+    const followers =
+        followersData[viewedUsername] || 0;
+
+
+    document.getElementById(
+        "profileFollowers"
+    ).textContent = followers;
+
+
+    /* =========================
+       SEGUIDOS
+    ========================= */
+
+    let following = 0;
+
+    if (isOwner) {
+
+        following =
+            JSON.parse(
+                localStorage.getItem(
+                    "warm_following"
+                ) || "[]"
+            ).length;
+    }
+
+
+    document.getElementById(
+        "profileFollowing"
+    ).textContent = following;
+}
+
+
+/* =========================
+   BOTÓN SEGUIR DEL PERFIL
+========================= */
+
+function updateProfileFollowButton(username) {
+
+    const following =
+        JSON.parse(
+            localStorage.getItem(
+                "warm_following"
+            ) || "[]"
+        );
+
+
+    const button =
+        document.getElementById(
+            "profileFollowButton"
+        );
+
+
+    if (!button) return;
+
+
+    if (following.includes(username)) {
+
+        button.classList.add("following");
+
+        button.textContent =
+            selectedLanguage === "en"
+            ? "Following ✓"
+            : "Siguiendo ✓";
+
+    } else {
+
+        button.classList.remove("following");
+
+        button.textContent =
+            selectedLanguage === "en"
+            ? "Follow"
+            : "Seguir";
+    }
+}
+
+
+/* =========================
+   SEGUIR DESDE PERFIL
+========================= */
+
+function profileFollow() {
+
+    const username =
+        document.getElementById(
+            "profileName"
+        ).textContent.replace("@", "");
+
+
+    const button =
+        document.getElementById(
+            "profileFollowButton"
+        );
+
+
+    followProfile(
+        button,
+        username
+    );
+
+
+    updateProfileFollowers(
+        username
+    );
+}
+
+
+/* =========================
+   ACTUALIZAR SEGUIDORES
+========================= */
+
+function updateProfileFollowers(username) {
+
+    const followersData =
+        JSON.parse(
+            localStorage.getItem(
+                "warm_followers"
+            ) || "{}"
+        );
+
+
+    document.getElementById(
+        "profileFollowers"
+    ).textContent =
+        followersData[username] || 0;
+}
+
+
+/* =========================
+   MENSAJE
+========================= */
+
+function profileMessage() {
+
+    const username =
+        document.getElementById(
+            "profileName"
+        ).textContent.replace("@", "");
+
+
+    const followers =
+        Number(
+            localStorage.getItem(
+                "followersCount"
+            ) || 0
+        );
+
+
+    if (followers < 1000) {
+
+        alert(
+            selectedLanguage === "en"
+            ? "🔒 Messages are unlocked at 1,000 followers."
+            : "🔒 Los mensajes se desbloquean al llegar a 1,000 seguidores."
+        );
+
+        return;
+    }
+
+
+    const message =
+        prompt(
+            selectedLanguage === "en"
+            ? "Write your message to @" + username
+            : "Escribe tu mensaje para @" + username
+        );
+
+
+    if (!message) return;
+
+
+    alert(
+        selectedLanguage === "en"
+        ? "Message sent to @" + username
+        : "Mensaje enviado a @" + username
+    );
+}
+
+
+/* =========================
+   AJUSTES
+========================= */
+
+function openProfileSettings() {
+
+    document
+        .getElementById("profileSettingsScreen")
+        .classList.add("active");
+}
+
+
+function closeProfileSettings() {
+
+    document
+        .getElementById("profileSettingsScreen")
+        .classList.remove("active");
+}
+
+
+/* =========================
+   EDITAR PERFIL
+========================= */
+
+function editProfile() {
+
+    alert(
+        selectedLanguage === "en"
+        ? "Edit profile"
+        : "Editar perfil"
+    );
+}
+
+
+function shareProfile() {
+
+    alert(
+        selectedLanguage === "en"
+        ? "Profile ready to share."
+        : "Perfil listo para compartir."
+    );
+}
 </script>
 
 </body>

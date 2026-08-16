@@ -668,9 +668,10 @@ p {
 
 </section>
 
-
 <!-- =========================
+
      PANTALLA 7
+
 ========================= -->
 
 <section id="screen7" class="screen">
@@ -678,68 +679,166 @@ p {
     <h1>WARM</h1>
 
     <h2 data-es="Sigue a los fundadores"
+
         data-en="Follow the founders">
+
         Sigue a los fundadores
+
     </h2>
 
     <p data-es="Conoce a las personas que están construyendo WARM."
+
        data-en="Meet the people building WARM.">
+
         Conoce a las personas que están construyendo WARM.
+
     </p>
 
-    <div class="founder">
+    <!-- FUNDADOR 1 -->
+        <div class="founder">
 
         <div class="avatar">F1</div>
 
         <div class="founder-info">
+
             <strong>@warmfounder</strong>
+
             <p data-es="Fundador de WARM"
+
                data-en="WARM founder">
+
                 Fundador de WARM
+
             </p>
+
         </div>
 
         <button class="follow-button"
-                onclick="followFounder(this)"
+
+                onclick="followFounder(this, 'warmfounder')"
+
                 data-follow-es="Seguir"
+
                 data-follow-en="Follow">
+
             Seguir
+
         </button>
 
     </div>
 
-
-    <div class="founder">
+    <!-- FUNDADOR 2 -->
+        <div class="founder">
 
         <div class="avatar">F2</div>
 
         <div class="founder-info">
+
             <strong>@warmteam</strong>
+
             <p data-es="Equipo WARM"
+
                data-en="WARM team">
+
                 Equipo WARM
+
             </p>
+
         </div>
 
         <button class="follow-button"
-                onclick="followFounder(this)"
+
+                onclick="followFounder(this, 'warmteam')"
+
                 data-follow-es="Seguir"
+
                 data-follow-en="Follow">
+
             Seguir
+
         </button>
 
     </div>
 
+    <!-- FUNDADOR 3 -->
+        <div class="founder">
+
+        <div class="avatar">F3</div>
+
+        <div class="founder-info">
+
+            <strong>@warmcreator</strong>
+
+            <p data-es="Creador de WARM"
+
+               data-en="WARM creator">
+
+                Creador de WARM
+
+            </p>
+
+        </div>
+
+        <button class="follow-button"
+
+                onclick="followFounder(this, 'warmcreator')"
+
+                data-follow-es="Seguir"
+
+                data-follow-en="Follow">
+
+            Seguir
+
+        </button>
+
+    </div>
+<!-- FUNDADOR 4 -->
+
+    <div class="founder">
+
+        <div class="avatar">F4</div>
+
+        <div class="founder-info">
+
+            <strong>@warmofficial</strong>
+
+            <p data-es="Fundador de WARM"
+
+               data-en="WARM founder">
+
+                Fundador de WARM
+
+            </p>
+
+        </div>
+
+        <button class="follow-button"
+
+                onclick="followFounder(this, 'warmofficial')"
+
+                data-follow-es="Seguir"
+
+                data-follow-en="Follow">
+
+            Seguir
+
+        </button>
+
+    </div>
 
     <button class="main-button"
+
             onclick="finishFounders()"
+
             data-es="Continuar"
+
             data-en="Continue">
+
         Continuar
+
     </button>
 
 </section>
-
 
 <!-- =========================
      PANTALLA 8
@@ -1788,7 +1887,9 @@ function goToScreen7() {
         .classList.add("active");
 
     updateLanguage();
+    updateFounderButtons();
 }
+
 
 
 /* =========================
@@ -1804,14 +1905,148 @@ function login() {
     );
 }
 
-
 /* =========================
    FUNDADORES
 ========================= */
 
-function followFounder(button) {
+function followFounder(button, username) {
 
-    if (!button.classList.contains("following")) {
+    followProfile(button, username);
+}
+/* =========================
+   RECORDAR SEGUIMIENTOS
+========================= */
+
+function updateFounderButtons() {
+
+    const following =
+        JSON.parse(
+            localStorage.getItem("warm_following") || "[]"
+        );
+
+    document
+        .querySelectorAll(".follow-button")
+        .forEach(button => {
+
+            const onclick =
+                button.getAttribute("onclick") || "";
+
+            const match =
+                onclick.match(/'([^']+)'/);
+
+            if (!match) return;
+
+            const username = match[1];
+
+            if (following.includes(username)) {
+
+                button.classList.add("following");
+
+                button.textContent =
+                    selectedLanguage === "en"
+                    ? "Following ✓"
+                    : "Siguiendo ✓";
+
+            } else {
+
+                button.classList.remove("following");
+
+                button.textContent =
+                    selectedLanguage === "en"
+                    ? "Follow"
+                    : "Seguir";
+            }
+        });
+}
+  </script>
+
+/* =========================
+   SEGUIR PERFILES
+========================= */
+
+function followProfile(button, username) {
+
+    const currentUsername =
+        localStorage.getItem("warm_username");
+
+    if (!currentUsername) return;
+
+    /* Lista de usuarios que ya sigues */
+    let following =
+        JSON.parse(
+            localStorage.getItem("warm_following") || "[]"
+        );
+
+    /* Si ya lo sigues */
+    if (following.includes(username)) {
+
+        if (button) {
+            button.classList.add("following");
+
+            button.textContent =
+                selectedLanguage === "en"
+                ? "Following ✓"
+                : "Siguiendo ✓";
+        }
+
+        return;
+    }
+
+    /* Agregar usuario a la lista */
+    following.push(username);
+
+    localStorage.setItem(
+        "warm_following",
+        JSON.stringify(following)
+    );
+
+    /* =========================
+       SUMAR SEGUIDOR AL USUARIO
+       QUE ESTÁS SIGUIENDO
+    ========================= */
+let followersData =
+        JSON.parse(
+            localStorage.getItem("warm_followers") || "{}"
+        );
+
+    if (!followersData[username]) {
+        followersData[username] = 0;
+    }
+
+    followersData[username]++;
+
+    localStorage.setItem(
+        "warm_followers",
+        JSON.stringify(followersData)
+    );
+
+    /* Cambiar botón */
+    if (button) {
+
+        button.classList.add("following");
+
+        button.textContent =
+            selectedLanguage === "en"
+            ? "Following ✓"
+            : "Siguiendo ✓";
+    }
+
+    /* Comprobar desbloqueo de mensajes */
+    updateMessagesAccess();
+}
+
+
+/* =========================
+   COMPROBAR SI YA SIGUES
+========================= */
+function updateFollowButton(button, username) {
+
+    let following =
+        JSON.parse(
+            localStorage.getItem("warm_following") || "[]"
+        );
+
+    if (following.includes(username)) {
 
         button.classList.add("following");
 
@@ -1830,86 +2065,6 @@ function followFounder(button) {
             : "Seguir";
     }
 }
-
-/* =========================
-   SEGUIR PERFILES
-========================= */
-
-function followProfile(button, username) {
-
-    const currentUsername =
-        localStorage.getItem("warm_username");
-
-    if (!currentUsername) return;
-
-    /* Lista de usuarios que ya sigues */
-    let following =
-        JSON.parse(
-            localStorage.getItem(
-                "warm_following"
-            ) || "[]"
-        );
-
-    /* Si ya lo sigues, no permite seguir otra vez */
-    if (following.includes(username)) {
-
-        alert(
-            selectedLanguage === "en"
-            ? "You already follow this user."
-            : "Ya sigues a este usuario."
-        );
-
-        return;
-    }
-
-    /* Agregar usuario a la lista */
-    following.push(username);
-
-    localStorage.setItem(
-        "warm_following",
-        JSON.stringify(following)
-    );
-
-    /* Aumentar seguidores */
-    let followers =
-        Number(
-            localStorage.getItem(
-                "followersCount"
-            ) || 0
-        );
-
-    followers++;
-
-    localStorage.setItem(
-        "followersCount",
-        followers.toString()
-    );
-
-    /* Cambiar botón */
-    if (button) {
-
-        button.classList.add("following");
-
-        button.textContent =
-            selectedLanguage === "en"
-            ? "Following ✓"
-            : "Siguiendo ✓";
-    }
-
-    /* Comprobar desbloqueo de mensajes */
-    updateMessagesAccess();
-}
-function finishFounders() {
-
-    document.getElementById("screen7")
-        .classList.remove("active");
-
-    document.getElementById("screen8")
-        .classList.add("active");
-
-    updateLanguage();
-}
-
 
 /* =========================
    PARA TI / DESCUBRIR /
@@ -2744,6 +2899,7 @@ function updateFollowersDisplay() {
 }
 
 updateFollowersDisplay();
+
 
 </script>
 

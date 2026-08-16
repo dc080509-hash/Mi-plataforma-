@@ -1667,37 +1667,12 @@ function updateLanguage() {
 /* =========================
    PANTALLA 1 → 2
 ========================= */
-
 function goToScreen2() {
+document.getElementById("screen1").classList.remove("active");
+document.getElementById("screen2").classList.add("active");
 
-    selectedLanguage =
-        document.getElementById("language").value;
-
-    document.getElementById("screen1")
-        .classList.remove("active");
-
-    document.getElementById("screen2")
-        .classList.add("active");
-
-    updateLanguage();
-
-    if (selectedLanguage === "en") {
-
-        document.getElementById("connection-title").textContent =
-            "Connect with people from all over the world";
-
-        document.getElementById("connection-text").textContent =
-            "Discover new people, share moments and be part of a global community.";
-
-    } else {
-
-        document.getElementById("connection-title").textContent =
-            "Conecta con personas de todo el mundo";
-
-        document.getElementById("connection-text").textContent =
-            "Descubre nuevas personas, comparte momentos y forma parte de una comunidad global.";
-    }
 }
+
 
 
 

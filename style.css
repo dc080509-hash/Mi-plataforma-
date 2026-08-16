@@ -1063,3 +1063,13 @@ FOTO / VIDEO
     background: #eeeeee;
     color: #111;
 }
+.profile-followers {
+    margin: 12px 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.profile-followers strong {
+    font-size: 20px;
+    margin-right: 5px;
+}

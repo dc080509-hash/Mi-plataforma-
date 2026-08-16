@@ -2856,49 +2856,219 @@ return;
     );
 }
 
-/* =========================
-   PERFIL
-========================= */
+<!-- =========================
+     PERFIL
+========================= -->
 
-function profileSettings() {
+<div id="profileContent" class="feed-section">
 
-    alert(
-        selectedLanguage === "en"
-        ? "Profile settings"
-        : "Ajustes del perfil"
-    );
-}
+    <!-- ENCABEZADO -->
+    <div class="profile-header">
+
+        <h1>WARM</h1>
+
+        <div class="profile-icons">
+
+            <button class="notification-button"
+                    onclick="openNotifications()">
+                🔔
+            </button>
+
+            <button class="settings-button"
+                    onclick="openProfileSettings()">
+                ☰
+            </button>
+
+        </div>
+
+    </div>
 
 
-function logout() {
+    <!-- TARJETA DEL PERFIL -->
+    <div class="profile-card">
 
-    alert(
-        selectedLanguage === "en"
-        ? "You have logged out of the demo."
-        : "Has cerrado sesión en la demostración."
-    );
-}
-function updateFollowersDisplay() {
+        <div class="profile-top">
 
-    const followers =
-        Number(
-            localStorage.getItem("followersCount") || 0
-        );
+            <div class="profile-photo">
+                <span>Foto</span>
+            </div>
 
-    const display =
-        document.getElementById(
-            "followersCountDisplay"
-        );
+            <div class="profile-stats">
 
-    if (display) {
-        display.textContent = followers;
-    }
+                <div>
+                    <strong id="profileFollowers">
+                        0
+                    </strong>
 
-    updateMessagesAccess();
-}
+                    <span data-es="Seguidores"
+                          data-en="Followers">
+                        Seguidores
+                    </span>
+                </div>
 
-updateFollowersDisplay();
 
+                <div>
+                    <strong id="profileFollowing">
+                        0
+                    </strong>
+
+                    <span data-es="Seguidos"
+                          data-en="Following">
+                        Seguidos
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- NOMBRE -->
+        <h2 id="profileName">
+            @usuario
+        </h2>
+
+    </div>
+
+
+    <!-- BOTONES QUE CAMBIAN SEGÚN QUIÉN VE EL PERFIL -->
+
+    <div id="visitorProfileActions"
+         class="profile-actions">
+
+        <button id="profileFollowButton"
+                class="profile-action-button"
+                onclick="profileFollow()">
+
+            Seguir
+
+        </button>
+
+        <button class="profile-action-button"
+                onclick="profileMessage()">
+
+            Mensaje
+
+        </button>
+
+    </div>
+
+
+    <!-- BOTONES DEL DUEÑO -->
+
+    <div id="ownerProfileActions"
+         class="profile-actions"
+         style="display:none;">
+
+        <button class="profile-action-button"
+                onclick="editProfile()">
+
+            Editar perfil
+
+        </button>
+
+        <button class="profile-action-button"
+                onclick="shareProfile()">
+
+            Compartir
+
+        </button>
+
+    </div>
+
+
+    <!-- PUBLICACIONES -->
+
+    <div class="profile-posts">
+
+        <h3 data-es="Publicaciones"
+            data-en="Posts">
+            Publicaciones
+        </h3>
+
+        <div id="profilePosts">
+
+            <div class="empty-profile">
+                Aún no hay publicaciones.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     AJUSTES
+========================= -->
+
+<section id="profileSettingsScreen"
+         class="profile-settings-screen">
+
+    <div class="settings-header">
+
+        <button onclick="closeProfileSettings()">
+            ←
+        </button>
+
+        <h2 data-es="Ajustes"
+            data-en="Settings">
+            Ajustes
+        </h2>
+
+    </div>
+
+
+    <div class="settings-list">
+
+        <button onclick="openAccountSettings()">
+            👤
+            <span data-es="Cuenta"
+                  data-en="Account">
+                Cuenta
+            </span>
+        </button>
+
+
+        <button onclick="openNotifications()">
+            🔔
+            <span data-es="Notificaciones"
+                  data-en="Notifications">
+                Notificaciones
+            </span>
+        </button>
+
+
+        <button onclick="openSubscriptions()">
+            ⭐
+            <span data-es="Suscripciones"
+                  data-en="Subscriptions">
+                Suscripciones
+            </span>
+        </button>
+
+
+        <button onclick="openPrivacySettings()">
+            🔒
+            <span data-es="Privacidad"
+                  data-en="Privacy">
+                Privacidad
+            </span>
+        </button>
+
+
+        <button onclick="logout()">
+            🚪
+            <span data-es="Cerrar sesión"
+                  data-en="Log out">
+                Cerrar sesión
+            </span>
+        </button>
+
+    </div>
+
+</section>
 /* =========================
    FINALIZAR FUNDADORES
 ========================= */

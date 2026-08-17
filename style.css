@@ -1,37 +1,99 @@
+/* =====================================================
+   WARM — STYLE.CSS
+   DISEÑO COMPLETO
+===================================================== */
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root {
+
+    --primary: #f7b6c8;
+    --primary-dark: #e99caf;
+
+    --background: #fff8fa;
+    --card: #ffffff;
+
+    --text: #222222;
+    --secondary-text: #777777;
+
+    --border: #eeeeee;
+
+    --danger: #e85d75;
+
+}
+
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
 * {
-
     box-sizing: border-box;
-
-}
-
-html,
-
-body {
-
     margin: 0;
-
     padding: 0;
-
-    width: 100%;
-
-    min-height: 100%;
-
 }
+
+
+html {
+    scroll-behavior: smooth;
+}
+
 
 body {
 
-    font-family: Arial, sans-serif;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
 
-    background: #f7f3f0;
+    background: var(--background);
 
-    color: #222;
+    color: var(--text);
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
 
 }
-/* =========================
 
+
+button,
+input,
+textarea,
+select {
+
+    font: inherit;
+
+}
+
+
+button {
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+input,
+textarea,
+select {
+
+    outline: none;
+
+}
+
+
+/* =====================================================
    PANTALLAS
-
-========================= */
+===================================================== */
 
 .screen {
 
@@ -41,7 +103,7 @@ body {
 
     min-height: 100vh;
 
-    padding: 30px 20px 100px;
+    padding: 30px 20px 110px;
 
     flex-direction: column;
 
@@ -51,64 +113,92 @@ body {
 
 }
 
+
 .screen.active {
 
     display: flex;
 
 }
 
-/* =========================
 
-   TEXTOS
+/* =====================================================
+   PANTALLAS DE BIENVENIDA
+===================================================== */
 
-========================= */
+.welcome-screen {
 
-h1 {
+    justify-content: space-between;
 
-    margin: 5px 0 20px;
-
-    font-size: 40px;
-
-    letter-spacing: 5px;
+    background:
+        linear-gradient(
+            180deg,
+            #fff8fa 0%,
+            #ffffff 100%
+        );
 
 }
 
-h2 {
 
-    margin: 10px 0;
+.welcome-content {
+
+    width: 100%;
+
+    max-width: 500px;
+
+}
+
+
+.welcome-screen h1 {
+
+    font-size: 48px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.welcome-screen h2 {
 
     font-size: 25px;
 
+    margin: 25px 0 12px;
+
 }
 
-p {
 
-    max-width: 360px;
+.welcome-screen p {
+
+    color: var(--secondary-text);
+
+    line-height: 1.6;
 
     font-size: 16px;
 
-    line-height: 1.5;
-
 }
 
-/* =========================
 
+/* =====================================================
    ESPACIO PARA IMÁGENES
+===================================================== */
 
-========================= */
 .image-space {
 
     width: 100%;
 
-    max-width: 360px;
-
     height: 300px;
 
-    margin: 20px 0;
+    border-radius: 25px;
 
-    border: 2px dashed #aaa;
-
-    border-radius: 24px;
+    background:
+        linear-gradient(
+            135deg,
+            #f7b6c8,
+            #fbe1e8
+        );
 
     display: flex;
 
@@ -116,100 +206,352 @@ p {
 
     justify-content: center;
 
-    color: #888;
+    color: #ffffff;
 
-    background: #fff;
+    font-weight: 600;
+
+    overflow: hidden;
 
 }
 
-/* =========================
 
-   INPUTS
-
-========================= */
-
-input,
-
-select {
+.image-space img {
 
     width: 100%;
 
-    max-width: 360px;
+    height: 100%;
 
-    padding: 15px;
-
-    margin: 7px 0;
-
-    border: 1px solid #ccc;
-
-    border-radius: 12px;
-
-    background: white;
-
-    font-size: 16px;
-
-    outline: none;
+    object-fit: cover;
 
 }
 
-input:focus,
 
-select:focus {
+/* =====================================================
+   BOTONES PRINCIPALES
+===================================================== */
 
-    border-color: #222;
-
-}
-/* =========================
-
-   BOTONES
-
-========================= */
-
-button {
-
-    font-family: Arial, sans-serif;
-
-    cursor: pointer;
-
-}
-
-.screen > button {
+.main-button {
 
     width: 100%;
 
-    max-width: 360px;
+    max-width: 500px;
 
-    padding: 15px;
+    padding: 15px 20px;
 
-    margin-top: 12px;
+    border-radius: 14px;
 
-    border: none;
+    background: var(--primary);
 
-    border-radius: 12px;
+    color: #ffffff;
 
-    background: #222;
-
-    color: white;
+    font-weight: 700;
 
     font-size: 16px;
 
-}
-
-button:active {
-
-    transform: scale(.98);
+    transition: 0.2s;
 
 }
 
-/* =========================
 
-   PANTALLA 8
+.main-button:hover {
 
-========================= */
+    transform: translateY(-1px);
 
-#screen8 {
+}
 
-    padding: 20px 0 85px;
+
+.main-button:active {
+
+    transform: scale(0.98);
+
+}
+
+
+.secondary-button {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 14px 20px;
+
+    margin-top: 10px;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   BOTONES DE BIENVENIDA
+===================================================== */
+
+.welcome-buttons {
+
+    width: 100%;
+
+    max-width: 500px;
+
+}
+
+
+/* =====================================================
+   SELECTOR DE IDIOMA
+===================================================== */
+
+#language {
+
+    width: 100%;
+
+    max-width: 320px;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+    background: #ffffff;
+
+    margin-top: 10px;
+
+}
+
+
+/* =====================================================
+   AUTENTICACIÓN
+===================================================== */
+
+.auth-screen {
+
+    justify-content: center;
+
+}
+
+
+.auth-card {
+
+    width: 100%;
+
+    max-width: 430px;
+
+    background: var(--card);
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+}
+
+
+.auth-card h1 {
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.auth-card h2 {
+
+    margin-bottom: 25px;
+
+}
+
+
+.auth-card input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 12px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+    background: #ffffff;
+
+}
+
+
+.auth-card input:focus {
+
+    border-color: var(--primary);
+
+}
+
+
+/* =====================================================
+   FUNDADORES
+===================================================== */
+
+.founders-screen {
+
+    justify-content: flex-start;
+
+}
+
+
+.page-header {
+
+    max-width: 600px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.page-header h1 {
+
+    font-size: 42px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.page-header h2 {
+
+    margin: 15px 0 8px;
+
+}
+
+
+.page-header p {
+
+    color: var(--secondary-text);
+
+}
+
+
+.founders-list {
+
+    width: 100%;
+
+    max-width: 600px;
+
+}
+
+
+.founder-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: var(--card);
+
+    border-radius: 18px;
+
+    padding: 14px;
+
+    margin-bottom: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.05);
+
+}
+
+
+.founder-avatar {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+}
+
+
+.founder-info {
+
+    flex: 1;
+
+    text-align: left;
+
+}
+
+
+.founder-info strong {
+
+    display: block;
+
+}
+
+
+.founder-info span {
+
+    color: var(--secondary-text);
+
+    font-size: 13px;
+
+}
+
+
+.follow-button {
+
+    padding: 9px 14px;
+
+    border-radius: 12px;
+
+    background: var(--primary);
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+}
+
+
+.follow-button.following {
+
+    background: #dddddd;
+
+    color: #333333;
+
+}
+
+
+/* =====================================================
+   APLICACIÓN PRINCIPAL
+===================================================== */
+
+.app-screen {
+
+    padding:
+
+        0
+        0
+        80px;
 
     display: none;
 
@@ -219,47 +561,129 @@ button:active {
 
 }
 
-#screen8.active {
+
+.app-screen.active {
 
     display: flex;
 
 }
 
-.home-header {
+
+/* =====================================================
+   ENCABEZADO
+===================================================== */
+
+.app-header {
 
     width: 100%;
 
-    padding: 10px 18px 0;
-
-    text-align: center;
-
-}
-
-.home-header h1 {
-
-    margin-bottom: 15px;
-
-}
-
-/* =========================
-
-   TABS SUPERIORES
-
-========================= */
-
-.home-tabs {
-
-    width: 100%;
+    padding: 15px 18px;
 
     display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: var(--card);
+
+    border-bottom: 1px solid var(--border);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 50;
+
+}
+
+
+.app-header h1 {
+
+    font-size: 25px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.header-actions {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.header-actions button {
+
+    position: relative;
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #f5f5f5;
+
+}
+
+
+/* =====================================================
+   NOTIFICACIONES
+===================================================== */
+
+.notification-badge {
+
+    position: absolute;
+
+    top: -3px;
+
+    right: -3px;
+
+    min-width: 18px;
+
+    height: 18px;
+
+    padding: 2px 5px;
+
+    border-radius: 20px;
+
+    background: var(--danger);
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
 
     justify-content: center;
 
-    gap: 5px;
+}
 
-    border-bottom: 1px solid #ddd;
+
+/* =====================================================
+   PESTAÑAS
+===================================================== */
+
+.home-tabs {
+
+    display: flex;
+
+    width: 100%;
+
+    background: var(--card);
+
+    border-bottom: 1px solid var(--border);
 
 }
+
 
 .home-tabs .tab {
 
@@ -267,42 +691,29 @@ button:active {
 
     padding: 13px 5px;
 
-    border: none;
-
-    border-radius: 0;
-
     background: transparent;
 
-    color: #777;
+    color: var(--secondary-text);
 
-    font-size: 14px;
+    font-weight: 600;
+
+    border-bottom: 2px solid transparent;
 
 }
+
 
 .home-tabs .tab.active {
 
-    color: #111;
+    color: var(--text);
 
-    font-weight: bold;
-
-    border-bottom: 3px solid #222;
-    }
-
-/* =========================
-
-   FEED
-
-========================= */
-
-.feed {
-
-    width: 100%;
-
-    max-width: 600px;
-
-    margin: 0 auto;
+    border-bottom-color: var(--primary);
 
 }
+
+
+/* =====================================================
+   SECCIONES
+===================================================== */
 
 .feed-section {
 
@@ -310,7 +721,10 @@ button:active {
 
     width: 100%;
 
+    padding: 15px;
+
 }
+
 
 .feed-section.active {
 
@@ -318,33 +732,128 @@ button:active {
 
 }
 
-.post-card,
 
-.text-post,
+.feed-empty {
 
-.create-post,
+    text-align: center;
 
-.group-card {
+    padding: 60px 20px;
 
-    width: calc(100% - 24px);
-
-    margin: 15px auto;
-
-    padding: 16px;
-
-    background: white;
-
-    border-radius: 18px;
-
-    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    color: var(--secondary-text);
 
 }
 
-/* =========================
 
-   USUARIO
+.feed-empty h2 {
 
-========================= */
+    color: var(--text);
+
+    margin-bottom: 10px;
+
+}
+
+
+/* =====================================================
+   CREAR PUBLICACIÓN
+===================================================== */
+
+.create-post-card {
+
+    background: var(--card);
+
+    border-radius: 18px;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.05);
+
+}
+
+
+.create-post-card h3 {
+
+    margin-bottom: 12px;
+
+}
+
+
+.create-buttons {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.create-buttons button {
+
+    flex: 1;
+
+    padding: 12px 5px;
+
+    border-radius: 12px;
+
+    background: #f7f7f7;
+
+}
+
+
+.create-box {
+
+    margin-top: 15px;
+
+}
+
+
+.create-box input,
+.create-box textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+}
+
+
+.create-box textarea {
+
+    min-height: 110px;
+
+    resize: vertical;
+
+}
+
+
+/* =====================================================
+   PUBLICACIONES
+===================================================== */
+
+.text-post,
+.post-card {
+
+    background: var(--card);
+
+    border-radius: 18px;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.05);
+
+}
+
 
 .post-user {
 
@@ -352,213 +861,429 @@ button:active {
 
     align-items: center;
 
-    gap: 12px;
+    gap: 10px;
 
-    text-align: left;
-
-}
-
-.post-user p {
-
-    margin: 3px 0 0;
-
-    font-size: 12px;
-
-    color: #888;
+    margin-bottom: 12px;
 
 }
+
 
 .post-avatar {
 
-    width: 45px;
+    width: 42px;
 
-    height: 45px;
+    height: 42px;
 
     border-radius: 50%;
 
-    background: #ddd;
+    background: var(--primary);
 
     display: flex;
 
     align-items: center;
 
     justify-content: center;
+
+    color: white;
 
     font-size: 11px;
 
-    color: #777;
+}
 
-    flex-shrink: 0;
+
+.post-user p {
+
+    margin-top: 2px;
+
+    font-size: 12px;
+
+    color: var(--secondary-text);
 
 }
 
-/* =========================
-FOTO / VIDEO
 
-========================= */
+.tweet-text,
+.post-text {
 
-.post-image {
+    line-height: 1.6;
 
-    width: 100%;
-
-    height: 330px;
-
-    margin-top: 14px;
-
-    border-radius: 15px;
-
-    background: #eee;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #888;
+    margin-bottom: 12px;
 
 }
 
-.post-text,
-
-.tweet-text {
-
-    text-align: left;
-
-    margin: 12px 0;
-
-}
-
-/* =========================
-
-   ACCIONES
-
-========================= */
 
 .post-actions {
 
     display: flex;
 
-    justify-content: flex-start;
+    gap: 10px;
+
+}
+
+
+.post-actions button {
+
+    padding: 7px 12px;
+
+    border-radius: 10px;
+
+    background: #f5f5f5;
+
+}
+
+
+.post-actions button.liked {
+
+    color: var(--danger);
+
+}
+
+
+/* =====================================================
+   DESEOS
+===================================================== */
+
+.section-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+
+}
+
+
+.section-header button {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 24px;
+
+}
+
+
+.wish-card {
+
+    background: var(--card);
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    margin-bottom: 12px;
+
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.05);
+
+}
+
+
+/* =====================================================
+   PERFIL
+===================================================== */
+
+.profile-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+
+}
+
+
+.profile-header h1 {
+
+    font-size: 28px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.profile-icons {
+
+    display: flex;
 
     gap: 8px;
+
+}
+
+
+.profile-icons button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #f5f5f5;
+
+    position: relative;
+
+}
+
+
+/* =====================================================
+   TARJETA DEL PERFIL
+===================================================== */
+
+.profile-card {
+
+    background: var(--card);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,0.06);
+
+    padding-bottom: 20px;
+
+}
+
+
+.profile-cover {
+
+    width: 100%;
+
+    height: 170px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7b6c8,
+            #f5dfe5
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    overflow: hidden;
+
+}
+
+
+.profile-cover img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.profile-photo {
+
+    width: 105px;
+
+    height: 105px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    border: 5px solid var(--card);
+
+    margin: -52px auto 10px;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: white;
+
+    overflow: hidden;
+
+}
+
+
+.profile-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+.profile-stats {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 50px;
+
+    margin: 10px 0;
+
+}
+
+
+.profile-stats div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.profile-stats span {
+
+    font-size: 13px;
+
+    color: var(--secondary-text);
+
+}
+
+
+.profile-card h2 {
 
     margin-top: 10px;
 
 }
 
-.post-actions button {
 
-    width: 45px;
+#profileBio {
 
-    height: 38px;
+    color: var(--secondary-text);
 
-    border: none;
+    padding: 0 20px;
 
-    border-radius: 10px;
-
-    background: #f2f2f2;
-
-    font-size: 20px;
+    margin-top: 6px;
 
 }
 
-/* =========================
 
-   CREAR PUBLICACIÓN
+.profile-links {
 
-========================= */
-
-.post-input {
-
-    width: 100%;
-
-    min-height: 100px;
-
-    margin: 12px 0;
-
-    padding: 15px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 14px;
-
-    color: #999;
-
-    background: #fafafa;
+    margin-top: 10px;
 
 }
 
-.create-options {
+
+.profile-links a {
+
+    color: var(--primary-dark);
+
+    text-decoration: none;
+
+}
+
+
+/* =====================================================
+   BOTONES DEL PERFIL
+===================================================== */
+
+.profile-actions {
 
     display: flex;
 
-    gap: 7px;
+    gap: 10px;
+
+    margin: 15px 0;
 
 }
 
-.create-options button {
+
+.profile-action-button {
 
     flex: 1;
 
-    padding: 11px 5px;
-
-    border: none;
-
-    border-radius: 10px;
-
-    background: #eee;
-
-    font-size: 13px;
-
-}
-/* =========================
-
-   GRUPOS
-
-========================= */
-
-.group-card {
-
-    text-align: left;
-
-}
-
-.group-card h3 {
-
-    margin: 0 0 6px;
-
-}
-
-.group-card p {
-
-    margin: 5px 0 12px;
-
-    color: #666;
-
-}
-
-.group-card button {
-
-    width: 100%;
-
     padding: 12px;
 
-    border: none;
+    border-radius: 12px;
 
-    border-radius: 10px;
-
-    background: #222;
+    background: var(--primary);
 
     color: white;
 
+    font-weight: 600;
+
 }
 
-/* =========================
 
+.profile-action-button.following {
+
+    background: #ddd;
+
+    color: #333;
+
+}
+
+
+/* =====================================================
+   PUBLICACIONES DEL PERFIL
+===================================================== */
+
+.profile-posts {
+
+    margin-top: 20px;
+
+}
+
+
+.profile-posts h3 {
+
+    margin-bottom: 12px;
+
+}
+
+
+.empty-profile {
+
+    text-align: center;
+
+    padding: 30px;
+
+    background: var(--card);
+
+    border-radius: 16px;
+
+    color: var(--secondary-text);
+
+}
+
+
+/* =====================================================
    BARRA INFERIOR
-
-========================= */
+===================================================== */
 
 .bottom-nav {
 
@@ -568,35 +1293,28 @@ FOTO / VIDEO
 
     left: 0;
 
-    width: 100%;
+    right: 0;
 
-    height: 72px;
+    height: 68px;
 
-    background: white;
+    background: var(--card);
 
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--border);
 
     display: flex;
 
-    justify-content: space-around;
-
-    align-items: center;
-
-    z-index: 1000;
+    z-index: 100;
 
 }
+
 
 .nav-item {
 
     flex: 1;
 
-    height: 100%;
-
-    border: none;
-
     background: transparent;
 
-    color: #777;
+    color: var(--secondary-text);
 
     display: flex;
 
@@ -606,692 +1324,518 @@ FOTO / VIDEO
 
     justify-content: center;
 
-    gap: 4px;
+    gap: 3px;
+
+    font-size: 19px;
 
 }
+
 
 .nav-item span {
-
-    font-size: 22px;
-
-}
-
-.nav-item small {
 
     font-size: 11px;
 
 }
 
+
 .nav-item.active {
 
-    color: #111;
-
-    font-weight: bold;
+    color: var(--primary-dark);
 
 }
 
-/* =========================
 
-   COMENTARIOS
-
-========================= */
-
-.comments {
-
-    margin-top: 10px;
-
-    border-top: 1px solid #eee;
-
-    padding-top: 10px;
-
-}
-
-.comment {
-
-    padding: 7px 0;
-
-    font-size: 14px;
-
-}
-/* =========================
-
-   MENSAJES
-
-========================= */
-
-.message-box {
-
-    width: calc(100% - 30px);
-
-    max-width: 600px;
-
-    margin: 15px auto;
-
-    padding: 15px;
-
-    background: white;
-
-    border-radius: 15px;
-
-    text-align: left;
-
-}
-
-.message-input {
-
-    display: flex;
-
-    gap: 8px;
-
-    margin-top: 10px;
-
-}
-
-.message-input input {
-
-    margin: 0;
-
-}
-
-.message-input button {
-
-    padding: 0 18px;
-
-    border: none;
-
-    border-radius: 10px;
-
-    background: #222;
-
-    color: white;
-
-}
-
-/* =========================
-   PERFIL
-========================= */
-
-.profile {
-    width: calc(100% - 30px);
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 0 0 20px;
-    background: white;
-    border-radius: 20px;
-    text-align: center;
-    overflow: hidden;
-}
-
-/* =========================
-   FOTO DE PORTADA
-========================= */
-.profile-cover {
-    width: 100%;
-    height: 210px;
-
-    background: #ddd;
-    background-size: cover;
-    background-position: center;
-
-    position: relative;
-}
-.profile-photo {
-    width: 120px;
-    height: 120px;
-
-    border-radius: 50%;
-    border: 5px solid white;
-
-    background: #eee;
-
-    position: absolute;
-    left: 20px;
-    bottom: -60px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-    z-index: 8;
-}
-
-/* CAMPANITA - ARRIBA A LA DERECHA */
-.profile-notification {
-    position: absolute;
-    right: 12px;
-    top: 12px;
-
-    width: 42px;
-    height: 42px;
-
-    padding: 0;
-    margin: 0;
-
-    background: transparent;
-    border: none;
-
-    font-size: 24px;
-    line-height: 42px;
-    text-align: center;
-
-    cursor: pointer;
-    z-index: 10;
-}
-
-/* TRES RAYITAS - DEBAJO DE LA CAMPANITA */
-.profile-menu {
-    position: absolute;
-    right: 12px;
-    top: 58px;
-
-    width: 42px;
-    height: 42px;
-
-    padding: 0;
-    margin: 0;
-
-    background: transparent;
-    border: none;
-
-    font-size: 27px;
-    line-height: 42px;
-    text-align: center;
-
-    cursor: pointer;
-    z-index: 10;
-}
-
-/* =========================
-   INFORMACIÓN
-========================= */
-
-.profile-card h2 {
-    margin-top: 65px;
-    margin-bottom: 5px;
-}
-
-.profile-card p {
-    margin-top: 5px;
-}
-
-/* =========================
-   SEGUIR / MENSAJE
-========================= */
-.profile-actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-
-    margin: 18px 15px;
-}
-
-.profile-actions .main-button {
-    flex: 1;
-    max-width: 180px;
-}
-
-/* =========================
-   FEED
-========================= */
-
-.profile-feed {
-    width: 100%;
-    margin-top: 20px;
-    text-align: left;
-}
-
-.feed-tabs {
-    display: flex;
-    justify-content: space-around;
-
-    border-bottom: 1px solid #ddd;
-}
-
-.feed-tab {
-    background: none;
-    border: none;
-
-    padding: 12px 15px;
-
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.feed-tab.active {
-    border-bottom: 2px solid #000;
-}
-
-#profilePosts {
-    width: 100%;
-}
-
-.empty-profile-feed {
-    padding: 35px 10px;
-    text-align: center;
-    color: #888;
-}
-/* =========================
-   POSICIÓN FINAL DEL PERFIL
-========================= */
-
-.profile-cover {
-    position: relative !important;
-    width: 100% !important;
-    height: 210px !important;
-}
-
-/* CAMPANITA: EXTREMO DERECHO */
-.profile-cover .profile-notification {
-    position: absolute !important;
-    top: 12px !important;
-    right: 8px !important;
-    left: auto !important;
-    bottom: auto !important;
-
-    width: 42px !important;
-    height: 42px !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    background: transparent !important;
-    border: none !important;
-
-    font-size: 25px !important;
-    z-index: 20 !important;
-}
-
-/* TRES RAYITAS: DEBAJO DE LA CAMPANITA */
-.profile-cover .profile-menu {
-    position: absolute !important;
-    top: 58px !important;
-    right: 8px !important;
-    left: auto !important;
-    bottom: auto !important;
-
-    width: 42px !important;
-    height: 42px !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    background: transparent !important;
-    border: none !important;
-
-    font-size: 27px !important;
-    z-index: 20 !important;
-}
-
-/* FOTO DE PERFIL: GRANDE Y A LA IZQUIERDA */
-.profile-cover + .profile-photo {
-    position: absolute !important;
-
-    left: 20px !important;
-    right: auto !important;
-
-    width: 120px !important;
-    height: 120px !important;
-
-    border-radius: 50% !important;
-
-    margin: 0 !important;
-
-    z-index: 15 !important;
-}
-/* =========================
-
-   MÓVIL
-========================= */
-
-@media (max-width: 500px) {
-
-    h1 {
-
-        font-size: 34px;
-
-    }
-
-    h2 {
-
-        font-size: 22px;
-
-    }
-
-    .post-image {
-
-        height: 280px;
-
-    }
-
-    .home-tabs .tab {
-
-        font-size: 12px;
-
-    }
-
-}
-/* =========================
-   CREAR - OPCIONES
-========================= */
-
-.create-box {
-    width: 100%;
-    max-width: 600px;
-    margin: 15px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 20px;
-}
-
-.create-options {
-    display: flex;
-    width: 100%;
-    gap: 10px;
-    margin: 20px 0;
-}
-
-.create-options button {
-    flex: 1;
-    min-height: 70px;
-    border: 1px solid #ddd;
-    border-radius: 14px;
-    background: #f7f7f7;
-    color: #222;
-    font-size: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-}
-
-.create-options button:hover {
-    background: #eeeeee;
-}
-
-.create-type-box {
-    width: 100%;
-    margin-top: 20px;
-    padding: 18px;
-    border: 1px solid #ddd;
-    border-radius: 16px;
-    background: #fafafa;
-}
-
-.create-type-box h3 {
-    margin-top: 0;
-}
-
-.create-type-box input[type="file"] {
-    width: 100%;
-    margin: 12px 0;
-    padding: 12px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-}
-
-.create-type-box .main-button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 12px;
-    background: #222;
-    color: white;
-    font-size: 16px;
-}
-.messages-access {
-    padding: 20px;
-    margin: 15px;
-    text-align: center;
-    border-radius: 15px;
-    background: #f5f5f5;
-    color: #555;
-    font-size: 15px;
-}
-
-.messages-access.unlocked {
-    background: #eeeeee;
-    color: #111;
-}
-.profile-followers {
-    margin: 12px 0;
-    text-align: center;
-    font-size: 16px;
-}
-
-.profile-followers strong {
-    font-size: 20px;
-    margin-right: 5px;
-}
-/* =========================
-   PERFIL WARM
-========================= */
-
-.profile-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 15px 20px;
-}
-
-.profile-header h1 {
-    margin: 0;
-    font-size: 42px;
-    font-weight: 900;
-}
-
-.profile-icons {
-    display: flex;
-    gap: 8px;
-}
-
-.profile-icons button {
-    border: none;
-    background: transparent;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-
-/* TARJETA */
-
-.profile-card {
-    background: #fff9d6;
-    margin: 0 15px;
-    padding: 25px 15px 20px;
-    border-radius: 0;
-}
-
-.profile-top {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-
-/* FOTO */
-
-.profile-photo {
-    width: 150px;
-    height: 150px;
-
-    border-radius: 50%;
-
-    background: #85870a;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    flex-shrink: 0;
-}
-
-.profile-photo span {
-    font-size: 20px;
-}
-
-
-/* ESTADÍSTICAS */
-
-.profile-stats {
-    display: flex;
-    gap: 35px;
-}
-
-.profile-stats div {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.profile-stats strong {
-    font-size: 25px;
-}
-
-.profile-stats span {
-    font-size: 16px;
-}
-
-
-/* NOMBRE */
-
-#profileName {
-    margin: 5px 0 0 15px;
-    font-size: 32px;
-}
-
-
-/* BOTONES */
-
-.profile-actions {
-    display: flex;
-    gap: 15px;
-    padding: 15px 20px;
-}
-
-.profile-action-button {
-    flex: 1;
-
-    border: none;
-    border-radius: 8px;
-
-    background: #000;
-    color: white;
-
-    padding: 15px;
-
-    font-size: 18px;
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-.profile-action-button.following {
-    background: #555;
-}
-
-
-/* PUBLICACIONES */
-
-.profile-posts {
-    margin: 15px;
-}
-
-.profile-posts h3 {
-    font-size: 24px;
-}
-
-.empty-profile {
-    background: #fff9d6;
-    min-height: 180px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 20px;
-}
-
-
-/* =========================
+/* =====================================================
    AJUSTES
-========================= */
+===================================================== */
 
-.profile-settings-screen {
+.settings-screen {
+
     display: none;
 
     position: fixed;
+
     inset: 0;
 
-    background: #fff9d6;
+    z-index: 500;
 
-    z-index: 9999;
+    background: var(--background);
 
-    padding: 20px;
+    overflow-y: auto;
+
+    padding-bottom: 30px;
+
 }
 
-.profile-settings-screen.active {
+
+.settings-screen.active {
+
     display: block;
+
 }
+
 
 .settings-header {
+
+    height: 65px;
+
     display: flex;
+
     align-items: center;
+
     gap: 15px;
+
+    padding: 0 18px;
+
+    background: var(--card);
+
+    border-bottom: 1px solid var(--border);
+
 }
+
 
 .settings-header button {
-    border: none;
-    background: transparent;
 
-    font-size: 30px;
-    cursor: pointer;
-}
+    width: 40px;
 
-.settings-header h2 {
-    font-size: 30px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #f5f5f5;
+
 }
 
 
 .settings-list {
-    display: flex;
-    flex-direction: column;
 
-    margin-top: 20px;
+    padding: 15px;
+
 }
 
+
 .settings-list button {
-    border: none;
-    background: white;
 
-    padding: 20px;
+    width: 100%;
 
-    margin-bottom: 10px;
+    min-height: 60px;
 
-    border-radius: 12px;
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px;
+
+    margin-bottom: 8px;
+
+    border-radius: 15px;
+
+    background: var(--card);
+
+    color: var(--text);
 
     text-align: left;
 
-    font-size: 18px;
-
-    cursor: pointer;
 }
 
-.settings-list button span {
-    margin-left: 10px;
+
+.settings-list button small {
+
+    margin-left: auto;
+
+    color: var(--secondary-text);
+
+}
+
+
+/* =====================================================
+   MODALES
+===================================================== */
+
+.modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    background:
+        rgba(0,0,0,0.45);
+
+    padding: 20px;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+}
+
+
+.modal.active {
+
+    display: flex;
+
+}
+
+
+.modal-content {
+
+    width: 100%;
+
+    max-width: 520px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: var(--card);
+
+    border-radius: 25px 25px 0 0;
+
+    padding: 22px;
+
+}
+
+
+.modal-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+.modal-header button {
+
+    width: 35px;
+
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: #f3f3f3;
+
+    font-size: 22px;
+
+}
+
+
+.modal-content > button:not(.main-button) {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 8px;
+
+    border-radius: 12px;
+
+    background: #f5f5f5;
+
+    text-align: left;
+
+}
+
+
+.modal-content input,
+.modal-content textarea {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    margin: 7px 0 14px;
+
+}
+
+
+.modal-content textarea {
+
+    min-height: 120px;
+
+    resize: vertical;
+
+}
+
+
+.modal-content label {
+
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-top: 5px;
+
+}
+
+
+/* =====================================================
+   COLORES
+===================================================== */
+
+.color-options {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+}
+
+
+.color-option {
+
+    min-height: 100px;
+
+    border-radius: 18px;
+
+    border: 2px solid var(--border);
+
+    background: var(--card);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+}
+
+
+.color-option span {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+}
+
+
+.color-option.original span {
+
+    background: #f7b6c8;
+
+}
+
+
+.color-option.black span {
+
+    background: #111111;
+
+}
+
+
+.color-option.pink span {
+
+    background: #ff8fb1;
+
+}
+
+
+.color-option.olive span {
+
+    background: #78835b;
+
+}
+
+
+/* =====================================================
+   SUSCRIPCIONES
+===================================================== */
+
+.subscription-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+    margin: 0 auto 15px;
+
+}
+
+
+#subscriptionLocked {
+
+    text-align: center;
+
+    padding: 20px 0;
+
+}
+
+
+#subscriptionLocked strong {
+
+    display: block;
+
+    margin-top: 15px;
+
+    font-size: 18px;
+
+}
+
+
+/* =====================================================
+   TEMAS
+===================================================== */
+
+body.theme-black {
+
+    --primary: #333333;
+
+    --primary-dark: #111111;
+
+    --background: #000000;
+
+    --card: #151515;
+
+    --text: #ffffff;
+
+    --secondary-text: #aaaaaa;
+
+    --border: #292929;
+
+}
+
+
+body.theme-pink {
+
+    --primary: #ff8fb1;
+
+    --primary-dark: #ed6d95;
+
+    --background: #fff1f6;
+
+    --card: #ffffff;
+
+    --text: #2b1d22;
+
+    --secondary-text: #806c73;
+
+    --border: #f3dbe3;
+
+}
+
+
+body.theme-olive {
+
+    --primary: #78835b;
+
+    --primary-dark: #5f6847;
+
+    --background: #f3f4ec;
+
+    --card: #ffffff;
+
+    --text: #25291e;
+
+    --secondary-text: #707563;
+
+    --border: #dfe2d4;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (min-width: 700px) {
+
+    .screen {
+
+        max-width: 650px;
+
+        margin: auto;
+
+    }
+
+    .app-screen {
+
+        max-width: 700px;
+
+        margin: auto;
+
+    }
+
+    .bottom-nav {
+
+        max-width: 700px;
+
+        left: 50%;
+
+        right: auto;
+
+        transform: translateX(-50%);
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+.screen.active {
+
+    animation: fadeIn 0.25s ease;
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(5px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
 }

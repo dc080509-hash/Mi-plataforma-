@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
@@ -7,33 +6,36 @@
     <meta charset="UTF-8">
 
     <meta name="viewport"
-
           content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color"
+          content="#f6d6df">
 
-          content="#f7b6c8">
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
 
-    <meta name="description"
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="default">
 
-          content="WARM - Conecta, comparte y apoya.">
-
-    <link rel="stylesheet"
-
-          href="style.css">
+    <meta name="apple-mobile-web-app-title"
+          content="WARM">
 
     <title>WARM</title>
+
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
 <body>
 
-<!-- =====================================================
 
-     PANTALLA 1 — BIENVENIDA / IDIOMA
+<!-- =====================================================
+     PANTALLA 1
+     IDIOMA
 ===================================================== -->
 
 <section id="screen1"
-
          class="screen active welcome-screen">
 
     <div class="welcome-content">
@@ -42,8 +44,12 @@
 
         <div class="image-space">
 
-            <span data-es="Imagen de bienvenida"
+            <img id="welcomeImage"
+                 src=""
+                 alt="Imagen de bienvenida"
+                 style="display:none;">
 
+            <span data-es="Imagen de bienvenida"
                   data-en="Welcome image">
 
                 Imagen de bienvenida
@@ -53,7 +59,6 @@
         </div>
 
         <h2 data-es="Selecciona tu idioma"
-
             data-en="Select your language">
 
             Selecciona tu idioma
@@ -61,16 +66,13 @@
         </h2>
 
         <select id="language">
-      <option value="es">
 
+            <option value="es">
                 🇪🇸 Español
-
             </option>
 
             <option value="en">
-
                 🇺🇸 English
-
             </option>
 
         </select>
@@ -78,11 +80,8 @@
     </div>
 
     <button class="main-button"
-
             onclick="goToScreen2()"
-
             data-es="Continuar"
-
             data-en="Continue">
 
         Continuar
@@ -91,13 +90,13 @@
 
 </section>
 
-<!-- =====================================================
 
-     PANTALLA 2 — CONECTAR
-    ===================================================== -->
+<!-- =====================================================
+     PANTALLA 2
+     CONEXIONES
+===================================================== -->
 
 <section id="screen2"
-
          class="screen welcome-screen">
 
     <div class="welcome-content">
@@ -106,8 +105,12 @@
 
         <div class="image-space">
 
-            <span data-es="Imagen de bienvenida"
+            <img id="connectionImage"
+                 src=""
+                 alt="Conexiones"
+                 style="display:none;">
 
+            <span data-es="Imagen de bienvenida"
                   data-en="Welcome image">
 
                 Imagen de bienvenida
@@ -116,34 +119,24 @@
 
         </div>
 
-        <h2 id="connection-title"
-
-            data-es="Conecta con personas de todo el mundo"
-
-            data-en="Connect with people from all over the world">
+        <h2 id="connection-title">
 
             Conecta con personas de todo el mundo
 
         </h2>
 
-        <p id="connection-text"
+        <p id="connection-text">
 
-           data-es="Descubre nuevas personas, comparte momentos y forma parte de una comunidad global."
-
-           data-en="Discover new people, share moments and be part of a global community.">
-
-            Descubre nuevas personas, comparte momentos y forma parte de una comunidad global.
+            Descubre nuevas personas, comparte momentos
+            y forma parte de una comunidad global.
 
         </p>
 
     </div>
 
     <button class="main-button"
-
             onclick="goToScreen3()"
-
             data-es="Siguiente"
-
             data-en="Next">
 
         Siguiente
@@ -152,13 +145,13 @@
 
 </section>
 
-<!-- =====================================================
 
-     PANTALLA 3 — DESEOS
-    ===================================================== -->
+<!-- =====================================================
+     PANTALLA 3
+     DESEOS
+===================================================== -->
 
 <section id="screen3"
-
          class="screen welcome-screen">
 
     <div class="welcome-content">
@@ -167,8 +160,12 @@
 
         <div class="image-space">
 
-            <span data-es="Imagen de deseos"
+            <img id="wishesImage"
+                 src=""
+                 alt="Deseos"
+                 style="display:none;">
 
+            <span data-es="Imagen de deseos"
                   data-en="Wishes image">
 
                 Imagen de deseos
@@ -177,34 +174,24 @@
 
         </div>
 
-        <h2 id="wishes-title"
-
-            data-es="Haz realidad tus deseos"
-
-            data-en="Make your wishes come true">
+        <h2 id="wishes-title">
 
             Haz realidad tus deseos
 
         </h2>
 
-        <p id="wishes-text"
+        <p id="wishes-text">
 
-           data-es="Comparte lo que deseas y recibe el apoyo de personas de todo el mundo."
-
-           data-en="Share what you wish for and receive support from people around the world.">
-
-            Comparte lo que deseas y recibe el apoyo de personas de todo el mundo.
+            Comparte lo que deseas y recibe el apoyo
+            de personas de todo el mundo.
 
         </p>
 
     </div>
 
     <button class="main-button"
-
             onclick="goToScreen4()"
-
             data-es="Siguiente"
-
             data-en="Next">
 
         Siguiente
@@ -213,13 +200,13 @@
 
 </section>
 
-<!-- =====================================================
 
-     PANTALLA 4 — COMUNIDAD
-    ===================================================== -->
+<!-- =====================================================
+     PANTALLA 4
+     SUSCRIPCIONES
+===================================================== -->
 
 <section id="screen4"
-
          class="screen welcome-screen">
 
     <div class="welcome-content">
@@ -228,40 +215,40 @@
 
         <div class="image-space">
 
-            <span data-es="Imagen de comunidad"
+            <img id="subscriptionImage"
+                 src=""
+                 alt="Suscripciones"
+                 style="display:none;">
 
-                  data-en="Community image">
+            <span data-es="Imagen de suscripciones"
+                  data-en="Subscriptions image">
 
-                Imagen de comunidad
+                Imagen de suscripciones
 
             </span>
 
         </div>
 
-        <h2 data-es="Una comunidad para todos"
+        <h2 data-es="Suscripciones"
+            data-en="Subscriptions">
 
-            data-en="A community for everyone">
-
-            Una comunidad para todos
+            Suscripciones
 
         </h2>
 
-        <p data-es="Comparte, descubre, conecta y apoya a personas de todo el mundo."
+        <p data-es="Comparte contenido exclusivo con las personas que te apoyan."
+           data-en="Share exclusive content with the people who support you.">
 
-           data-en="Share, discover, connect and support people from around the world.">
-
-            Comparte, descubre, conecta y apoya a personas de todo el mundo.
+            Comparte contenido exclusivo con las personas
+            que te apoyan.
 
         </p>
 
     </div>
 
     <button class="main-button"
-
             onclick="finishWelcome()"
-
             data-es="Continuar"
-
             data-en="Continue">
 
         Continuar
@@ -270,13 +257,13 @@
 
 </section>
 
-<!-- =====================================================
 
-     PANTALLA 5 — FINAL / CREAR CUENTA
-    ===================================================== -->
+<!-- =====================================================
+     PANTALLA 5
+     BIENVENIDA FINAL
+===================================================== -->
 
 <section id="screen5"
-
          class="screen welcome-screen">
 
     <div class="welcome-content">
@@ -285,11 +272,12 @@
 
         <div class="image-space">
 
-            <span id="final-image-text"
+            <img id="finalImage"
+                 src=""
+                 alt="Imagen final"
+                 style="display:none;">
 
-                  data-es="Imagen final"
-
-                  data-en="Final image">
+            <span id="final-image-text">
 
                 Imagen final
 
@@ -297,23 +285,16 @@
 
         </div>
 
-        <h2 id="final-title"
-
-            data-es="Todo empieza aquí"
-
-            data-en="Everything starts here">
+        <h2 id="final-title">
 
             Todo empieza aquí
 
         </h2>
 
-        <p id="final-text"
+        <p id="final-text">
 
-           data-es="Únete a una comunidad creada para conectar, compartir y apoyar."
-
-           data-en="Join a community created to connect, share and support.">
-
-            Únete a una comunidad creada para conectar, compartir y apoyar.
+            Únete a una comunidad creada para conectar,
+            compartir y apoyar.
 
         </p>
 
@@ -322,28 +303,16 @@
     <div class="welcome-buttons">
 
         <button id="create-account-button"
-
                 class="main-button"
-
-                onclick="goToScreen6()"
-
-                data-es="Crear cuenta"
-
-                data-en="Create account">
+                onclick="goToScreen6()">
 
             Crear cuenta
 
         </button>
 
         <button id="login-button"
-
                 class="secondary-button"
-
-                onclick="login()"
-
-                data-es="Iniciar sesión"
-
-                data-en="Log in">
+                onclick="login()">
 
             Iniciar sesión
 
@@ -353,74 +322,59 @@
 
 </section>
 
-<!-- =====================================================
 
-     PANTALLA 6 — REGISTRO
-    ===================================================== -->
+<!-- =====================================================
+     PANTALLA 6
+     CREAR CUENTA
+===================================================== -->
 
 <section id="screen6"
+         class="screen account-screen">
 
-         class="screen auth-screen">
+    <div class="account-box">
 
-    <div class="auth-card">
-
-        <h1>WARM</h1>
-
-        <h2 id="signup-title"
-
-            data-es="Crear cuenta"
-
-            data-en="Create account">
+        <h1 id="signup-title">
 
             Crear cuenta
 
-        </h2>
+        </h1>
 
         <input id="username"
-
                type="text"
-
                placeholder="Nombre de usuario"
-
-               data-placeholder-es="Nombre de usuario"
-
-               data-placeholder-en="Username">
+               autocomplete="username">
 
         <input id="email"
-
                type="email"
-
                placeholder="Correo electrónico"
+               autocomplete="email">
 
-               data-placeholder-es="Correo electrónico"
+        <label for="birthdate">
 
-               data-placeholder-en="Email">
+            Fecha de nacimiento
+
+        </label>
 
         <input id="birthdate"
-
                type="date">
 
         <input id="password"
-
                type="password"
-
                placeholder="Contraseña"
-
-               data-placeholder-es="Contraseña"
-
-               data-placeholder-en="Password">
+               autocomplete="new-password">
 
         <button id="signup-button"
-
                 class="main-button"
-
-                onclick="goToScreen7()"
-
-                data-es="Crear cuenta"
-
-                data-en="Create account">
+                onclick="goToScreen7()">
 
             Crear cuenta
+
+        </button>
+
+        <button class="back-button"
+                onclick="backToScreen5()">
+
+            ← Volver
 
         </button>
 
@@ -428,73 +382,54 @@
 
 </section>
 
-<!-- =====================================================
 
-     PANTALLA 7 — FUNDADORES
+<!-- =====================================================
+     PANTALLA 7
+     FUNDADORES
 ===================================================== -->
 
 <section id="screen7"
-
          class="screen founders-screen">
 
-    <div class="page-header">
+    <div class="founders-header">
 
         <h1>WARM</h1>
 
-        <h2 data-es="Sigue a los fundadores"
+        <h2 data-es="Conoce a los fundadores"
+            data-en="Meet the founders">
 
-            data-en="Follow the founders">
-
-            Sigue a los fundadores
+            Conoce a los fundadores
 
         </h2>
 
-        <p data-es="Conecta con las primeras personas de WARM."
+        <p data-es="Sigue a los fundadores de WARM."
+           data-en="Follow the WARM founders.">
 
-           data-en="Connect with the first people on WARM.">
-
-            Conecta con las primeras personas de WARM.
+            Sigue a los fundadores de WARM.
 
         </p>
 
     </div>
 
-    <div class="founders-list">
+
+    <div class="founders-container">
+
 
         <!-- FUNDADOR 1 -->
 
         <div class="founder-card">
 
-            <div class="founder-avatar">
+            <div class="founder-photo">
 
-                Foto
-
-            </div>
-
-            <div class="founder-info">
-
-                <strong>
-
-                    @fundador1
-
-                </strong>
-
-                <span data-es="Fundador de WARM"
-
-                      data-en="WARM Founder">
-
-                    Fundador de WARM
-
-                </span>
+                <span>Foto</span>
 
             </div>
+
+            <h3>@warm_founder1</h3>
 
             <button class="follow-button"
-
-                    onclick="followFounder(this, 'fundador1')"
-
+                    onclick="followFounder(this, 'warm_founder1')"
                     data-follow-es="Seguir"
-
                     data-follow-en="Follow">
 
                 Seguir
@@ -502,40 +437,23 @@
             </button>
 
         </div>
+
 
         <!-- FUNDADOR 2 -->
-            <div class="founder-card">
 
-            <div class="founder-avatar">
+        <div class="founder-card">
 
-                Foto
+            <div class="founder-photo">
 
-            </div>
-
-            <div class="founder-info">
-
-                <strong>
-
-                    @fundador2
-
-                </strong>
-
-                <span data-es="Fundador de WARM"
-
-                      data-en="WARM Founder">
-
-                    Fundador de WARM
-
-                </span>
+                <span>Foto</span>
 
             </div>
+
+            <h3>@warm_founder2</h3>
 
             <button class="follow-button"
-
-                    onclick="followFounder(this, 'fundador2')"
-
+                    onclick="followFounder(this, 'warm_founder2')"
                     data-follow-es="Seguir"
-
                     data-follow-en="Follow">
 
                 Seguir
@@ -543,40 +461,23 @@
             </button>
 
         </div>
+
 
         <!-- FUNDADOR 3 -->
-            <div class="founder-card">
 
-            <div class="founder-avatar">
+        <div class="founder-card">
 
-                Foto
+            <div class="founder-photo">
 
-            </div>
-
-            <div class="founder-info">
-
-                <strong>
-
-                    @fundador3
-
-                </strong>
-
-                <span data-es="Fundador de WARM"
-
-                      data-en="WARM Founder">
-
-                    Fundador de WARM
-
-                </span>
+                <span>Foto</span>
 
             </div>
+
+            <h3>@warm_founder3</h3>
 
             <button class="follow-button"
-
-                    onclick="followFounder(this, 'fundador3')"
-
+                    onclick="followFounder(this, 'warm_founder3')"
                     data-follow-es="Seguir"
-
                     data-follow-en="Follow">
 
                 Seguir
@@ -585,39 +486,22 @@
 
         </div>
 
+
         <!-- FUNDADOR 4 -->
-             <div class="founder-card">
 
-            <div class="founder-avatar">
+        <div class="founder-card">
 
-                Foto
+            <div class="founder-photo">
 
-            </div>
-
-            <div class="founder-info">
-
-                <strong>
-
-                    @fundador4
-
-                </strong>
-
-                <span data-es="Fundador de WARM"
-
-                      data-en="WARM Founder">
-
-                    Fundador de WARM
-
-                </span>
+                <span>Foto</span>
 
             </div>
+
+            <h3>@warm_founder4</h3>
 
             <button class="follow-button"
-
-                    onclick="followFounder(this, 'fundador4')"
-
+                    onclick="followFounder(this, 'warm_founder4')"
                     data-follow-es="Seguir"
-
                     data-follow-en="Follow">
 
                 Seguir
@@ -628,12 +512,10 @@
 
     </div>
 
+
     <button class="main-button"
-
             onclick="finishFounders()"
-
             data-es="Entrar a WARM"
-
             data-en="Enter WARM">
 
         Entrar a WARM
@@ -642,38 +524,35 @@
 
 </section>
 
-<!-- =====================================================
 
-     PANTALLA 8 — APLICACIÓN PRINCIPAL
-    ===================================================== -->
+<!-- =====================================================
+     PANTALLA 8
+     APLICACIÓN
+===================================================== -->
 
 <section id="screen8"
-
          class="screen app-screen">
 
-    <!-- ===============================================
 
-         ENCABEZADO PRINCIPAL
+    <!-- =========================
+         INICIO
+    ========================= -->
 
-    ================================================ -->
+    <div id="homeContent"
+         class="feed-section active">
 
-    <header class="app-header">
+        <header class="app-header">
 
-        <h1>WARM</h1>
-
-        <div class="header-actions">
+            <h1>WARM</h1>
 
             <button onclick="openNotifications()"
-
+                    class="header-icon"
                     aria-label="Notificaciones">
 
                 🔔
 
                 <span id="notificationBadge"
-
-                      class="notification-badge"
-
-                      style="display:none;">
+                      class="notification-badge">
 
                     0
 
@@ -681,374 +560,269 @@
 
             </button>
 
-            <button onclick="openProfile()"
+        </header>
 
-                    aria-label="Perfil">
 
-                👤
+        <!-- TABS -->
+
+        <div class="home-tabs">
+
+            <button class="tab active"
+                    onclick="showFeed('forYou', this)"
+                    data-es="Para ti"
+                    data-en="For you">
+
+                Para ti
+
+            </button>
+
+            <button class="tab"
+                    onclick="showFeed('discover', this)"
+                    data-es="Descubrir"
+                    data-en="Discover">
+
+                Descubrir
+
+            </button>
+
+            <button class="tab"
+                    onclick="showFeed('international', this)"
+                    data-es="Internacional"
+                    data-en="International">
+
+                Internacional
 
             </button>
 
         </div>
 
-    </header>
 
-    <!-- ===============================================
+        <!-- PARA TI -->
 
-         PESTAÑAS
-        ================================================ -->
+        <div id="forYouContent"
+             class="feed-section active">
 
-    <div class="home-tabs">
+            <div id="forYouPosts"
+                 class="posts-container">
 
-        <button class="tab active"
+                <div class="empty-content">
 
-                onclick="showFeed('forYou', this)"
+                    <h3 data-es="Tu contenido aparecerá aquí"
+                        data-en="Your content will appear here">
 
-                data-es="Para ti"
+                        Tu contenido aparecerá aquí
 
-                data-en="For you">
+                    </h3>
 
-            Para ti
+                </div>
 
-        </button>
+            </div>
 
-        <button class="tab"
+        </div>
 
-                onclick="showFeed('discover', this)"
 
-                data-es="Descubrir"
+        <!-- DESCUBRIR -->
 
-                data-en="Discover">
+        <div id="discoverContent"
+             class="feed-section">
 
-            Descubrir
+            <div id="discoverPosts"
+                 class="posts-container">
 
-        </button>
+                <div class="empty-content">
 
-        <button class="tab"
+                    <h3 data-es="Descubre nuevas publicaciones"
+                        data-en="Discover new posts">
 
-                onclick="showFeed('international', this)"
+                        Descubre nuevas publicaciones
 
-                data-es="Internacional"
+                    </h3>
 
-                data-en="International">
+                </div>
 
-            Internacional
+            </div>
 
-        </button>
+        </div>
+
+
+        <!-- INTERNACIONAL -->
+
+        <div id="internationalContent"
+             class="feed-section">
+
+            <div id="internationalPosts"
+                 class="posts-container">
+
+                <div class="empty-content">
+
+                    <h3 data-es="Contenido internacional"
+                        data-en="International content">
+
+                        Contenido internacional
+
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-    <!-- ===============================================
 
-         CONTENIDO — PARA TI
+    <!-- =================================================
+         CREAR
+    ================================================= -->
 
-    ================================================ -->
-    <div id="forYouContent"
+    <div id="createContent"
+         class="feed-section">
 
-         class="feed-section active">
+        <div class="section-header">
 
-        <div class="feed-empty">
+            <h2 data-es="Crear"
+                data-en="Create">
 
-            <h2 data-es="Para ti"
-
-                data-en="For you">
-
-                Para ti
+                Crear
 
             </h2>
 
-            <p data-es="Aquí aparecerán publicaciones de las personas que sigues."
+        </div>
 
-               data-en="Posts from people you follow will appear here.">
 
-                Aquí aparecerán publicaciones de las personas que sigues.
+        <div class="create-options">
 
-            </p>
+            <button onclick="openTextPost()">
+
+                📝
+
+                <span data-es="Texto"
+                      data-en="Text">
+
+                    Texto
+
+                </span>
+
+            </button>
+
+
+            <button onclick="openPhotoPost()">
+
+                📷
+
+                <span data-es="Foto"
+                      data-en="Photo">
+
+                    Foto
+
+                </span>
+
+            </button>
+
+
+            <button onclick="openVideoPost()">
+
+                🎥
+
+                <span data-es="Video"
+                      data-en="Video">
+
+                    Video
+
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- TEXTO -->
+
+        <div id="textPostBox"
+             class="create-box"
+             style="display:none;">
+
+            <textarea id="createArea"
+                      placeholder="¿Qué quieres compartir?"></textarea>
+
+            <button class="main-button"
+                    onclick="publishFromCreate()">
+
+                Publicar
+
+            </button>
+
+        </div>
+
+
+        <!-- FOTO -->
+
+        <div id="photoPostBox"
+             class="create-box"
+             style="display:none;">
+
+            <input id="photoInput"
+                   type="file"
+                   accept="image/*">
+
+            <input id="photoCaption"
+                   type="text"
+                   placeholder="Descripción">
+
+            <button class="main-button"
+                    onclick="publishPhotoPost()">
+
+                Publicar foto
+
+            </button>
+
+        </div>
+
+
+        <!-- VIDEO -->
+
+        <div id="videoPostBox"
+             class="create-box"
+             style="display:none;">
+
+            <input id="videoInput"
+                   type="file"
+                   accept="video/*">
+
+            <input id="videoCaption"
+                   type="text"
+                   placeholder="Descripción">
+
+            <button class="main-button"
+                    onclick="publishVideoPost()">
+
+                Publicar video
+
+            </button>
 
         </div>
 
     </div>
 
-    <!-- ===============================================
 
-         CONTENIDO — DESCUBRIR
-        ================================================ -->
-
-    <div id="discoverContent"
-
-         class="feed-section">
-
-        <div class="create-post-card">
-
-            <h3 data-es="Crear publicación"
-
-                data-en="Create post">
-
-                Crear publicación
-
-            </h3>
-
-            <div class="create-buttons">
-
-                <button onclick="openPhotoPost()">
-
-                    📷
-
-                    <span data-es="Foto"
-
-                          data-en="Photo">
-
-                        Foto
-
-                    </span>
-
-                </button>
-
-                <button onclick="openVideoPost()">
-
-                    🎥
-
-                    <span data-es="Video"
-
-                          data-en="Video">
-
-                        Video
-
-                    </span>
-
-                </button>
-
-                <button onclick="openTextPost()">
-
-                    ✍️
-
-                    <span data-es="Texto"
-
-                          data-en="Text">
-
-                        Texto
-
-                    </span>
-
-                </button>
-
-            </div>
-
-            <!-- FOTO -->
-
-            <div id="photoPostBox"
-
-                 class="create-box"
-
-                 style="display:none;">
-
-                <input id="photoInput"
-
-                       type="file"
-
-                       accept="image/*">
-
-                <input id="photoCaption"
-
-                       type="text"
-
-                       placeholder="Escribe una descripción...">
-
-                <button onclick="publishPhotoPost()"
-
-                        class="main-button">
-
-                    Publicar foto
-
-                </button>
-
-            </div>
-
-            <!-- VIDEO -->
-
-            <div id="videoPostBox"
-
-                 class="create-box"
-
-                 style="display:none;">
-
-                <input id="videoInput"
-
-                       type="file"
-
-                       accept="video/*">
-
-                <input id="videoCaption"
-
-                       type="text"
-
-                       placeholder="Escribe una descripción...">
-
-                <button onclick="publishVideoPost()"
-
-                        class="main-button">
-
-                    Publicar video
-
-                </button>
-
-            </div>
-
-            <!-- TEXTO -->
-
-            <div id="textPostBox"
-
-                 class="create-box"
-
-                 style="display:none;">
-
-                <textarea id="createArea"
-
-                          placeholder="¿Qué estás pensando?">
-
-                </textarea>
-
-                <button onclick="publishFromCreate()"
-
-                        class="main-button">
-
-                    Publicar
-
-                </button>
-
-            </div>
-
-        </div>
-
-        <div id="discoverPosts"></div>
-
-    </div>
-
-    <!-- ===============================================
-
-         CONTENIDO — INTERNACIONAL
-        ================================================ -->
-
-    <div id="internationalContent"
-
-         class="feed-section">
-
-        <div class="feed-empty">
-
-            <h2 data-es="Internacional"
-
-                data-en="International">
-
-                Internacional
-
-            </h2>
-
-            <p data-es="Descubre publicaciones de personas de todo el mundo."
-
-               data-en="Discover posts from people around the world.">
-
-                Descubre publicaciones de personas de todo el mundo.
-
-            </p>
-
-        </div>
-
-    </div>
-
-    <!-- ===============================================
-
-         BARRA INFERIOR
-
-    ================================================ -->
-
-    <nav class="bottom-nav">
-
-        <button class="nav-item active"
-
-                onclick="openBottom('forYou', this)">
-
-            🏠
-
-            <span data-es="Inicio"
-
-                  data-en="Home">
-
-                Inicio
-
-            </span>
-
-        </button>
-
-        <button class="nav-item"
-
-                onclick="openBottom('wishes', this)">
-
-            🎁
-
-            <span data-es="Deseos"
-
-                  data-en="Wishes">
-
-                Deseos
-
-            </span>
-
-        </button>
-
-        <button class="nav-item"
-
-                onclick="openBottom('messages', this)">
-
-            💬
-
-            <span data-es="Mensajes"
-
-                  data-en="Messages">
-
-                Mensajes
-
-            </span>
-
-        </button>
-
-        <button class="nav-item"
-
-                onclick="openBottom('profile', this)">
-
-            👤
-
-            <span data-es="Perfil"
-
-                  data-en="Profile">
-
-                Perfil
-
-            </span>
-
-        </button>
-
-    </nav>
-
-    <!-- ===============================================
-
+    <!-- =================================================
          DESEOS
-================================================ -->
+    ================================================= -->
 
     <div id="wishesContent"
-
          class="feed-section">
 
         <div class="section-header">
 
             <h2 data-es="Deseos"
-
                 data-en="Wishes">
 
                 Deseos
 
             </h2>
 
-            <button onclick="addWish()">
+            <button class="add-button"
+                    onclick="openWishCreator()">
 
                 +
 
@@ -1056,15 +830,23 @@
 
         </div>
 
-        <div id="wishesList">
 
-            <div class="feed-empty">
+        <div id="wishesList"
+             class="wishes-list">
 
-                <p data-es="Comparte algo que deseas."
+            <div class="empty-content">
 
-                   data-en="Share something you wish for.">
+                <h3 data-es="Todavía no hay deseos"
+                    data-en="There are no wishes yet">
 
-                    Comparte algo que deseas.
+                    Todavía no hay deseos
+
+                </h3>
+
+                <p data-es="Crea tu primer deseo."
+                   data-en="Create your first wish.">
+
+                    Crea tu primer deseo.
 
                 </p>
 
@@ -1074,27 +856,25 @@
 
     </div>
 
-    <!-- ===============================================
 
+    <!-- =================================================
          MENSAJES
-
-    ================================================ -->
+    ================================================= -->
 
     <div id="messagesContent"
-
          class="feed-section">
 
         <div class="section-header">
 
             <h2 data-es="Mensajes"
-
                 data-en="Messages">
 
                 Mensajes
 
             </h2>
 
-            <button onclick="newMessage()">
+            <button onclick="newMessage()"
+                    class="add-button">
 
                 +
 
@@ -1102,27 +882,35 @@
 
         </div>
 
-        <div class="feed-empty">
 
-            <p data-es="Los mensajes se desbloquean al llegar a 1,000 seguidores."
+        <div id="messagesLocked"
+             class="locked-message">
 
-               data-en="Messages unlock when you reach 1,000 followers.">
+            🔒
 
-                Los mensajes se desbloquean al llegar a 1,000 seguidores.
+            <p data-es="Desbloquea esta función al llegar a 1,000 seguidores."
+               data-en="Unlock this feature when you reach 1,000 followers.">
+
+                Desbloquea esta función al llegar a 1,000 seguidores.
 
             </p>
 
         </div>
 
+
+        <div id="messagesList"
+             class="messages-list">
+
+        </div>
+
     </div>
 
-    <!-- ===============================================
 
+    <!-- =================================================
          PERFIL
-        ================================================ -->
+    ================================================= -->
 
     <div id="profileContent"
-
          class="feed-section">
 
         <div class="profile-header">
@@ -1132,16 +920,12 @@
             <div class="profile-icons">
 
                 <button class="notification-button"
-
                         onclick="openNotifications()">
 
                     🔔
 
                     <span id="profileNotificationBadge"
-
-                          class="notification-badge"
-
-                          style="display:none;">
+                          class="notification-badge">
 
                         0
 
@@ -1150,7 +934,6 @@
                 </button>
 
                 <button class="settings-button"
-
                         onclick="openProfileSettings()">
 
                     ☰
@@ -1161,75 +944,84 @@
 
         </div>
 
-        <!-- PORTADA + FOTO -->
+
+        <!-- PORTADA -->
+
+        <div class="profile-cover">
+
+            <img id="profileCoverImage"
+                 src=""
+                 alt="Portada"
+                 style="display:none;">
+
+            <span id="profileCoverPlaceholder">
+
+                Foto de portada
+
+            </span>
+
+        </div>
+
+
+        <!-- PERFIL -->
 
         <div class="profile-card">
 
-            <div class="profile-cover">
+            <div class="profile-top">
 
-                <span id="coverPlaceholder">
+                <div class="profile-photo">
 
-                    Foto de portada
+                    <img id="profilePhotoImage"
+                         src=""
+                         alt="Foto de perfil"
+                         style="display:none;">
 
-                </span>
+                    <span id="profilePhotoPlaceholder">
 
-            </div>
-
-            <div class="profile-photo">
-
-                <span id="profilePhotoPlaceholder">
-
-                    Foto
-
-                </span>
-
-                <img id="profilePhoto"
-
-                     style="display:none;"
-
-                     alt="Foto de perfil">
-
-            </div>
-
-            <div class="profile-stats">
-
-                <div>
-
-                    <strong id="profileFollowers">
-
-                        0
-
-                    </strong>
-
-                    <span data-es="Seguidores"
-
-                          data-en="Followers">
-
-                        Seguidores
+                        Foto
 
                     </span>
 
                 </div>
 
-                <div>
 
-                    <strong id="profileFollowing">
+                <div class="profile-stats">
 
-                        0
+                    <div>
 
-                    </strong>
+                        <strong id="profileFollowers">
+                            0
+                        </strong>
 
-                    <span data-es="Seguidos"
+                        <span data-es="Seguidores"
+                              data-en="Followers">
 
-                          data-en="Following">
+                            Seguidores
 
-                        Seguidos
+                        </span>
 
-                    </span>
+                    </div>
+
+
+                    <div>
+
+                        <strong id="profileFollowing">
+                            0
+                        </strong>
+
+                        <span data-es="Seguidos"
+                              data-en="Following">
+
+                            Seguidos
+
+                        </span>
+
+                    </div>
 
                 </div>
 
             </div>
+
 
             <h2 id="profileName">
 
@@ -1237,29 +1029,27 @@
 
             </h2>
 
-            <p id="profileBio">
 
-                WARM
+            <p id="profileBio">
 
             </p>
 
-            <div id="profileLinks"
 
+            <div id="profileLinks"
                  class="profile-links">
 
             </div>
 
         </div>
 
-        <!-- VISITANTE -->
-            <div id="visitorProfileActions"
 
+        <!-- VISITANTE -->
+
+        <div id="visitorProfileActions"
              class="profile-actions">
 
             <button id="profileFollowButton"
-
                     class="profile-action-button"
-
                     onclick="profileFollow()">
 
                 Seguir
@@ -1267,7 +1057,6 @@
             </button>
 
             <button class="profile-action-button"
-
                     onclick="profileMessage()">
 
                 Mensaje
@@ -1276,16 +1065,14 @@
 
         </div>
 
+
         <!-- DUEÑO -->
 
         <div id="ownerProfileActions"
-
              class="profile-actions"
-
              style="display:none;">
 
             <button class="profile-action-button"
-
                     onclick="editProfile()">
 
                 Editar perfil
@@ -1293,7 +1080,6 @@
             </button>
 
             <button class="profile-action-button"
-
                     onclick="shareProfile()">
 
                 Compartir
@@ -1302,10 +1088,12 @@
 
         </div>
 
+
+        <!-- PUBLICACIONES -->
+
         <div class="profile-posts">
 
             <h3 data-es="Publicaciones"
-
                 data-en="Posts">
 
                 Publicaciones
@@ -1314,11 +1102,7 @@
 
             <div id="profilePosts">
 
-                <div class="empty-profile"
-
-                     data-es="Aún no hay publicaciones."
-
-                     data-en="There are no posts yet.">
+                <div class="empty-profile">
 
                     Aún no hay publicaciones.
 
@@ -1330,50 +1114,196 @@
 
     </div>
 
-</section>
 
-<!-- =====================================================
+    <!-- =================================================
+         GRUPOS
+    ================================================= -->
 
-     MODAL — NOTIFICACIONES
-===================================================== -->
+    <div id="groupsContent"
+         class="feed-section">
 
-<div id="notificationsModal"
+        <div class="section-header">
 
-     class="modal">
+            <h2 data-es="Grupos"
+                data-en="Groups">
 
-    <div class="modal-content">
-
-        <div class="modal-header">
-
-            <h2 data-es="Notificaciones"
-
-                data-en="Notifications">
-
-                Notificaciones
+                Grupos
 
             </h2>
 
-            <button onclick="closeNotifications()">
-
-                ×
-
-            </button>
-
         </div>
 
-        <div id="notificationsList">
 
-            <div class="notification-item">
+        <div id="groupsList"
+             class="groups-list">
 
-                ❤️
 
-                <span data-es="No tienes notificaciones nuevas."
+            <!-- GRUPO 1 -->
 
-                      data-en="You have no new notifications.">
+            <div class="group-card">
 
-                    No tienes notificaciones nuevas.
+                <div class="group-photo">
+                    🦋
+                </div>
 
-                </span>
+                <h3>
+                    Aesthetic World
+                </h3>
+
+                <p>
+                    Comunidad para compartir
+                    contenido aesthetic.
+                </p>
+
+                <button class="group-join-button"
+                        onclick="joinGroup(this)">
+
+                    Unirme al grupo
+
+                </button>
+
+
+                <div class="group-message-area">
+
+                    <div class="group-messages">
+                    </div>
+
+                    <textarea
+                        placeholder="Escribe un mensaje...">
+                    </textarea>
+
+
+                    <div class="group-media-buttons">
+
+                        <button onclick="openStickerPicker(this)">
+                            🎀
+                        </button>
+
+                        <button onclick="openGroupPhoto(this)">
+                            📷
+                        </button>
+
+                        <button onclick="openGroupVideo(this)">
+                            🎥
+                        </button>
+
+                        <button onclick="openBoomerang(this)">
+                            🔄
+                        </button>
+
+                    </div>
+
+
+                    <button onclick="sendGroupMessage(this)">
+
+                        Enviar
+
+                    </button>
+
+                    <input class="group-photo-input"
+                           type="file"
+                           accept="image/*"
+                           style="display:none;"
+                           onchange="sendGroupPhoto(this)">
+
+                    <input class="group-video-input"
+                           type="file"
+                           accept="video/*"
+                           style="display:none;"
+                           onchange="sendGroupVideo(this)">
+
+                    <input class="group-boomerang-input"
+                           type="file"
+                           accept="video/*"
+                           style="display:none;"
+                           onchange="sendBoomerang(this)">
+
+                </div>
+
+            </div>
+
+
+            <!-- GRUPO 2 -->
+
+            <div class="group-card">
+
+                <div class="group-photo">
+                    🌸
+                </div>
+
+                <h3>
+                    WARM Friends
+                </h3>
+
+                <p>
+                    Conoce personas y comparte
+                    momentos.
+                </p>
+
+                <button class="group-join-button"
+                        onclick="joinGroup(this)">
+
+                    Unirme al grupo
+
+                </button>
+
+
+                <div class="group-message-area">
+
+                    <div class="group-messages">
+                    </div>
+
+                    <textarea
+                        placeholder="Escribe un mensaje...">
+                    </textarea>
+
+
+                    <div class="group-media-buttons">
+
+                        <button onclick="openStickerPicker(this)">
+                            🎀
+                        </button>
+
+                        <button onclick="openGroupPhoto(this)">
+                            📷
+                        </button>
+
+                        <button onclick="openGroupVideo(this)">
+                            🎥
+                        </button>
+
+                        <button onclick="openBoomerang(this)">
+                            🔄
+                        </button>
+
+                    </div>
+
+
+                    <button onclick="sendGroupMessage(this)">
+
+                        Enviar
+
+                    </button>
+
+                    <input class="group-photo-input"
+                           type="file"
+                           accept="image/*"
+                           style="display:none;"
+                           onchange="sendGroupPhoto(this)">
+
+                    <input class="group-video-input"
+                           type="file"
+                           accept="video/*"
+                           style="display:none;"
+                           onchange="sendGroupVideo(this)">
+
+                    <input class="group-boomerang-input"
+                           type="file"
+                           accept="video/*"
+                           style="display:none;"
+                           onchange="sendBoomerang(this)">
+
+                </div>
 
             </div>
 
@@ -1381,28 +1311,365 @@
 
     </div>
 
-</div>
+
+</section>
+
 
 <!-- =====================================================
-
-     PANTALLA — AJUSTES
-
+     NAVEGACIÓN INFERIOR
 ===================================================== -->
 
-<section id="profileSettingsScreen"
+<nav class="bottom-nav">
 
-         class="settings-screen">
 
-    <div class="settings-header">
+    <button class="nav-item active"
+            onclick="openBottom('home', this)">
 
-        <button onclick="closeProfileSettings()">
+        🏠
 
-            ←
+        <span data-es="Inicio"
+              data-en="Home">
+
+            Inicio
+
+        </span>
+
+    </button>
+
+
+    <button class="nav-item"
+            onclick="openBottom('create', this)">
+
+        ➕
+
+        <span data-es="Crear"
+              data-en="Create">
+
+            Crear
+
+        </span>
+
+    </button>
+
+
+    <button class="nav-item"
+            onclick="openBottom('wishes', this)">
+
+        🎁
+
+        <span data-es="Deseos"
+              data-en="Wishes">
+
+            Deseos
+
+        </span>
+
+    </button>
+
+
+    <button class="nav-item"
+            onclick="openBottom('messages', this)">
+
+        💌
+
+        <span data-es="Mensajes"
+              data-en="Messages">
+
+            Mensajes
+
+        </span>
+
+    </button>
+
+
+    <button class="nav-item"
+            onclick="openBottom('profile', this)">
+
+        👤
+
+        <span data-es="Perfil"
+              data-en="Profile">
+
+            Perfil
+
+        </span>
+
+    </button>
+
+
+</nav>
+
+
+<!-- =====================================================
+     MODAL CREAR DESEO
+===================================================== -->
+
+<div id="wishCreatorModal"
+     class="modal">
+
+    <div class="modal-content">
+
+        <button class="modal-close"
+                onclick="closeWishCreator()">
+
+            ×
 
         </button>
 
-        <h2 data-es="Ajustes"
+        <h2 data-es="Crear un deseo"
+            data-en="Create a wish">
 
+            Crear un deseo
+
+        </h2>
+
+
+        <label>
+
+            Foto
+
+        </label>
+
+        <input id="wishImageInput"
+               type="file"
+               accept="image/*">
+
+
+        <div id="wishImagePreview"
+             class="wish-image-preview">
+
+        </div>
+
+
+        <input id="wishTitle"
+               type="text"
+               placeholder="¿Qué deseas?">
+
+
+        <textarea id="wishDescription"
+                  placeholder="Describe tu deseo...">
+        </textarea>
+
+
+        <input id="wishGoal"
+               type="number"
+               min="1"
+               step="0.01"
+               placeholder="Precio o meta">
+
+
+        <button class="main-button"
+                onclick="publishWish()">
+
+            Publicar deseo
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL DONAR
+===================================================== -->
+
+<div id="donationModal"
+     class="modal">
+
+    <div class="modal-content">
+
+        <button class="modal-close"
+                onclick="closeDonationModal()">
+
+            ×
+
+        </button>
+
+        <h2>
+
+            💗 Donar
+
+        </h2>
+
+        <p id="donationWishTitle">
+
+        </p>
+
+        <p>
+
+            ¿Cuánto deseas donar?
+
+        </p>
+
+        <input id="donationAmount"
+               type="number"
+               min="1"
+               step="0.01"
+               placeholder="Cantidad">
+
+
+        <button class="main-button"
+                onclick="makeDonation()">
+
+            Donar
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL STICKERS
+===================================================== -->
+
+<div id="stickerModal"
+     class="modal">
+
+    <div class="modal-content sticker-modal-content">
+
+        <button class="modal-close"
+                onclick="closeStickerPicker()">
+
+            ×
+
+        </button>
+
+        <h2>
+
+            🎀 Stickers
+
+        </h2>
+
+
+        <div class="sticker-categories">
+
+            <button onclick="showStickerCategory('pink')">
+                🩷
+            </button>
+
+            <button onclick="showStickerCategory('cute')">
+                🧸
+            </button>
+
+            <button onclick="showStickerCategory('aesthetic')">
+                🦋
+            </button>
+
+            <button onclick="showStickerCategory('flowers')">
+                🌸
+            </button>
+
+            <button onclick="showStickerCategory('dark')">
+                🖤
+            </button>
+
+        </div>
+
+
+        <div id="stickerList"
+             class="sticker-list">
+
+            <button onclick="sendSticker('🩷')">
+                🩷
+            </button>
+
+            <button onclick="sendSticker('✨')">
+                ✨
+            </button>
+
+            <button onclick="sendSticker('🦋')">
+                🦋
+            </button>
+
+            <button onclick="sendSticker('🌸')">
+                🌸
+            </button>
+
+            <button onclick="sendSticker('🎀')">
+                🎀
+            </button>
+
+            <button onclick="sendSticker('🧸')">
+                🧸
+            </button>
+
+            <button onclick="sendSticker('☁️')">
+                ☁️
+            </button>
+
+            <button onclick="sendSticker('💗')">
+                💗
+            </button>
+
+            <button onclick="sendSticker('🌷')">
+                🌷
+            </button>
+
+            <button onclick="sendSticker('⭐')">
+                ⭐
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NOTIFICACIONES
+===================================================== -->
+
+<section id="notificationsScreen"
+         class="overlay-screen">
+
+    <div class="overlay-header">
+
+        <button onclick="closeNotifications()">
+            ←
+        </button>
+
+        <h2 data-es="Notificaciones"
+            data-en="Notifications">
+
+            Notificaciones
+
+        </h2>
+
+    </div>
+
+
+    <div id="notificationsList"
+         class="notifications-list">
+
+        <div class="notification-empty">
+
+            No tienes notificaciones nuevas.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AJUSTES
+===================================================== -->
+
+<section id="profileSettingsScreen"
+         class="overlay-screen">
+
+    <div class="overlay-header">
+
+        <button onclick="closeProfileSettings()">
+            ←
+        </button>
+
+        <h2 data-es="Ajustes"
             data-en="Settings">
 
             Ajustes
@@ -1411,37 +1678,29 @@
 
     </div>
 
+
     <div class="settings-list">
 
-        <!-- IDIOMA -->
 
         <button onclick="openLanguageSettings()">
 
             🌐
 
             <span data-es="Idioma"
-
                   data-en="Language">
 
                 Idioma
 
             </span>
 
-            <small id="currentLanguage">
-
-                Español
-
-            </small>
-
         </button>
 
-        <!-- EDITAR CUENTA -->
-          <button onclick="openEditAccount()">
 
-            👤
+        <button onclick="openEditAccount()">
+
+            ✏️
 
             <span data-es="Editar cuenta"
-
                   data-en="Edit account">
 
                 Editar cuenta
@@ -1450,14 +1709,12 @@
 
         </button>
 
-        <!-- COLORES -->
 
         <button onclick="openColorSettings()">
 
             🎨
 
             <span data-es="Colores"
-
                   data-en="Colors">
 
                 Colores
@@ -1466,13 +1723,12 @@
 
         </button>
 
-        <!-- SOPORTE -->
-                <button onclick="openSupport()">
 
-            🛟
+        <button onclick="openSupport()">
+
+            🆘
 
             <span data-es="Soporte"
-
                   data-en="Support">
 
                 Soporte
@@ -1481,14 +1737,12 @@
 
         </button>
 
-        <!-- SUSCRIPCIONES -->
 
         <button onclick="openSubscriptions()">
 
             ⭐
 
             <span data-es="Suscripciones"
-
                   data-en="Subscriptions">
 
                 Suscripciones
@@ -1497,29 +1751,54 @@
 
         </button>
 
-        <!-- INFORMACIÓN -->
 
-        <button onclick="openAbout()">
+        <button onclick="openPrivacySettings()">
 
-            ℹ️
+            🔒
 
-            <span data-es="Información sobre WARM"
+            <span data-es="Privacidad"
+                  data-en="Privacy">
 
-                  data-en="About WARM">
-
-                Información sobre WARM
+                Privacidad
 
             </span>
 
         </button>
 
-        <!-- CERRAR SESIÓN -->
-              <button onclick="logout()">
+
+        <button onclick="openAboutApp()">
+
+            ℹ️
+
+            <span data-es="Acerca de WARM"
+                  data-en="About WARM">
+
+                Acerca de WARM
+
+            </span>
+
+        </button>
+
+
+        <button onclick="openAccountSettings()">
+
+            👤
+
+            <span data-es="Cuenta"
+                  data-en="Account">
+
+                Cuenta
+
+            </span>
+
+        </button>
+
+
+        <button onclick="logout()">
 
             🚪
 
             <span data-es="Cerrar sesión"
-
                   data-en="Log out">
 
                 Cerrar sesión
@@ -1532,35 +1811,30 @@
 
 </section>
 
+
 <!-- =====================================================
-
-     MODAL — IDIOMA
-
+     IDIOMA
 ===================================================== -->
 
-<div id="languageModal"
+<section id="languageSettingsScreen"
+         class="overlay-screen">
 
-     class="modal">
+    <div class="overlay-header">
 
-    <div class="modal-content">
+        <button onclick="closeLanguageSettings()">
+            ←
+        </button>
 
-        <div class="modal-header">
+        <h2>
 
-            <h2 data-es="Idioma"
+            Idioma
 
-                data-en="Language">
+        </h2>
 
-                Idioma
+    </div>
 
-            </h2>
 
-            <button onclick="closeModal('languageModal')">
-
-                ×
-
-            </button>
-
-        </div>
+    <div class="settings-list">
 
         <button onclick="changeLanguage('es')">
 
@@ -1576,121 +1850,84 @@
 
     </div>
 
-</div>
+</section>
+
 
 <!-- =====================================================
-
-     MODAL — EDITAR CUENTA
-
+     EDITAR CUENTA
 ===================================================== -->
 
-<div id="editAccountModal"
+<section id="editAccountScreen"
+         class="overlay-screen">
 
-     class="modal">
+    <div class="overlay-header">
 
-    <div class="modal-content">
+        <button onclick="closeEditAccount()">
+            ←
+        </button>
 
-        <div class="modal-header">
+        <h2>
 
-            <h2 data-es="Editar cuenta"
+            Editar cuenta
 
-                data-en="Edit account">
+        </h2>
 
-                Editar cuenta
+    </div>
 
-            </h2>
 
-            <button onclick="closeModal('editAccountModal')">
+    <div class="edit-account-form">
 
-                ×
 
-            </button>
-
-        </div>
-
-        <label data-es="Nombre de usuario"
-
-               data-en="Username">
-
-            Nombre de usuario
-
-        </label>
-
-        <input id="editUsername"
-
-               type="text">
-
-        <label data-es="Biografía"
-
-               data-en="Bio">
-
-            Biografía
-
-        </label>
-
-        <textarea id="editBio"></textarea>
-
-        <label data-es="Pronombres"
-
-               data-en="Pronouns">
-
-            Pronombres
-
-        </label>
-
-        <input id="editPronouns"
-
-               type="text">
-
-        <label data-es="Link"
-
-               data-en="Link">
-
-            Link
-
-        </label>
-
-        <input id="editLink"
-
-               type="url"
-
-               placeholder="https://">
-
-        <label data-es="Foto de perfil"
-
-               data-en="Profile photo">
+        <label>
 
             Foto de perfil
 
         </label>
 
-        <input id="profilePhotoInput"
-
+        <input id="editProfilePhoto"
                type="file"
-
                accept="image/*">
 
-        <label data-es="Foto de portada"
 
-               data-en="Cover photo">
+        <label>
 
             Foto de portada
 
         </label>
 
-        <input id="coverPhotoInput"
-
+        <input id="editCoverPhoto"
                type="file"
-
                accept="image/*">
 
+
+        <input id="editName"
+               type="text"
+               placeholder="Nombre">
+
+
+        <textarea id="editBio"
+                  placeholder="Descripción">
+
+        </textarea>
+
+
+        <input id="editPronouns"
+               type="text"
+               placeholder="Pronombres">
+
+
+        <input id="editLink1"
+               type="url"
+               placeholder="Link">
+
+
+        <input id="editLink2"
+               type="url"
+               placeholder="Otro link">
+
+
         <button class="main-button"
-
-                onclick="saveProfileChanges()"
-
-                data-es="Guardar cambios"
-
-                data-en="Save changes">
+                onclick="saveProfileChanges()">
 
             Guardar cambios
 
@@ -1698,371 +1935,430 @@
 
     </div>
 
-</div>
+</section>
+
 
 <!-- =====================================================
-
-     MODAL — COLORES
+     COLORES
 ===================================================== -->
 
-<div id="colorModal"
+<section id="colorSettingsScreen"
+         class="overlay-screen">
 
-     class="modal">
+    <div class="overlay-header">
 
-    <div class="modal-content">
+        <button onclick="closeColorSettings()">
+            ←
+        </button>
 
-        <div class="modal-header">
+        <h2>
 
-            <h2 data-es="Colores"
+            Colores
 
-                data-en="Colors">
-
-                Colores
-
-            </h2>
-
-            <button onclick="closeModal('colorModal')">
-
-                ×
-
-            </button>
-
-        </div>
-
-        <div class="color-options">
-
-            <button class="color-option original"
-
-                    onclick="setTheme('original')">
-
-                <span></span>
-
-                <strong data-es="Original"
-
-                        data-en="Original">
-
-                    Original
-
-                </strong>
-
-            </button>
-
-            <button class="color-option black"
-
-                    onclick="setTheme('black')">
-
-                <span></span>
-
-                <strong data-es="Negro"
-
-                        data-en="Black">
-
-                    Negro
-
-                </strong>
-
-            </button>
-
-            <button class="color-option pink"
-
-                    onclick="setTheme('pink')">
-
-                <span></span>
-
-                <strong data-es="Rosado"
-
-                        data-en="Pink">
-
-                    Rosado
-
-                </strong>
-
-            </button>
-
-            <button class="color-option olive"
-
-                    onclick="setTheme('olive')">
-
-                <span></span>
-
-                <strong data-es="Verde oliva"
-
-                        data-en="Olive green">
-
-                    Verde oliva
-
-                </strong>
-
-            </button>
-
-        </div>
+        </h2>
 
     </div>
 
-</div>
+
+    <div class="color-options">
+
+
+        <button class="color-option theme-original"
+                onclick="setTheme('original')">
+
+            <span></span>
+
+            Original
+
+        </button>
+
+
+        <button class="color-option theme-pink"
+                onclick="setTheme('pink')">
+
+            <span></span>
+
+            Rosado
+
+        </button>
+
+
+        <button class="color-option theme-purple"
+                onclick="setTheme('purple')">
+
+            <span></span>
+
+            Morado
+
+        </button>
+
+
+        <button class="color-option theme-black"
+                onclick="setTheme('black')">
+
+            <span></span>
+
+            Negro
+
+        </button>
+
+
+        <button class="color-option theme-white"
+                onclick="setTheme('white')">
+
+            <span></span>
+
+            Blanco
+
+        </button>
+
+
+        <button class="color-option theme-bone"
+                onclick="setTheme('bone')">
+
+            <span></span>
+
+            Hueso
+
+        </button>
+
+
+        <button class="color-option theme-olive"
+                onclick="setTheme('olive')">
+
+            <span></span>
+
+            Verde oliva
+
+        </button>
+
+    </div>
+
+</section>
+
 
 <!-- =====================================================
+     SOPORTE
+===================================================== -->
 
-     MODAL — SOPORTE
-    ===================================================== -->
+<section id="supportScreen"
+         class="overlay-screen">
 
-<div id="supportModal"
+    <div class="overlay-header">
 
-     class="modal">
+        <button onclick="closeSupport()">
+            ←
+        </button>
 
-    <div class="modal-content">
+        <h2>
 
-        <div class="modal-header">
+            Soporte
 
-            <h2 data-es="Soporte"
+        </h2>
 
-                data-en="Support">
+    </div>
 
-                Soporte
 
-            </h2>
+    <div class="support-content">
 
-            <button onclick="closeModal('supportModal')">
+        <p data-es="¿Tienes algún problema con WARM?"
+           data-en="Are you having a problem with WARM?">
 
-                ×
-
-            </button>
-
-        </div>
-
-        <p data-es="Escribe tu problema y el equipo de WARM podrá revisarlo."
-
-           data-en="Write your problem and the WARM team can review it.">
-
-            Escribe tu problema y el equipo de WARM podrá revisarlo.
+            ¿Tienes algún problema con WARM?
 
         </p>
+
 
         <input id="supportSubject"
-
                type="text"
-
                placeholder="Asunto">
 
+
         <textarea id="supportMessage"
-
-                  placeholder="Describe tu problema...">
-
+                  placeholder="Escribe tu problema...">
         </textarea>
 
+
         <button class="main-button"
+                onclick="sendSupportMessage()">
 
-                onclick="sendSupport()"
-
-                data-es="Enviar"
-
-                data-en="Send">
-
-            Enviar
+            Enviar a soporte
 
         </button>
 
     </div>
 
-</div>
+</section>
+
 
 <!-- =====================================================
+     SUSCRIPCIONES
+===================================================== -->
 
-     MODAL — SUSCRIPCIONES
-    ===================================================== -->
+<section id="subscriptionsScreen"
+         class="overlay-screen">
 
-<div id="subscriptionsModal"
+    <div class="overlay-header">
 
-     class="modal">
+        <button onclick="closeSubscriptions()">
+            ←
+        </button>
 
-    <div class="modal-content">
+        <h2>
 
-        <div class="modal-header">
+            ⭐ Suscripciones
 
-            <h2 data-es="Suscripciones"
+        </h2>
 
-                data-en="Subscriptions">
+    </div>
 
-                Suscripciones
 
-            </h2>
+    <div id="subscriptionLocked"
+         class="subscription-box">
 
-            <button onclick="closeModal('subscriptionsModal')">
+        🔒
 
-                ×
+        <h3>
 
-            </button>
+            Desbloquea esta función
 
-        </div>
+        </h3>
 
-        <div id="subscriptionLocked">
+        <p>
 
-            <div class="subscription-icon">
+            Necesitas alcanzar 1,000 seguidores
+            para solicitar las suscripciones.
 
-                ⭐
+        </p>
 
-            </div>
+        <strong>
 
-            <h3 data-es="Desbloquea esta función"
+            Seguidores actuales:
+            <span id="subscriptionFollowers">
+                0
+            </span>
 
-                data-en="Unlock this feature">
+        </strong>
 
-                Desbloquea esta función
+    </div>
 
-            </h3>
 
-            <p data-es="Necesitas 1,000 seguidores para solicitar las suscripciones."
+    <div id="subscriptionApplication"
+         class="subscription-box"
+         style="display:none;">
 
-               data-en="You need 1,000 followers to request subscriptions.">
+        <h3>
 
-                Necesitas 1,000 seguidores para solicitar las suscripciones.
+            Solicitar suscripciones
 
-            </p>
+        </h3>
 
-            <strong>
+        <p>
 
-                0 / 1,000
+            Explica para qué quieres utilizar
+            esta herramienta.
 
+        </p>
+
+
+        <textarea id="subscriptionReason"
+                  placeholder="Escribe tu solicitud...">
+        </textarea>
+
+
+        <button class="main-button"
+                onclick="submitSubscriptionApplication()">
+
+            Enviar solicitud
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PRIVACIDAD
+===================================================== -->
+
+<section id="privacyScreen"
+         class="overlay-screen">
+
+    <div class="overlay-header">
+
+        <button onclick="closePrivacySettings()">
+            ←
+        </button>
+
+        <h2>
+
+            Privacidad
+
+        </h2>
+
+    </div>
+
+
+    <div class="settings-list">
+
+        <button onclick="togglePrivateAccount()">
+
+            🔐 Cuenta privada
+
+            <span id="privateAccountStatus">
+
+                Desactivada
+
+            </span>
+
+        </button>
+
+
+        <button onclick="toggleMessagePrivacy()">
+
+            💌 Permitir mensajes
+
+            <span id="messagePrivacyStatus">
+
+                Activado
+
+            </span>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INFORMACIÓN
+===================================================== -->
+
+<section id="aboutAppScreen"
+         class="overlay-screen">
+
+    <div class="overlay-header">
+
+        <button onclick="closeAboutApp()">
+            ←
+        </button>
+
+        <h2>
+
+            Acerca de WARM
+
+        </h2>
+
+    </div>
+
+
+    <div class="about-content">
+
+        <h1>WARM</h1>
+
+        <p>
+
+            Una comunidad para conectar,
+            compartir, descubrir y apoyar
+            a personas de todo el mundo.
+
+        </p>
+
+        <p>
+
+            Versión 1.0
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CUENTA
+===================================================== -->
+
+<section id="accountSettingsScreen"
+         class="overlay-screen">
+
+    <div class="overlay-header">
+
+        <button onclick="closeAccountSettings()">
+            ←
+        </button>
+
+        <h2>
+
+            Cuenta
+
+        </h2>
+
+    </div>
+
+
+    <div class="account-info">
+
+        <p>
+
+            Usuario:
+            <strong id="accountUsername">
+                @usuario
             </strong>
 
-        </div>
-
-        <div id="subscriptionRequest"
-
-             style="display:none;">
-
-            <h3 data-es="Solicita las suscripciones"
-
-                data-en="Request subscriptions">
-
-                Solicita las suscripciones
-
-            </h3>
-
-            <p data-es="Cuéntanos para qué utilizarás esta herramienta."
-
-               data-en="Tell us how you will use this feature.">
-
-                Cuéntanos para qué utilizarás esta herramienta.
-
-            </p>
-
-            <textarea id="subscriptionReason"
-
-                      placeholder="Escribe tu respuesta...">
-
-            </textarea>
-
-            <button class="main-button"
-
-                    onclick="sendSubscriptionRequest()"
-
-                    data-es="Enviar solicitud"
-
-                    data-en="Send request">
-
-                Enviar solicitud
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- =====================================================
-
-     MODAL — INFORMACIÓN
-
-===================================================== -->
-
-<div id="aboutModal"
-
-     class="modal">
-
-    <div class="modal-content">
-
-        <div class="modal-header">
-
-            <h2 data-es="Información sobre WARM"
-
-                data-en="About WARM">
-
-                Información sobre WARM
-
-            </h2>
-
-            <button onclick="closeModal('aboutModal')">
-
-                ×
-
-            </button>
-
-        </div>
-
-        <p data-es="WARM es una comunidad creada para conectar personas, compartir momentos y apoyar deseos."
-
-           data-en="WARM is a community created to connect people, share moments and support wishes.">
-
-            WARM es una comunidad creada para conectar personas, compartir momentos y apoyar deseos.
-
         </p>
 
         <p>
 
-            WARM
-
-        </p>
-
-        <p>
-
-            Version 1.0
+            Correo:
+            <strong id="accountEmail">
+                -
+            </strong>
 
         </p>
 
     </div>
 
-</div>
+</section>
+
 
 <!-- =====================================================
-
-     MODAL — SOLICITUD ENVIADA
+     MODAL CONFIRMAR CIERRE DE SESIÓN
 ===================================================== -->
 
-<div id="messageModal"
-
+<div id="logoutModal"
      class="modal">
 
     <div class="modal-content">
 
-        <div class="modal-header">
+        <h2>
 
-            <h2 id="messageModalTitle">
+            ¿Cerrar sesión?
 
-                WARM
+        </h2>
 
-            </h2>
+        <p>
 
-            <button onclick="closeModal('messageModal')">
+            Tendrás que iniciar sesión nuevamente
+            para entrar a tu cuenta.
 
-                ×
+        </p>
 
-            </button>
-
-        </div>
-
-        <p id="messageModalText"></p>
 
         <button class="main-button"
+                onclick="confirmLogout()">
 
-                onclick="closeModal('messageModal')"
+            Cerrar sesión
 
-                data-es="Aceptar"
+        </button>
 
-                data-en="OK">
 
-            Aceptar
+        <button class="secondary-button"
+                onclick="closeLogoutModal()">
+
+            Cancelar
 
         </button>
 
@@ -2070,15 +2366,14 @@
 
 </div>
 
-<!-- 
+
 <!-- =====================================================
      JAVASCRIPT
      
-     El código JavaScript estará en script.js
+     Todo el funcionamiento estará en script.js
 ===================================================== -->
 
 <script src="script.js"></script>
 
 </body>
 </html>
-        

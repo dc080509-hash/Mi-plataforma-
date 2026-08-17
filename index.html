@@ -1,828 +1,630 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WARM</title>
 
-<style>
+    <meta charset="UTF-8">
 
-* {
-    box-sizing: border-box;
-}
+    <meta name="viewport"
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f3f0;
-    color: #222;
-}
+          content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color"
 
-button,
-input,
-textarea,
-select {
-    font-family: inherit;
-}
+          content="#f7b6c8">
 
-button {
-    cursor: pointer;
-}
+    <meta name="description"
 
-.screen {
-    display: none;
-    min-height: 100vh;
-    padding: 25px 20px 90px;
-}
+          content="WARM - Conecta, comparte y apoya.">
 
-.screen.active {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+    <link rel="stylesheet"
 
-.welcome-screen {
-    justify-content: space-between;
-    text-align: center;
-}
+          href="style.css">
 
-h1 {
-    margin: 10px 0;
-    font-size: 40px;
-    letter-spacing: 5px;
-}
+    <title>WARM</title>
 
-h2 {
-    text-align: center;
-    margin: 12px 0;
-}
-
-p {
-    line-height: 1.5;
-}
-
-.image-space {
-    width: 100%;
-    max-width: 350px;
-    height: 280px;
-    border: 2px dashed #aaa;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    margin: 20px 0;
-}
-
-#language {
-    width: 100%;
-    max-width: 350px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    background: white;
-    font-size: 16px;
-}
-
-.main-button {
-    width: 100%;
-    max-width: 350px;
-    padding: 16px;
-    margin-top: 12px;
-    border: 0;
-    border-radius: 14px;
-    background: #222;
-    color: white;
-    font-size: 16px;
-}
-
-.secondary-button {
-    background: #ddd;
-    color: #222;
-}
-
-.form {
-    width: 100%;
-    max-width: 360px;
-}
-
-.form input {
-    width: 100%;
-    padding: 15px;
-    margin: 7px 0;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    font-size: 16px;
-}
-
-/* =========================
-   PANTALLA 7
-========================= */
-
-.founder {
-    width: 100%;
-    max-width: 370px;
-    background: white;
-    border-radius: 18px;
-    padding: 15px;
-    margin: 8px 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.founder-info {
-    flex: 1;
-    text-align: left;
-}
-
-.follow-button {
-    padding: 9px 13px;
-    border: 0;
-    border-radius: 10px;
-    background: #222;
-    color: white;
-}
-
-.follow-button.following {
-    background: #aaa;
-}
-
-/* =========================
-   PANTALLA 8
-========================= */
-
-.home-screen {
-    padding: 15px 12px 85px;
-    background: #f7f3f0;
-}
-
-.home-header {
-    width: 100%;
-    max-width: 600px;
-}
-
-.home-header h1 {
-    text-align: center;
-}
-
-.home-tabs {
-    display: flex;
-    width: 100%;
-    background: white;
-    border-radius: 14px;
-    padding: 4px;
-    margin-bottom: 15px;
-}
-
-.tab {
-    flex: 1;
-    border: 0;
-    background: transparent;
-    padding: 12px 5px;
-    font-size: 14px;
-    border-radius: 10px;
-}
-
-.tab.active {
-    background: #222;
-    color: white;
-}
-
-.feed {
-    width: 100%;
-    max-width: 600px;
-}
-
-.feed-section {
-    display: none;
-}
-
-.feed-section.active {
-    display: block;
-}
-
-.post-card,
-.text-post,
-.create-box,
-.group-card,
-.profile-card,
-.message-box,
-.wish-card {
-    background: white;
-    border-radius: 18px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.06);
-}
-
-.post-user {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.post-user p {
-    margin: 2px 0;
-    color: #888;
-    font-size: 13px;
-}
-
-.post-avatar {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-}
-
-.post-image {
-    width: 100%;
-    height: 320px;
-    margin-top: 12px;
-    background: #eee;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-}
-
-.post-actions {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.post-actions button {
-    flex: 1;
-    border: 0;
-    background: #f0f0f0;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.like-button.liked {
-    background: #222;
-    color: white;
-}
-
-.comment-box {
-    display: none;
-    margin-top: 10px;
-}
-
-.comment-box.active {
-    display: flex;
-    gap: 5px;
-}
-
-.comment-box input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-.comment-box button {
-    border: 0;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.comments {
-    font-size: 14px;
-    margin-top: 8px;
-}
-
-.tweet-text {
-    font-size: 17px;
-    margin: 15px 0;
-}
-
-/* Crear */
-
-.post-input {
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 15px;
-    color: #888;
-    margin: 12px 0;
-    min-height: 80px;
-}
-
-.create-options {
-    display: flex;
-    gap: 7px;
-}
-
-.create-options button {
-    flex: 1;
-    border: 0;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-/* Grupos */
-
-.group-card h3 {
-    margin: 5px 0;
-}
-
-.group-card p {
-    color: #666;
-}
-
-.join-button {
-    width: 100%;
-    padding: 11px;
-    border: 0;
-    border-radius: 10px;
-    background: #222;
-    color: white;
-}
-
-.join-button.joined {
-    background: #aaa;
-}
-
-.group-message-area {
-    display: none;
-    margin-top: 12px;
-}
-
-.group-message-area.active {
-    display: block;
-}
-
-.group-message-area textarea {
-    width: 100%;
-    min-height: 70px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-/* Barra inferior */
-
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 70px;
-    background: white;
-    border-top: 1px solid #ddd;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 100;
-}
-
-.nav-item {
-    border: 0;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    font-size: 20px;
-}
-
-.nav-item small {
-    font-size: 11px;
-}
-
-.nav-item.active {
-    font-weight: bold;
-}
-
-/* Perfil */
-
-.profile-card {
-    width: 100%;
-    text-align: center;
-}
-
-.profile-large {
-    width: 85px;
-    height: 85px;
-    border-radius: 50%;
-    background: #ddd;
-    margin: 0 auto 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Responsive */
-
-@media (min-width: 700px) {
-
-    .bottom-nav {
-        left: 50%;
-        right: auto;
-        width: 600px;
-        transform: translateX(-50%);
-        border-radius: 20px 20px 0 0;
-    }
-}
-
-</style>
 </head>
 
 <body>
 
-<!-- =========================
-     PANTALLA 1
-========================= -->
+<!-- =====================================================
 
-<section id="screen1" class="screen active welcome-screen">
+     PANTALLA 1 — BIENVENIDA / IDIOMA
+===================================================== -->
 
-    <div>
+<section id="screen1"
+
+         class="screen active welcome-screen">
+
+    <div class="welcome-content">
+
         <h1>WARM</h1>
 
         <div class="image-space">
+
             <span data-es="Imagen de bienvenida"
+
                   data-en="Welcome image">
+
                 Imagen de bienvenida
+
             </span>
+
         </div>
 
         <h2 data-es="Selecciona tu idioma"
+
             data-en="Select your language">
+
             Selecciona tu idioma
+
         </h2>
 
         <select id="language">
-            <option value="es">🇪🇸 Español</option>
-            <option value="en">🇺🇸 English</option>
+      <option value="es">
+
+                🇪🇸 Español
+
+            </option>
+
+            <option value="en">
+
+                🇺🇸 English
+
+            </option>
+
         </select>
+
     </div>
 
     <button class="main-button"
+
             onclick="goToScreen2()"
+
             data-es="Continuar"
+
             data-en="Continue">
+
         Continuar
+
     </button>
 
 </section>
 
+<!-- =====================================================
 
-<!-- =========================
-     PANTALLA 2
-========================= -->
+     PANTALLA 2 — CONECTAR
+    ===================================================== -->
 
-<section id="screen2" class="screen welcome-screen">
+<section id="screen2"
 
-    <div>
+         class="screen welcome-screen">
+
+    <div class="welcome-content">
+
         <h1>WARM</h1>
 
         <div class="image-space">
+
             <span data-es="Imagen de bienvenida"
+
                   data-en="Welcome image">
+
                 Imagen de bienvenida
+
             </span>
+
         </div>
 
-        <h2 id="connection-title">
+        <h2 id="connection-title"
+
+            data-es="Conecta con personas de todo el mundo"
+
+            data-en="Connect with people from all over the world">
+
             Conecta con personas de todo el mundo
+
         </h2>
 
-        <p id="connection-text">
+        <p id="connection-text"
+
+           data-es="Descubre nuevas personas, comparte momentos y forma parte de una comunidad global."
+
+           data-en="Discover new people, share moments and be part of a global community.">
+
             Descubre nuevas personas, comparte momentos y forma parte de una comunidad global.
+
         </p>
+
     </div>
 
     <button class="main-button"
+
             onclick="goToScreen3()"
+
             data-es="Siguiente"
+
             data-en="Next">
+
         Siguiente
+
     </button>
 
 </section>
 
+<!-- =====================================================
 
-<!-- =========================
-     PANTALLA 3
-========================= -->
+     PANTALLA 3 — DESEOS
+    ===================================================== -->
 
-<section id="screen3" class="screen welcome-screen">
+<section id="screen3"
 
-    <div>
+         class="screen welcome-screen">
+
+    <div class="welcome-content">
+
         <h1>WARM</h1>
 
         <div class="image-space">
+
             <span data-es="Imagen de deseos"
+
                   data-en="Wishes image">
+
                 Imagen de deseos
+
             </span>
+
         </div>
 
-        <h2 id="wishes-title">
+        <h2 id="wishes-title"
+
+            data-es="Haz realidad tus deseos"
+
+            data-en="Make your wishes come true">
+
             Haz realidad tus deseos
+
         </h2>
 
-        <p id="wishes-text">
+        <p id="wishes-text"
+
+           data-es="Comparte lo que deseas y recibe el apoyo de personas de todo el mundo."
+
+           data-en="Share what you wish for and receive support from people around the world.">
+
             Comparte lo que deseas y recibe el apoyo de personas de todo el mundo.
+
         </p>
+
     </div>
 
     <button class="main-button"
+
             onclick="goToScreen4()"
+
             data-es="Siguiente"
+
             data-en="Next">
+
         Siguiente
+
     </button>
 
 </section>
 
+<!-- =====================================================
 
-<!-- =========================
-     PANTALLA 4
-========================= -->
+     PANTALLA 4 — COMUNIDAD
+    ===================================================== -->
 
-<section id="screen4" class="screen welcome-screen">
+<section id="screen4"
 
-    <div>
+         class="screen welcome-screen">
+
+    <div class="welcome-content">
+
         <h1>WARM</h1>
 
         <div class="image-space">
-            <span data-es="Imagen de suscripciones"
-                  data-en="Subscriptions image">
-                Imagen de suscripciones
+
+            <span data-es="Imagen de comunidad"
+
+                  data-en="Community image">
+
+                Imagen de comunidad
+
             </span>
+
         </div>
 
-        <h2 data-es="Conecta y apoya"
-            data-en="Connect and support">
-            Conecta y apoya
+        <h2 data-es="Una comunidad para todos"
+
+            data-en="A community for everyone">
+
+            Una comunidad para todos
+
         </h2>
+
+        <p data-es="Comparte, descubre, conecta y apoya a personas de todo el mundo."
+
+           data-en="Share, discover, connect and support people from around the world.">
+
+            Comparte, descubre, conecta y apoya a personas de todo el mundo.
+
+        </p>
+
     </div>
 
     <button class="main-button"
+
             onclick="finishWelcome()"
-            data-es="Siguiente"
-            data-en="Next">
-        Siguiente
+
+            data-es="Continuar"
+
+            data-en="Continue">
+
+        Continuar
+
     </button>
 
 </section>
 
+<!-- =====================================================
 
-<!-- =========================
-     PANTALLA 5
-========================= -->
+     PANTALLA 5 — FINAL / CREAR CUENTA
+    ===================================================== -->
 
-<section id="screen5" class="screen welcome-screen">
+<section id="screen5"
 
-    <div>
+         class="screen welcome-screen">
+
+    <div class="welcome-content">
+
         <h1>WARM</h1>
 
         <div class="image-space">
-            <span id="final-image-text">
+
+            <span id="final-image-text"
+
+                  data-es="Imagen final"
+
+                  data-en="Final image">
+
                 Imagen final
+
             </span>
+
         </div>
 
-        <h2 id="final-title">
+        <h2 id="final-title"
+
+            data-es="Todo empieza aquí"
+
+            data-en="Everything starts here">
+
             Todo empieza aquí
+
         </h2>
 
-        <p id="final-text">
+        <p id="final-text"
+
+           data-es="Únete a una comunidad creada para conectar, compartir y apoyar."
+
+           data-en="Join a community created to connect, share and support.">
+
             Únete a una comunidad creada para conectar, compartir y apoyar.
+
         </p>
+
     </div>
 
-    <div style="width:100%;max-width:350px;">
+    <div class="welcome-buttons">
 
         <button id="create-account-button"
+
                 class="main-button"
-                onclick="goToScreen6()">
+
+                onclick="goToScreen6()"
+
+                data-es="Crear cuenta"
+
+                data-en="Create account">
+
             Crear cuenta
+
         </button>
 
         <button id="login-button"
-                class="main-button secondary-button"
-                onclick="login()">
+
+                class="secondary-button"
+
+                onclick="login()"
+
+                data-es="Iniciar sesión"
+
+                data-en="Log in">
+
             Iniciar sesión
+
         </button>
 
     </div>
 
 </section>
 
+<!-- =====================================================
 
-<!-- =========================
-     PANTALLA 6
-========================= -->
+     PANTALLA 6 — REGISTRO
+    ===================================================== -->
 
-<section id="screen6" class="screen">
+<section id="screen6"
 
-    <h1>WARM</h1>
+         class="screen auth-screen">
 
-    <h2 id="signup-title">
-        Crear cuenta
-    </h2>
+    <div class="auth-card">
 
-    <div class="form">
+        <h1>WARM</h1>
 
-        <input type="text"
-               id="username"
-               placeholder="Nombre de usuario">
+        <h2 id="signup-title"
 
-        <input type="email"
-               id="email"
-               placeholder="Correo electrónico">
+            data-es="Crear cuenta"
 
-        <input type="date"
-               id="birthdate">
+            data-en="Create account">
 
-        <input type="password"
-               id="password"
-               placeholder="Contraseña">
+            Crear cuenta
+
+        </h2>
+
+        <input id="username"
+
+               type="text"
+
+               placeholder="Nombre de usuario"
+
+               data-placeholder-es="Nombre de usuario"
+
+               data-placeholder-en="Username">
+
+        <input id="email"
+
+               type="email"
+
+               placeholder="Correo electrónico"
+
+               data-placeholder-es="Correo electrónico"
+
+               data-placeholder-en="Email">
+
+        <input id="birthdate"
+
+               type="date">
+
+        <input id="password"
+
+               type="password"
+
+               placeholder="Contraseña"
+
+               data-placeholder-es="Contraseña"
+
+               data-placeholder-en="Password">
 
         <button id="signup-button"
+
                 class="main-button"
-                onclick="goToScreen7()">
+
+                onclick="goToScreen7()"
+
+                data-es="Crear cuenta"
+
+                data-en="Create account">
+
             Crear cuenta
+
         </button>
 
     </div>
 
 </section>
 
-<!-- =========================
+<!-- =====================================================
 
-     PANTALLA 7
+     PANTALLA 7 — FUNDADORES
+===================================================== -->
 
-========================= -->
+<section id="screen7"
 
-<section id="screen7" class="screen">
+         class="screen founders-screen">
 
-    <h1>WARM</h1>
+    <div class="page-header">
 
-    <h2 data-es="Sigue a los fundadores"
+        <h1>WARM</h1>
 
-        data-en="Follow the founders">
+        <h2 data-es="Sigue a los fundadores"
 
-        Sigue a los fundadores
+            data-en="Follow the founders">
 
-    </h2>
+            Sigue a los fundadores
 
-    <p data-es="Conoce a las personas que están construyendo WARM."
+        </h2>
 
-       data-en="Meet the people building WARM.">
+        <p data-es="Conecta con las primeras personas de WARM."
 
-        Conoce a las personas que están construyendo WARM.
+           data-en="Connect with the first people on WARM.">
 
-    </p>
+            Conecta con las primeras personas de WARM.
 
-    <!-- FUNDADOR 1 -->
-        <div class="founder">
-
-        <div class="avatar">F1</div>
-
-        <div class="founder-info">
-
-            <strong>@warmfounder</strong>
-
-            <p data-es="Fundador de WARM"
-
-               data-en="WARM founder">
-
-                Fundador de WARM
-
-            </p>
-
-        </div>
-
-        <button class="follow-button"
-
-                onclick="followFounder(this, 'warmfounder')"
-
-                data-follow-es="Seguir"
-
-                data-follow-en="Follow">
-
-            Seguir
-
-        </button>
+        </p>
 
     </div>
 
-    <!-- FUNDADOR 2 -->
-        <div class="founder">
+    <div class="founders-list">
 
-        <div class="avatar">F2</div>
+        <!-- FUNDADOR 1 -->
 
-        <div class="founder-info">
+        <div class="founder-card">
 
-            <strong>@warmteam</strong>
+            <div class="founder-avatar">
 
-            <p data-es="Equipo WARM"
+                Foto
 
-               data-en="WARM team">
+            </div>
 
-                Equipo WARM
+            <div class="founder-info">
 
-            </p>
+                <strong>
 
-        </div>
+                    @fundador1
 
-        <button class="follow-button"
+                </strong>
 
-                onclick="followFounder(this, 'warmteam')"
+                <span data-es="Fundador de WARM"
 
-                data-follow-es="Seguir"
+                      data-en="WARM Founder">
 
-                data-follow-en="Follow">
+                    Fundador de WARM
 
-            Seguir
+                </span>
 
-        </button>
+            </div>
 
-    </div>
+            <button class="follow-button"
 
-    <!-- FUNDADOR 3 -->
-        <div class="founder">
+                    onclick="followFounder(this, 'fundador1')"
 
-        <div class="avatar">F3</div>
+                    data-follow-es="Seguir"
 
-        <div class="founder-info">
+                    data-follow-en="Follow">
 
-            <strong>@warmcreator</strong>
+                Seguir
 
-            <p data-es="Creador de WARM"
-
-               data-en="WARM creator">
-
-                Creador de WARM
-
-            </p>
+            </button>
 
         </div>
 
-        <button class="follow-button"
+        <!-- FUNDADOR 2 -->
+            <div class="founder-card">
 
-                onclick="followFounder(this, 'warmcreator')"
+            <div class="founder-avatar">
 
-                data-follow-es="Seguir"
+                Foto
 
-                data-follow-en="Follow">
+            </div>
 
-            Seguir
+            <div class="founder-info">
 
-        </button>
+                <strong>
 
-    </div>
-<!-- FUNDADOR 4 -->
+                    @fundador2
 
-    <div class="founder">
+                </strong>
 
-        <div class="avatar">F4</div>
+                <span data-es="Fundador de WARM"
 
-        <div class="founder-info">
+                      data-en="WARM Founder">
 
-            <strong>@warmofficial</strong>
+                    Fundador de WARM
 
-            <p data-es="Fundador de WARM"
+                </span>
 
-               data-en="WARM founder">
+            </div>
 
-                Fundador de WARM
+            <button class="follow-button"
 
-            </p>
+                    onclick="followFounder(this, 'fundador2')"
+
+                    data-follow-es="Seguir"
+
+                    data-follow-en="Follow">
+
+                Seguir
+
+            </button>
 
         </div>
 
-        <button class="follow-button"
+        <!-- FUNDADOR 3 -->
+            <div class="founder-card">
 
-                onclick="followFounder(this, 'warmofficial')"
+            <div class="founder-avatar">
 
-                data-follow-es="Seguir"
+                Foto
 
-                data-follow-en="Follow">
+            </div>
 
-            Seguir
+            <div class="founder-info">
 
-        </button>
+                <strong>
+
+                    @fundador3
+
+                </strong>
+
+                <span data-es="Fundador de WARM"
+
+                      data-en="WARM Founder">
+
+                    Fundador de WARM
+
+                </span>
+
+            </div>
+
+            <button class="follow-button"
+
+                    onclick="followFounder(this, 'fundador3')"
+
+                    data-follow-es="Seguir"
+
+                    data-follow-en="Follow">
+
+                Seguir
+
+            </button>
+
+        </div>
+
+        <!-- FUNDADOR 4 -->
+             <div class="founder-card">
+
+            <div class="founder-avatar">
+
+                Foto
+
+            </div>
+
+            <div class="founder-info">
+
+                <strong>
+
+                    @fundador4
+
+                </strong>
+
+                <span data-es="Fundador de WARM"
+
+                      data-en="WARM Founder">
+
+                    Fundador de WARM
+
+                </span>
+
+            </div>
+
+            <button class="follow-button"
+
+                    onclick="followFounder(this, 'fundador4')"
+
+                    data-follow-es="Seguir"
+
+                    data-follow-en="Follow">
+
+                Seguir
+
+            </button>
+
+        </div>
 
     </div>
 
@@ -830,2141 +632,749 @@ p {
 
             onclick="finishFounders()"
 
-            data-es="Continuar"
+            data-es="Entrar a WARM"
 
-            data-en="Continue">
+            data-en="Enter WARM">
 
-        Continuar
+        Entrar a WARM
 
     </button>
 
 </section>
 
-<!-- =========================
-     PANTALLA 8
-========================= -->
+<!-- =====================================================
 
-<section id="screen8" class="screen home-screen">
+     PANTALLA 8 — APLICACIÓN PRINCIPAL
+    ===================================================== -->
 
-    <div class="home-header">
+<section id="screen8"
+
+         class="screen app-screen">
+
+    <!-- ===============================================
+
+         ENCABEZADO PRINCIPAL
+
+    ================================================ -->
+
+    <header class="app-header">
 
         <h1>WARM</h1>
 
-        <div class="home-tabs">
+        <div class="header-actions">
 
-            <button class="tab active"
-                    onclick="showFeed('forYou', this)"
-                    data-es="Para ti"
-                    data-en="For you">
-                Para ti
-            </button>
-
-            <button class="tab"
-                    onclick="showFeed('discover', this)"
-                    data-es="Descubrir"
-                    data-en="Discover">
-                Descubrir
-            </button>
-
-            <button class="tab"
-                    onclick="showFeed('international', this)"
-                    data-es="Internacional"
-                    data-en="International">
-                Internacional
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div class="feed">
-
-
-        <!-- PARA TI -->
-
-        <div id="forYouContent"
-             class="feed-section active">
-
-            <div class="post-card">
-
-                <div class="post-user">
-
-                    <div class="post-avatar">
-                        Foto
-                    </div>
-
-                    <div>
-                        <strong>@usuario</strong>
-                        <p data-es="Hace un momento"
-                           data-en="A moment ago">
-                            Hace un momento
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="post-image">
-                    <span data-es="Foto / Video"
-                          data-en="Photo / Video">
-                        Foto / Video
-                    </span>
-                </div>
-
-                <div class="post-actions">
-
-                    <button class="like-button"
-                            onclick="likePost(this)">
-                        ♡ <span>0</span>
-                    </button>
-
-                    <button onclick="toggleComments(this)">
-                        💬
-                    </button>
-
-                    <button onclick="sharePost()">
-                        ↗
-                    </button>
-
-                </div>
-
-                <div class="comment-box">
-
-                    <input type="text"
-                           placeholder="Escribe un comentario...">
-
-                    <button onclick="addComment(this)">
-                        Enviar
-                    </button>
-
-                </div>
-
-                <div class="comments"></div>
-
-                <p data-es="Comparte momentos, ideas y experiencias con la comunidad WARM."
-                   data-en="Share moments, ideas and experiences with the WARM community.">
-                    Comparte momentos, ideas y experiencias con la comunidad WARM.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- DESCUBRIR -->
-
-        <div id="discoverContent"
-             class="feed-section">
-
-            <div class="create-box">
-
-                <strong data-es="¿Qué quieres compartir?"
-                        data-en="What do you want to share?">
-                    ¿Qué quieres compartir?
-                </strong>
-
-                <textarea id="newPostText"
-                          class="post-input"
-                          placeholder="Escribe algo..."></textarea>
-
-                <div class="create-options">
-
-                    <button onclick="createPhoto()">
-                        📷 <span data-es="Foto"
-                                 data-en="Photo">Foto</span>
-                    </button>
-
-                    <button onclick="createVideo()">
-                        🎥 <span data-es="Video"
-                                 data-en="Video">Video</span>
-                    </button>
-
-                    <button onclick="publishTextPost()"
-                            data-es="Publicar"
-                            data-en="Post">
-                        Publicar
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <div id="discoverPosts">
-
-                <div class="text-post">
-
-                    <div class="post-user">
-
-                        <div class="post-avatar">
-                            Foto
-                        </div>
-
-                        <div>
-                            <strong>@usuario123</strong>
-                            <p data-es="Hace 5 min"
-                               data-en="5 min ago">
-                                Hace 5 min
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <p class="tweet-text"
-                       data-es="El amanecer de hoy está hermoso 🌅"
-                       data-en="Today's sunrise is beautiful 🌅">
-                        El amanecer de hoy está hermoso 🌅
-                    </p>
-
-                    <div class="post-actions">
-
-                        <button class="like-button"
-                                onclick="likePost(this)">
-                            ♡ <span>0</span>
-                        </button>
-
-                        <button onclick="toggleComments(this)">
-                            💬
-                        </button>
-
-                        <button onclick="sharePost()">
-                            ↗
-                        </button>
-
-                    </div>
-
-                    <div class="comment-box">
-
-                        <input type="text"
-                               placeholder="Escribe un comentario...">
-
-                        <button onclick="addComment(this)">
-                            Enviar
-                        </button>
-
-                    </div>
-
-                    <div class="comments"></div>
-
-                </div>
-
-
-                <div class="text-post">
-
-                    <div class="post-user">
-
-                        <div class="post-avatar">
-                            Foto
-                        </div>
-
-                        <div>
-                            <strong>@sofia_warm</strong>
-                            <p data-es="Hace 15 min"
-                               data-en="15 min ago">
-                                Hace 15 min
-                            </p>
-                        </div>
-
-                    </div>
-
-                    <p class="tweet-text"
-                       data-es="Hoy conocí personas increíbles en WARM. 🤍"
-                       data-en="Today I met amazing people on WARM. 🤍">
-                        Hoy conocí personas increíbles en WARM. 🤍
-                    </p>
-
-                    <div class="post-actions">
-
-                        <button class="like-button"
-                                onclick="likePost(this)">
-                            ♡ <span>0</span>
-                        </button>
-
-                        <button onclick="toggleComments(this)">
-                            💬
-                        </button>
-
-                        <button onclick="sharePost()">
-                            ↗
-                        </button>
-
-                    </div>
-
-                    <div class="comment-box">
-
-                        <input type="text"
-                               placeholder="Escribe un comentario...">
-
-                        <button onclick="addComment(this)">
-                            Enviar
-                        </button>
-
-                    </div>
-
-                    <div class="comments"></div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- INTERNACIONAL -->
-
-        <div id="internationalContent"
-             class="feed-section">
-
-            <div class="group-card">
-
-                <h3>🌎 Friends Around the World</h3>
-
-                <p data-es="Un grupo para conocer personas de diferentes países."
-                   data-en="A group to meet people from different countries.">
-                    Un grupo para conocer personas de diferentes países.
-                </p>
-
-                <button class="join-button"
-                        onclick="joinGroup(this)"
-                        data-es="Unirme al grupo"
-                        data-en="Join group">
-                    Unirme al grupo
-                </button>
-
-                <div class="group-message-area">
-
-                    <textarea placeholder="Escribe un mensaje al grupo..."></textarea>
-
-                    <button class="main-button"
-                            onclick="sendGroupMessage(this)"
-                            data-es="Enviar mensaje"
-                            data-en="Send message">
-                        Enviar mensaje
-                    </button>
-
-                    <div class="group-messages"></div>
-
-                </div>
-
-            </div>
-
-
-            <div class="group-card">
-
-                <h3>🌍 WARM International</h3>
-
-                <p data-es="Comparte experiencias y conoce nuevos amigos."
-                   data-en="Share experiences and meet new friends.">
-                    Comparte experiencias y conoce nuevos amigos.
-                </p>
-
-                <button class="join-button"
-                        onclick="joinGroup(this)"
-                        data-es="Unirme al grupo"
-                        data-en="Join group">
-                    Unirme al grupo
-                </button>
-
-                <div class="group-message-area">
-
-                    <textarea placeholder="Escribe un mensaje al grupo..."></textarea>
-
-                    <button class="main-button"
-                            onclick="sendGroupMessage(this)"
-                            data-es="Enviar mensaje"
-                            data-en="Send message">
-                        Enviar mensaje
-                    </button>
-
-                    <div class="group-messages"></div>
-
-                </div>
-
-            </div>
-
-        </div>
-<!-- CREAR -->
-
-<div id="createContent" class="feed-section">
-
-    <div class="create-box">
-
-        <h2>Crear</h2>
-
-        <p>¿Qué quieres compartir?</p>
-
-        <div class="create-options">
-
-            <button type="button" onclick="openPhotoPost()">
-
-                📷
-
-                <span>Foto</span>
-
-            </button>
-
-            <button type="button" onclick="openVideoPost()">
-
-                🎥
-
-                <span>Video</span>
-
-            </button>
-
-            <button type="button" onclick="openTextPost()">
-
-                ✍️
-
-                <span>Publicación</span>
-
-            </button>
-
-        </div>
-              <!-- FOTO -->
-
-        <div id="photoPostBox"
-
-             class="create-type-box"
-
-             style="display:none;">
-
-            <h3>Crear publicación con foto</h3>
-
-            <input
-
-                type="file"
-
-                id="photoInput"
-
-                accept="image/*">
-
-            <textarea
-
-                id="photoCaption"
-
-                class="post-input"
-
-                placeholder="Escribe algo sobre tu foto...">
-
-            </textarea>
-
-            <button
-
-                type="button"
-
-                class="main-button"
-
-                onclick="publishPhotoPost()">
-
-                Publicar foto
-
-            </button>
-
-        </div>
-        <!-- VIDEO -->
-
-        <div id="videoPostBox"
-
-             class="create-type-box"
-
-             style="display:none;">
-
-            <h3>Crear publicación con video</h3>
-
-            <input
-
-                type="file"
-
-                id="videoInput"
-
-                accept="video/*">
-
-            <textarea
-
-                id="videoCaption"
-
-                class="post-input"
-
-                placeholder="Escribe algo sobre tu video...">
-
-            </textarea>
-
-            <button
-
-                type="button"
-
-                class="main-button"
-
-                onclick="publishVideoPost()">
-
-                Publicar video
-
-            </button>
-
-        </div>
-        <!-- TEXTO -->
-
-        <div id="textPostBox"
-
-             class="create-type-box"
-
-             style="display:none;">
-
-            <h3>Crear publicación</h3>
-
-            <textarea
-
-                id="createArea"
-
-                class="post-input"
-
-                placeholder="¿Qué quieres compartir?">
-
-            </textarea>
-
-            <button
-
-                type="button"
-
-                class="main-button"
-
-                onclick="publishFromCreate()">
-
-                Publicar
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-        <!-- DESEOS -->
-
-        <div id="wishesContent"
-             class="feed-section">
-
-            <div class="wish-card">
-
-                <h2 data-es="Deseos"
-                    data-en="Wishes">
-                    Deseos
-                </h2>
-
-                <p data-es="Aquí podrás compartir cosas que deseas."
-                   data-en="Here you can share things you wish for.">
-                    Aquí podrás compartir cosas que deseas.
-                </p>
-
-                <button class="main-button"
-                        onclick="addWish()"
-                        data-es="Crear un deseo"
-                        data-en="Create a wish">
-                    Crear un deseo
-                </button>
-
-            </div>
-
-        </div>
-
-<!-- MENSAJES -->
-
-<div id="messagesContent"
-
-     class="feed-section">
-
-    <div class="message-box">
-
-        <h2 data-es="Mensajes"
-
-            data-en="Messages">
-
-            Mensajes
-
-        </h2>
-
-        <!-- AVISO DE DESBLOQUEO -->
-                <div id="messagesUnlockNotice"
-
-             class="messages-unlock-notice">
-
-            🔒
-
-            <strong
-
-                data-es="Desbloquea esta función al llegar a 1,000 seguidores."
-
-                data-en="Unlock this feature when you reach 1,000 followers.">
-
-                Desbloquea esta función al llegar a 1,000 seguidores.
-
-            </strong>
-
-        </div>
-
-        <p data-es="Todavía no tienes conversaciones."
-
-           data-en="You don't have any conversations yet.">
-
-            Todavía no tienes conversaciones.
-
-        </p>
-
-        <button class="main-button"
-
-                onclick="newMessage()"
-
-                data-es="Nuevo mensaje"
-
-                data-en="New message">
-
-            Nuevo mensaje
-
-        </button>
-
-    </div>
-
-</div>
-        
-<!-- PERFIL -->
-
-<div id="profileContent" class="feed-section">
-
-    <div class="profile-card">
-
-        <!-- FOTO DE PORTADA -->
-
-        <div class="profile-cover">
-
-            <!-- CAMPANITA -->
-
-            <button class="profile-notification"
-
-                    onclick="showNotifications()"
+            <button onclick="openNotifications()"
 
                     aria-label="Notificaciones">
 
                 🔔
 
+                <span id="notificationBadge"
+
+                      class="notification-badge"
+
+                      style="display:none;">
+
+                    0
+
+                </span>
+
             </button>
 
-            <!-- TRES RAYITAS / AJUSTES -->
-               <button class="profile-menu"
+            <button onclick="openProfile()"
 
-                    onclick="profileSettings()"
+                    aria-label="Perfil">
 
-                    aria-label="Ajustes">
-
-                ☰
+                👤
 
             </button>
 
         </div>
 
-        <!-- FOTO DE PERFIL REDONDA -->
+    </header>
 
-        <div class="profile-photo">
+    <!-- ===============================================
 
-            Foto
+         PESTAÑAS
+        ================================================ -->
 
-        </div>
+    <div class="home-tabs">
 
-        <!-- INFORMACIÓN DEL PERFIL -->
+        <button class="tab active"
 
-        <h2 id="profileUsername">
+                onclick="showFeed('forYou', this)"
 
-            @usuario
+                data-es="Para ti"
 
-        </h2>
+                data-en="For you">
 
-        <p data-es="Tu perfil WARM"
+            Para ti
 
-           data-en="Your WARM profile">
+        </button>
 
-            Tu perfil WARM
-<div class="profile-followers">
-    <strong id="followersCountDisplay">0</strong>
+        <button class="tab"
 
-    <span
-        data-es="seguidores"
-        data-en="followers">
-        seguidores
-    </span>
-</div>
-        </p>
-<!-- ACCIONES DEL PROPIO PERFIL -->
-<div class="profile-actions">
+                onclick="showFeed('discover', this)"
 
-    <button class="main-button"
-            onclick="editProfile()"
-            data-es="Editar perfil"
-            data-en="Edit profile">
-        Editar perfil
-    </button>
+                data-es="Descubrir"
 
-    <button class="main-button secondary-button"
-            onclick="shareProfile()"
-            data-es="Compartir perfil"
-            data-en="Share profile">
-        Compartir perfil
-    </button>
+                data-en="Discover">
 
-</div>
-        
+            Descubrir
 
-        <!-- FEED DEL PERFIL -->
+        </button>
 
-        <div class="profile-feed">
+        <button class="tab"
 
-            <div class="feed-tabs">
+                onclick="showFeed('international', this)"
 
-                <button class="feed-tab active"
+                data-es="Internacional"
 
-                        data-es="Feed"
+                data-en="International">
 
-                        data-en="Feed">
+            Internacional
 
-                    Feed
+        </button>
 
-                </button>
+    </div>
 
-                <button class="feed-tab"
+    <!-- ===============================================
 
-                        data-es="Fotos"
+         CONTENIDO — PARA TI
 
-                        data-en="Photos">
+    ================================================ -->
+    <div id="forYouContent"
 
-                    Fotos
+         class="feed-section active">
 
-                </button>
+        <div class="feed-empty">
 
-                <button class="feed-tab"
+            <h2 data-es="Para ti"
 
-                        data-es="Videos"
+                data-en="For you">
 
-                        data-en="Videos">
+                Para ti
 
-                    Videos
+            </h2>
 
-                </button>
+            <p data-es="Aquí aparecerán publicaciones de las personas que sigues."
 
-            </div>
+               data-en="Posts from people you follow will appear here.">
 
-            <!-- PUBLICACIONES -->
-                 <div id="profilePosts">
+                Aquí aparecerán publicaciones de las personas que sigues.
 
-                <!-- Fotos, videos, frases y publicaciones
-
-                     compartidas desde Descubrir aparecerán aquí -->
-
-                <div class="empty-profile-feed"
-
-                     data-es="Aún no hay publicaciones"
-
-                     data-en="No posts yet">
-
-                    Aún no hay publicaciones
-
-                </div>
-
-            </div>
+            </p>
 
         </div>
 
     </div>
 
-</div>
+    <!-- ===============================================
 
-    <!-- BARRA INFERIOR -->
+         CONTENIDO — DESCUBRIR
+        ================================================ -->
+
+    <div id="discoverContent"
+
+         class="feed-section">
+
+        <div class="create-post-card">
+
+            <h3 data-es="Crear publicación"
+
+                data-en="Create post">
+
+                Crear publicación
+
+            </h3>
+
+            <div class="create-buttons">
+
+                <button onclick="openPhotoPost()">
+
+                    📷
+
+                    <span data-es="Foto"
+
+                          data-en="Photo">
+
+                        Foto
+
+                    </span>
+
+                </button>
+
+                <button onclick="openVideoPost()">
+
+                    🎥
+
+                    <span data-es="Video"
+
+                          data-en="Video">
+
+                        Video
+
+                    </span>
+
+                </button>
+
+                <button onclick="openTextPost()">
+
+                    ✍️
+
+                    <span data-es="Texto"
+
+                          data-en="Text">
+
+                        Texto
+
+                    </span>
+
+                </button>
+
+            </div>
+
+            <!-- FOTO -->
+
+            <div id="photoPostBox"
+
+                 class="create-box"
+
+                 style="display:none;">
+
+                <input id="photoInput"
+
+                       type="file"
+
+                       accept="image/*">
+
+                <input id="photoCaption"
+
+                       type="text"
+
+                       placeholder="Escribe una descripción...">
+
+                <button onclick="publishPhotoPost()"
+
+                        class="main-button">
+
+                    Publicar foto
+
+                </button>
+
+            </div>
+
+            <!-- VIDEO -->
+
+            <div id="videoPostBox"
+
+                 class="create-box"
+
+                 style="display:none;">
+
+                <input id="videoInput"
+
+                       type="file"
+
+                       accept="video/*">
+
+                <input id="videoCaption"
+
+                       type="text"
+
+                       placeholder="Escribe una descripción...">
+
+                <button onclick="publishVideoPost()"
+
+                        class="main-button">
+
+                    Publicar video
+
+                </button>
+
+            </div>
+
+            <!-- TEXTO -->
+
+            <div id="textPostBox"
+
+                 class="create-box"
+
+                 style="display:none;">
+
+                <textarea id="createArea"
+
+                          placeholder="¿Qué estás pensando?">
+
+                </textarea>
+
+                <button onclick="publishFromCreate()"
+
+                        class="main-button">
+
+                    Publicar
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="discoverPosts"></div>
+
+    </div>
+
+    <!-- ===============================================
+
+         CONTENIDO — INTERNACIONAL
+        ================================================ -->
+
+    <div id="internationalContent"
+
+         class="feed-section">
+
+        <div class="feed-empty">
+
+            <h2 data-es="Internacional"
+
+                data-en="International">
+
+                Internacional
+
+            </h2>
+
+            <p data-es="Descubre publicaciones de personas de todo el mundo."
+
+               data-en="Discover posts from people around the world.">
+
+                Descubre publicaciones de personas de todo el mundo.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ===============================================
+
+         BARRA INFERIOR
+
+    ================================================ -->
 
     <nav class="bottom-nav">
 
         <button class="nav-item active"
+
                 onclick="openBottom('forYou', this)">
+
             🏠
-            <small data-es="Inicio"
-                   data-en="Home">
+
+            <span data-es="Inicio"
+
+                  data-en="Home">
+
                 Inicio
-            </small>
+
+            </span>
+
         </button>
 
         <button class="nav-item"
-                onclick="openBottom('create', this)">
-            ＋
-            <small data-es="Crear"
-                   data-en="Create">
-                Crear
-            </small>
-        </button>
 
-        <button class="nav-item"
                 onclick="openBottom('wishes', this)">
-            ♡
-            <small data-es="Deseos"
-                   data-en="Wishes">
+
+            🎁
+
+            <span data-es="Deseos"
+
+                  data-en="Wishes">
+
                 Deseos
-            </small>
+
+            </span>
+
         </button>
 
         <button class="nav-item"
+
                 onclick="openBottom('messages', this)">
+
             💬
-            <small data-es="Mensajes"
-                   data-en="Messages">
+
+            <span data-es="Mensajes"
+
+                  data-en="Messages">
+
                 Mensajes
-            </small>
+
+            </span>
+
         </button>
 
         <button class="nav-item"
+
                 onclick="openBottom('profile', this)">
-            ●
-            <small data-es="Perfil"
-                   data-en="Profile">
+
+            👤
+
+            <span data-es="Perfil"
+
+                  data-en="Profile">
+
                 Perfil
-            </small>
+
+            </span>
+
         </button>
 
     </nav>
 
-</section>
+    <!-- ===============================================
 
+         DESEOS
+================================================ -->
 
-<script>
+    <div id="wishesContent"
 
-/* =========================
-   IDIOMA
-========================= */
+         class="feed-section">
 
-let selectedLanguage = "es";
+        <div class="section-header">
 
+            <h2 data-es="Deseos"
 
-function updateLanguage() {
+                data-en="Wishes">
 
-    document.querySelectorAll("[data-es]").forEach(function(element) {
+                Deseos
 
-        const text =
-            selectedLanguage === "en"
-            ? element.getAttribute("data-en")
-            : element.getAttribute("data-es");
+            </h2>
 
-        if (text !== null) {
-            element.textContent = text;
-        }
-    });
+            <button onclick="addWish()">
 
-    document.querySelectorAll("[data-follow-es]").forEach(function(button) {
+                +
 
-        if (!button.classList.contains("following")) {
+            </button>
 
-            button.textContent =
-                selectedLanguage === "en"
-                ? button.getAttribute("data-follow-en")
-                : button.getAttribute("data-follow-es");
-        }
-    });
-}
+        </div>
 
-/* =========================
-   PANTALLA 1 → 2
-========================= */
-function goToScreen2() {
-document.getElementById("screen1").classList.remove("active");
-document.getElementById("screen2").classList.add("active");
+        <div id="wishesList">
 
-}
+            <div class="feed-empty">
 
+                <p data-es="Comparte algo que deseas."
 
+                   data-en="Share something you wish for.">
 
+                    Comparte algo que deseas.
 
-/* =========================
-   PANTALLA 2 → 3
-========================= */
-
-function goToScreen3() {
-
-    document.getElementById("screen2")
-        .classList.remove("active");
-
-    document.getElementById("screen3")
-        .classList.add("active");
-
-    if (selectedLanguage === "en") {
-
-        document.getElementById("wishes-title").textContent =
-            "Make your wishes come true";
-
-        document.getElementById("wishes-text").textContent =
-            "Share what you wish for and receive support from people around the world.";
-
-    } else {
-
-        document.getElementById("wishes-title").textContent =
-            "Haz realidad tus deseos";
-
-        document.getElementById("wishes-text").textContent =
-            "Comparte lo que deseas y recibe el apoyo de personas de todo el mundo.";
-    }
-}
-
-
-/* =========================
-   PANTALLA 3 → 4
-========================= */
-
-function goToScreen4() {
-
-    document.getElementById("screen3")
-        .classList.remove("active");
-
-    document.getElementById("screen4")
-        .classList.add("active");
-}
-
-
-/* =========================
-   PANTALLA 4 → 5
-========================= */
-
-function finishWelcome() {
-
-    document.getElementById("screen4")
-        .classList.remove("active");
-
-    document.getElementById("screen5")
-        .classList.add("active");
-
-    if (selectedLanguage === "en") {
-
-        document.getElementById("final-title").textContent =
-            "Everything starts here";
-
-        document.getElementById("final-text").textContent =
-            "Join a community created to connect, share and support.";
-
-        document.getElementById("final-image-text").textContent =
-            "Final image";
-
-        document.getElementById("create-account-button").textContent =
-            "Create account";
-
-        document.getElementById("login-button").textContent =
-            "Log in";
-
-    } else {
-
-        document.getElementById("final-title").textContent =
-            "Todo empieza aquí";
-
-        document.getElementById("final-text").textContent =
-            "Únete a una comunidad creada para conectar, compartir y apoyar.";
-
-        document.getElementById("final-image-text").textContent =
-            "Imagen final";
-
-        document.getElementById("create-account-button").textContent =
-            "Crear cuenta";
-
-        document.getElementById("login-button").textContent =
-            "Iniciar sesión";
-    }
-}
-
-
-/* =========================
-   PANTALLA 5 → 6
-========================= */
-
-function goToScreen6() {
-
-    document.getElementById("screen5")
-        .classList.remove("active");
-
-    document.getElementById("screen6")
-        .classList.add("active");
-
-    if (selectedLanguage === "en") {
-
-        document.getElementById("signup-title").textContent =
-            "Create account";
-
-        document.getElementById("username").placeholder =
-            "Username";
-
-        document.getElementById("email").placeholder =
-            "Email";
-
-        document.getElementById("password").placeholder =
-            "Password";
-
-        document.getElementById("signup-button").textContent =
-            "Create account";
-
-    } else {
-
-        document.getElementById("signup-title").textContent =
-            "Crear cuenta";
-
-        document.getElementById("username").placeholder =
-            "Nombre de usuario";
-
-        document.getElementById("email").placeholder =
-            "Correo electrónico";
-
-        document.getElementById("password").placeholder =
-            "Contraseña";
-
-        document.getElementById("signup-button").textContent =
-            "Crear cuenta";
-    }
-}
-
-
-/* =========================
-   CREAR CUENTA → 7
-========================= */
-
-function goToScreen7() {
-
-    const username =
-        document.getElementById("username").value.trim();
-
-    const email =
-        document.getElementById("email").value.trim();
-
-    const birthdate =
-        document.getElementById("birthdate").value;
-
-    const password =
-        document.getElementById("password").value;
-
-    if (!username || !email || !birthdate || !password) {
-
-        alert(
-            selectedLanguage === "en"
-            ? "Please complete all the fields."
-            : "Por favor, completa todos los campos."
-        );
-
-        return;
-    }
-
-    localStorage.setItem("warm_username", username);
-    localStorage.setItem("warm_email", email);
-    localStorage.setItem("warm_birthdate", birthdate);
-
-    document.getElementById("profileUsername").textContent =
-        "@" + username;
-
-    document.getElementById("screen6")
-        .classList.remove("active");
-
-    document.getElementById("screen7")
-        .classList.add("active");
-
-    updateLanguage();
-    updateFounderButtons();
-}
-
-
-
-/* =========================
-   LOGIN
-========================= */
-
-function login() {
-
-    alert(
-        selectedLanguage === "en"
-        ? "Login will be available soon."
-        : "El inicio de sesión estará disponible pronto."
-    );
-}
-
-/* =========================
-   FUNDADORES
-========================= */
-
-function followFounder(button, username) {
-
-    followProfile(button, username);
-}
-/* =========================
-   RECORDAR SEGUIMIENTOS
-========================= */
-
-function updateFounderButtons() {
-
-    const following =
-        JSON.parse(
-            localStorage.getItem("warm_following") || "[]"
-        );
-
-    document
-        .querySelectorAll(".follow-button")
-        .forEach(button => {
-
-            const onclick =
-                button.getAttribute("onclick") || "";
-
-            const match =
-                onclick.match(/'([^']+)'/);
-
-            if (!match) return;
-
-            const username = match[1];
-
-            if (following.includes(username)) {
-
-                button.classList.add("following");
-
-                button.textContent =
-                    selectedLanguage === "en"
-                    ? "Following ✓"
-                    : "Siguiendo ✓";
-
-            } else {
-
-                button.classList.remove("following");
-
-                button.textContent =
-                    selectedLanguage === "en"
-                    ? "Follow"
-                    : "Seguir";
-            }
-        });
-}
- 
-/* =========================
-   SEGUIR PERFILES
-========================= */
-
-function followProfile(button, username) {
-
-    const currentUsername =
-        localStorage.getItem("warm_username");
-
-    if (!currentUsername) return;
-
-    /* Lista de usuarios que ya sigues */
-    let following =
-        JSON.parse(
-            localStorage.getItem("warm_following") || "[]"
-        );
-
-    /* Si ya lo sigues */
-    if (following.includes(username)) {
-
-        if (button) {
-            button.classList.add("following");
-
-            button.textContent =
-                selectedLanguage === "en"
-                ? "Following ✓"
-                : "Siguiendo ✓";
-        }
-
-        return;
-    }
-
-    /* Agregar usuario a la lista */
-    following.push(username);
-
-    localStorage.setItem(
-        "warm_following",
-        JSON.stringify(following)
-    );
-
-    /* =========================
-       SUMAR SEGUIDOR AL USUARIO
-       QUE ESTÁS SIGUIENDO
-    ========================= */
-let followersData =
-        JSON.parse(
-            localStorage.getItem("warm_followers") || "{}"
-        );
-
-    if (!followersData[username]) {
-        followersData[username] = 0;
-    }
-
-    followersData[username]++;
-
-    localStorage.setItem(
-        "warm_followers",
-        JSON.stringify(followersData)
-    );
-
-    /* Cambiar botón */
-    if (button) {
-
-        button.classList.add("following");
-
-        button.textContent =
-            selectedLanguage === "en"
-            ? "Following ✓"
-            : "Siguiendo ✓";
-    }
-
-    /* Comprobar desbloqueo de mensajes */
-    updateMessagesAccess();
-}
-
-
-/* =========================
-   COMPROBAR SI YA SIGUES
-========================= */
-function updateFollowButton(button, username) {
-
-    let following =
-        JSON.parse(
-            localStorage.getItem("warm_following") || "[]"
-        );
-
-    if (following.includes(username)) {
-
-        button.classList.add("following");
-
-        button.textContent =
-            selectedLanguage === "en"
-            ? "Following ✓"
-            : "Siguiendo ✓";
-
-    } else {
-
-        button.classList.remove("following");
-
-        button.textContent =
-            selectedLanguage === "en"
-            ? "Follow"
-            : "Seguir";
-    }
-}
-
-/* =========================
-   PARA TI / DESCUBRIR /
-   INTERNACIONAL
-========================= */
-
-function showFeed(section, button) {
-
-    document.querySelectorAll(".home-tabs .tab")
-        .forEach(function(tab) {
-            tab.classList.remove("active");
-        });
-
-    button.classList.add("active");
-
-    document.querySelectorAll("#screen8 .feed-section")
-        .forEach(function(sectionElement) {
-            sectionElement.classList.remove("active");
-        });
-
-    document.getElementById(section + "Content")
-        .classList.add("active");
-}
-
-
-/* =========================
-   BARRA INFERIOR
-========================= */
-
-function openBottom(section, button) {
-
-    document.querySelectorAll(".nav-item")
-        .forEach(function(item) {
-            item.classList.remove("active");
-        });
-
-    button.classList.add("active");
-
-    document.querySelectorAll("#screen8 .feed-section")
-        .forEach(function(sectionElement) {
-            sectionElement.classList.remove("active");
-        });
-
-    if (section === "forYou") {
-
-        document.getElementById("forYouContent")
-            .classList.add("active");
-
-    } else {
-
-        document.getElementById(section + "Content")
-            .classList.add("active");
-    }
-}
-
-
-/* =========================
-   LIKES
-========================= */
-
-function likePost(button) {
-
-    const counter =
-        button.querySelector("span");
-
-    let likes =
-        parseInt(counter.textContent);
-
-    if (button.classList.contains("liked")) {
-
-        likes--;
-
-        button.classList.remove("liked");
-
-    } else {
-
-        likes++;
-
-        button.classList.add("liked");
-    }
-
-    counter.textContent = likes;
-}
-
-
-/* =========================
-   COMENTARIOS
-========================= */
-
-function toggleComments(button) {
-
-    const post =
-        button.closest(".post-card, .text-post");
-
-    const box =
-        post.querySelector(".comment-box");
-
-    box.classList.toggle("active");
-}
-
-
-function addComment(button) {
-
-    const box =
-        button.closest(".comment-box");
-
-    const input =
-        box.querySelector("input");
-
-    const text =
-        input.value.trim();
-
-    if (!text) return;
-
-    const post =
-        button.closest(".post-card, .text-post");
-
-    const comments =
-        post.querySelector(".comments");
-
-    const comment =
-        document.createElement("p");
-
-    comment.textContent =
-        "@" +
-        (localStorage.getItem("warm_username") || "usuario") +
-        ": " +
-        text;
-
-    comments.appendChild(comment);
-
-    input.value = "";
-}
-
-
-/* =========================
-   COMPARTIR
-========================= */
-
-function sharePost() {
-
-    alert(
-        selectedLanguage === "en"
-        ? "Post ready to share."
-        : "Publicación lista para compartir."
-    );
-}
-
-
-/* =========================
-   CREAR PUBLICACIÓN
-========================= */
-
-function publishTextPost() {
-
-    const input =
-        document.getElementById("newPostText");
-
-    const text =
-        input.value.trim();
-
-    if (!text) {
-
-        alert(
-            selectedLanguage === "en"
-            ? "Write something first."
-            : "Escribe algo primero."
-        );
-
-        return;
-    }
-
-    const username =
-        localStorage.getItem("warm_username") ||
-        "usuario";
-
-    const post =
-        document.createElement("div");
-
-    post.className = "text-post";
-
-    post.innerHTML = `
-
-        <div class="post-user">
-
-            <div class="post-avatar">
-                Foto
-            </div>
-
-            <div>
-                <strong>@${username}</strong>
-                <p>
-                    ${selectedLanguage === "en"
-                    ? "Just now"
-                    : "Ahora mismo"}
                 </p>
+
             </div>
-
-        </div>
-
-        <p class="tweet-text"></p>
-
-        <div class="post-actions">
-
-            <button class="like-button"
-                    onclick="likePost(this)">
-                ♡ <span>0</span>
-            </button>
-
-            <button onclick="toggleComments(this)">
-                💬
-            </button>
-
-            <button onclick="sharePost()">
-                ↗
-            </button>
-
-        </div>
-
-        <div class="comment-box">
-
-            <input type="text"
-                   placeholder="${
-                       selectedLanguage === "en"
-                       ? "Write a comment..."
-                       : "Escribe un comentario..."
-                   }">
-
-            <button onclick="addComment(this)">
-                ${
-                    selectedLanguage === "en"
-                    ? "Send"
-                    : "Enviar"
-                }
-            </button>
-
-        </div>
-
-        <div class="comments"></div>
-    `;
-
-    post.querySelector(".tweet-text")
-        .textContent = text;
-
-    document.getElementById("discoverPosts")
-        .prepend(post);
-
-    input.value = "";
-}
-
-/* =========================
-   CREAR PUBLICACIÓN
-========================= */
-
-function hideCreateBoxes() {
-
-    document.getElementById("photoPostBox").style.display = "none";
-    document.getElementById("videoPostBox").style.display = "none";
-    document.getElementById("textPostBox").style.display = "none";
-}
-
-
-/* FOTO */
-
-function openPhotoPost() {
-
-    hideCreateBoxes();
-
-    document.getElementById("photoPostBox")
-        .style.display = "block";
-}
-
-
-/* VIDEO */
-
-function openVideoPost() {
-
-    hideCreateBoxes();
-
-    document.getElementById("videoPostBox")
-        .style.display = "block";
-}
-
-
-/* PUBLICACIÓN DE TEXTO */
-
-function openTextPost() {
-
-    hideCreateBoxes();
-
-    document.getElementById("textPostBox")
-        .style.display = "block";
-}
-
-
-/* PUBLICAR TEXTO */
-
-function publishFromCreate() {
-
-    const text =
-        document.getElementById("createArea")
-        .value
-        .trim();
-
-    if (!text) {
-
-        alert(
-            selectedLanguage === "en"
-            ? "Write something before posting."
-            : "Escribe algo antes de publicar."
-        );
-
-        return;
-    }
-
-    addTextPost(text);
-
-    document.getElementById("createArea").value = "";
-
-    alert(
-        selectedLanguage === "en"
-        ? "Your post has been published."
-        : "Tu publicación ha sido publicada."
-    );
-}
-
-
-/* PUBLICAR FOTO */
-
-function publishPhotoPost() {
-
-    const file =
-        document.getElementById("photoInput").files[0];
-
-    if (!file) {
-
-        alert(
-            selectedLanguage === "en"
-            ? "Select a photo first."
-            : "Primero selecciona una foto."
-        );
-
-        return;
-    }
-
-    const caption =
-        document.getElementById("photoCaption")
-        .value
-        .trim();
-
-    addMediaPost(
-        file,
-        "photo",
-        caption
-    );
-
-    document.getElementById("photoInput").value = "";
-    document.getElementById("photoCaption").value = "";
-
-    alert(
-        selectedLanguage === "en"
-        ? "Your photo has been published."
-        : "Tu foto ha sido publicada."
-    );
-}
-
-
-/* PUBLICAR VIDEO */
-
-function publishVideoPost() {
-
-    const file =
-        document.getElementById("videoInput").files[0];
-
-    if (!file) {
-
-        alert(
-            selectedLanguage === "en"
-            ? "Select a video first."
-            : "Primero selecciona un video."
-        );
-
-        return;
-    }
-
-    const caption =
-        document.getElementById("videoCaption")
-        .value
-        .trim();
-
-    addMediaPost(
-        file,
-        "video",
-        caption
-    );
-
-    document.getElementById("videoInput").value = "";
-    document.getElementById("videoCaption").value = "";
-
-    alert(
-        selectedLanguage === "en"
-        ? "Your video has been published."
-        : "Tu video ha sido publicado."
-    );
-}
-
-
-/* CREAR PUBLICACIÓN DE TEXTO */
-
-function addTextPost(text) {
-
-    const post =
-        document.createElement("div");
-
-    post.className = "text-post";
-
-    post.innerHTML = `
-        <div class="post-user">
-
-            <div class="post-avatar">
-                Foto
-            </div>
-
-            <div>
-                <strong>@usuario</strong>
-                <p>
-                    ${selectedLanguage === "en"
-                        ? "Just now"
-                        : "Hace un momento"}
-                </p>
-            </div>
-
-        </div>
-
-        <p class="tweet-text">
-            ${escapeHTML(text)}
-        </p>
-
-        <div class="post-actions">
-
-            <button onclick="likePost(this)">
-                ♡
-            </button>
-
-            <button onclick="commentPost(this)">
-                💬
-            </button>
-
-            <button onclick="sharePost()">
-                ↗
-            </button>
-
-        </div>
-    `;
-
-    const forYou =
-        document.getElementById("forYouContent");
-
-    if (forYou) {
-
-        forYou.prepend(post);
-    }
-}
-
-
-/* CREAR FOTO O VIDEO */
-
-function addMediaPost(file, type, caption) {
-
-    const post =
-        document.createElement("div");
-
-    post.className = "post-card";
-
-    const url =
-        URL.createObjectURL(file);
-
-    let mediaHTML = "";
-
-    if (type === "photo") {
-
-        mediaHTML = `
-            <img
-                src="${url}"
-                style="
-                    width:100%;
-                    max-height:450px;
-                    object-fit:cover;
-                    border-radius:15px;
-                ">
-        `;
-
-    } else {
-
-        mediaHTML = `
-            <video
-                src="${url}"
-                controls
-                style="
-                    width:100%;
-                    max-height:450px;
-                    border-radius:15px;
-                ">
-            </video>
-        `;
-    }
-
-    post.innerHTML = `
-
-        <div class="post-user">
-
-            <div class="post-avatar">
-                Foto
-            </div>
-
-            <div>
-                <strong>@usuario</strong>
-
-                <p>
-                    ${selectedLanguage === "en"
-                        ? "Just now"
-                        : "Hace un momento"}
-                </p>
-            </div>
-
-        </div>
-
-        <div class="post-content">
-
-            ${mediaHTML}
-
-        </div>
-
-        ${
-            caption
-            ? `<p class="post-text">
-                ${escapeHTML(caption)}
-               </p>`
-            : ""
-        }
-
-        <div class="post-actions">
-
-            <button onclick="likePost(this)">
-                ♡
-            </button>
-
-            <button onclick="commentPost(this)">
-                💬
-            </button>
-
-            <button onclick="sharePost()">
-                ↗
-            </button>
-
-        </div>
-    `;
-
-    const forYou =
-        document.getElementById("forYouContent");
-
-    if (forYou) {
-
-        forYou.prepend(post);
-    }
-}
-
-
-/* LIKE */
-
-function likePost(button) {
-
-    if (button.classList.contains("liked")) {
-
-        button.classList.remove("liked");
-        button.textContent = "♡";
-
-    } else {
-
-        button.classList.add("liked");
-        button.textContent = "♥";
-    }
-}
-
-
-/* COMENTARIOS */
-
-function commentPost(button) {
-
-    const comment =
-        prompt(
-            selectedLanguage === "en"
-            ? "Write a comment:"
-            : "Escribe un comentario:"
-        );
-
-    if (!comment) return;
-
-    const post =
-        button.closest(".post-card, .text-post");
-
-    if (!post) return;
-
-    let comments =
-        post.querySelector(".comments");
-
-    if (!comments) {
-
-        comments =
-            document.createElement("div");
-
-        comments.className = "comments";
-
-        post.appendChild(comments);
-    }
-
-    const newComment =
-        document.createElement("div");
-
-    newComment.className = "comment";
-
-    newComment.textContent =
-        "@usuario: " + comment;
-
-    comments.appendChild(newComment);
-}
-
-
-/* COMPARTIR */
-
-function sharePost() {
-
-    alert(
-        selectedLanguage === "en"
-        ? "Share options will appear here."
-        : "Aquí aparecerán las opciones para compartir."
-    );
-}
-
-
-/* SEGURIDAD PARA TEXTO */
-
-function escapeHTML(text) {
-
-    const div =
-        document.createElement("div");
-
-    div.textContent = text;
-
-    return div.innerHTML;
-}
-
-
-/* =========================
-   GRUPOS
-========================= */
-
-function joinGroup(button) {
-
-    if (!button.classList.contains("joined")) {
-
-        button.classList.add("joined");
-
-        button.textContent =
-            selectedLanguage === "en"
-            ? "Joined ✓"
-            : "Unido ✓";
-
-        const area =
-            button.nextElementSibling;
-
-        area.classList.add("active");
-
-    } else {
-
-        button.classList.remove("joined");
-
-        button.textContent =
-            selectedLanguage === "en"
-            ? "Join group"
-            : "Unirme al grupo";
-
-        const area =
-            button.nextElementSibling;
-
-        area.classList.remove("active");
-    }
-}
-
-
-function sendGroupMessage(button) {
-
-    const area =
-        button.closest(".group-message-area");
-
-    const textarea =
-        area.querySelector("textarea");
-
-    const text =
-        textarea.value.trim();
-
-    if (!text) return;
-
-    const message =
-        document.createElement("p");
-
-    const username =
-        localStorage.getItem("warm_username") ||
-        "usuario";
-
-    message.textContent =
-        "@" + username + ": " + text;
-
-    area.querySelector(".group-messages")
-        .appendChild(message);
-
-    textarea.value = "";
-}
-
-
-/* =========================
-   DESEOS
-========================= */
-
-function addWish() {
-
-    const text =
-        prompt(
-            selectedLanguage === "en"
-            ? "What do you wish for?"
-            : "¿Qué deseas?"
-        );
-
-    if (!text) return;
-
-    const card =
-        document.createElement("div");
-
-    card.className = "wish-card";
-
-    card.textContent =
-        text;
-
-    document.getElementById("wishesContent")
-        .appendChild(card);
-}
-
-
-/* =========================
-   MENSAJES
-========================= */
-
-function newMessage() {
-
-    const followers =
-        Number(localStorage.getItem("followersCount") || 0);
-
-    if (followers < 1000) {
-
-        alert(
-            selectedLanguage === "en"
-            ? "🔒 Messages are locked. Unlock this feature when you reach 1,000 followers."
-            : "🔒 Los mensajes están bloqueados. Desbloquea esta función al llegar a 1,000 seguidores."
-        );
-return;
-    }
-
-    const username =
-        prompt(
-            selectedLanguage === "en"
-            ? "Who do you want to message?"
-            : "¿A quién quieres enviarle un mensaje?"
-        );
-
-    if (!username) return;
-
-    const message =
-        prompt(
-            selectedLanguage === "en"
-            ? "Write your message:"
-            : "Escribe tu mensaje:"
-        );
-
-    if (!message) return;
-
-    alert(
-        selectedLanguage === "en"
-        ? "Message sent to @" + username
-        : "Mensaje enviado a @" + username
-    );
-}
-
-<!-- =========================
-     PERFIL
-========================= -->
-
-<div id="profileContent" class="feed-section">
-
-    <!-- ENCABEZADO -->
-    <div class="profile-header">
-
-        <h1>WARM</h1>
-
-        <div class="profile-icons">
-
-            <button class="notification-button"
-                    onclick="openNotifications()">
-                🔔
-            </button>
-
-            <button class="settings-button"
-                    onclick="openProfileSettings()">
-                ☰
-            </button>
 
         </div>
 
     </div>
 
+    <!-- ===============================================
 
-    <!-- TARJETA DEL PERFIL -->
-    <div class="profile-card">
+         MENSAJES
 
-        <div class="profile-top">
+    ================================================ -->
+
+    <div id="messagesContent"
+
+         class="feed-section">
+
+        <div class="section-header">
+
+            <h2 data-es="Mensajes"
+
+                data-en="Messages">
+
+                Mensajes
+
+            </h2>
+
+            <button onclick="newMessage()">
+
+                +
+
+            </button>
+
+        </div>
+
+        <div class="feed-empty">
+
+            <p data-es="Los mensajes se desbloquean al llegar a 1,000 seguidores."
+
+               data-en="Messages unlock when you reach 1,000 followers.">
+
+                Los mensajes se desbloquean al llegar a 1,000 seguidores.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ===============================================
+
+         PERFIL
+        ================================================ -->
+
+    <div id="profileContent"
+
+         class="feed-section">
+
+        <div class="profile-header">
+
+            <h1>WARM</h1>
+
+            <div class="profile-icons">
+
+                <button class="notification-button"
+
+                        onclick="openNotifications()">
+
+                    🔔
+
+                    <span id="profileNotificationBadge"
+
+                          class="notification-badge"
+
+                          style="display:none;">
+
+                        0
+
+                    </span>
+
+                </button>
+
+                <button class="settings-button"
+
+                        onclick="openProfileSettings()">
+
+                    ☰
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- PORTADA + FOTO -->
+
+        <div class="profile-card">
+
+            <div class="profile-cover">
+
+                <span id="coverPlaceholder">
+
+                    Foto de portada
+
+                </span>
+
+            </div>
 
             <div class="profile-photo">
-                <span>Foto</span>
+
+                <span id="profilePhotoPlaceholder">
+
+                    Foto
+
+                </span>
+
+                <img id="profilePhoto"
+
+                     style="display:none;"
+
+                     alt="Foto de perfil">
+
             </div>
 
             <div class="profile-stats">
 
                 <div>
+
                     <strong id="profileFollowers">
+
                         0
+
                     </strong>
 
                     <span data-es="Seguidores"
+
                           data-en="Followers">
+
                         Seguidores
+
                     </span>
+
                 </div>
 
-
                 <div>
+
                     <strong id="profileFollowing">
+
                         0
+
                     </strong>
 
                     <span data-es="Seguidos"
+
                           data-en="Following">
+
                         Seguidos
+
                     </span>
+
+                </div>
+
+            </div>
+
+            <h2 id="profileName">
+
+                @usuario
+
+            </h2>
+
+            <p id="profileBio">
+
+                WARM
+
+            </p>
+
+            <div id="profileLinks"
+
+                 class="profile-links">
+
+            </div>
+
+        </div>
+
+        <!-- VISITANTE -->
+            <div id="visitorProfileActions"
+
+             class="profile-actions">
+
+            <button id="profileFollowButton"
+
+                    class="profile-action-button"
+
+                    onclick="profileFollow()">
+
+                Seguir
+
+            </button>
+
+            <button class="profile-action-button"
+
+                    onclick="profileMessage()">
+
+                Mensaje
+
+            </button>
+
+        </div>
+
+        <!-- DUEÑO -->
+
+        <div id="ownerProfileActions"
+
+             class="profile-actions"
+
+             style="display:none;">
+
+            <button class="profile-action-button"
+
+                    onclick="editProfile()">
+
+                Editar perfil
+
+            </button>
+
+            <button class="profile-action-button"
+
+                    onclick="shareProfile()">
+
+                Compartir
+
+            </button>
+
+        </div>
+
+        <div class="profile-posts">
+
+            <h3 data-es="Publicaciones"
+
+                data-en="Posts">
+
+                Publicaciones
+
+            </h3>
+
+            <div id="profilePosts">
+
+                <div class="empty-profile"
+
+                     data-es="Aún no hay publicaciones."
+
+                     data-en="There are no posts yet.">
+
+                    Aún no hay publicaciones.
+
                 </div>
 
             </div>
 
         </div>
 
-
-        <!-- NOMBRE -->
-        <h2 id="profileName">
-            @usuario
-        </h2>
-
     </div>
 
+</section>
 
-    <!-- BOTONES QUE CAMBIAN SEGÚN QUIÉN VE EL PERFIL -->
+<!-- =====================================================
 
-    <div id="visitorProfileActions"
-         class="profile-actions">
+     MODAL — NOTIFICACIONES
+===================================================== -->
 
-        <button id="profileFollowButton"
-                class="profile-action-button"
-                onclick="profileFollow()">
+<div id="notificationsModal"
 
-            Seguir
+     class="modal">
 
-        </button>
+    <div class="modal-content">
 
-        <button class="profile-action-button"
-                onclick="profileMessage()">
+        <div class="modal-header">
 
-            Mensaje
+            <h2 data-es="Notificaciones"
 
-        </button>
+                data-en="Notifications">
 
-    </div>
+                Notificaciones
 
+            </h2>
 
-    <!-- BOTONES DEL DUEÑO -->
+            <button onclick="closeNotifications()">
 
-    <div id="ownerProfileActions"
-         class="profile-actions"
-         style="display:none;">
+                ×
 
-        <button class="profile-action-button"
-                onclick="editProfile()">
+            </button>
 
-            Editar perfil
+        </div>
 
-        </button>
+        <div id="notificationsList">
 
-        <button class="profile-action-button"
-                onclick="shareProfile()">
+            <div class="notification-item">
 
-            Compartir
+                ❤️
 
-        </button>
+                <span data-es="No tienes notificaciones nuevas."
 
-    </div>
+                      data-en="You have no new notifications.">
 
+                    No tienes notificaciones nuevas.
 
-    <!-- PUBLICACIONES -->
+                </span>
 
-    <div class="profile-posts">
-
-        <h3 data-es="Publicaciones"
-            data-en="Posts">
-            Publicaciones
-        </h3>
-
-        <div id="profilePosts">
-
-            <div class="empty-profile">
-                Aún no hay publicaciones.
             </div>
 
         </div>
@@ -2973,379 +1383,702 @@ return;
 
 </div>
 
+<!-- =====================================================
 
-<!-- =========================
-     AJUSTES
-========================= -->
+     PANTALLA — AJUSTES
+
+===================================================== -->
 
 <section id="profileSettingsScreen"
-         class="profile-settings-screen">
+
+         class="settings-screen">
 
     <div class="settings-header">
 
         <button onclick="closeProfileSettings()">
+
             ←
+
         </button>
 
         <h2 data-es="Ajustes"
+
             data-en="Settings">
+
             Ajustes
+
         </h2>
 
     </div>
 
-
     <div class="settings-list">
 
-        <button onclick="openAccountSettings()">
+        <!-- IDIOMA -->
+
+        <button onclick="openLanguageSettings()">
+
+            🌐
+
+            <span data-es="Idioma"
+
+                  data-en="Language">
+
+                Idioma
+
+            </span>
+
+            <small id="currentLanguage">
+
+                Español
+
+            </small>
+
+        </button>
+
+        <!-- EDITAR CUENTA -->
+          <button onclick="openEditAccount()">
+
             👤
-            <span data-es="Cuenta"
-                  data-en="Account">
-                Cuenta
+
+            <span data-es="Editar cuenta"
+
+                  data-en="Edit account">
+
+                Editar cuenta
+
             </span>
+
         </button>
 
+        <!-- COLORES -->
 
-        <button onclick="openNotifications()">
-            🔔
-            <span data-es="Notificaciones"
-                  data-en="Notifications">
-                Notificaciones
+        <button onclick="openColorSettings()">
+
+            🎨
+
+            <span data-es="Colores"
+
+                  data-en="Colors">
+
+                Colores
+
             </span>
+
         </button>
 
+        <!-- SOPORTE -->
+                <button onclick="openSupport()">
+
+            🛟
+
+            <span data-es="Soporte"
+
+                  data-en="Support">
+
+                Soporte
+
+            </span>
+
+        </button>
+
+        <!-- SUSCRIPCIONES -->
 
         <button onclick="openSubscriptions()">
+
             ⭐
+
             <span data-es="Suscripciones"
+
                   data-en="Subscriptions">
+
                 Suscripciones
+
             </span>
+
         </button>
 
+        <!-- INFORMACIÓN -->
 
-        <button onclick="openPrivacySettings()">
-            🔒
-            <span data-es="Privacidad"
-                  data-en="Privacy">
-                Privacidad
+        <button onclick="openAbout()">
+
+            ℹ️
+
+            <span data-es="Información sobre WARM"
+
+                  data-en="About WARM">
+
+                Información sobre WARM
+
             </span>
+
         </button>
 
+        <!-- CERRAR SESIÓN -->
+              <button onclick="logout()">
 
-        <button onclick="logout()">
             🚪
+
             <span data-es="Cerrar sesión"
+
                   data-en="Log out">
+
                 Cerrar sesión
+
             </span>
+
         </button>
 
     </div>
 
 </section>
-/* =========================
-   FINALIZAR FUNDADORES
-========================= */
-function finishFounders() {
 
-    document.getElementById("screen7")
+<!-- =====================================================
 
-        .classList.remove("active");
+     MODAL — IDIOMA
 
-    document.getElementById("screen8")
+===================================================== -->
 
-        .classList.add("active");
+<div id="languageModal"
 
-    updateLanguage();
+     class="modal">
 
-}
-/* =========================
-   PERFIL
-========================= */
+    <div class="modal-content">
 
-function openProfile(username) {
+        <div class="modal-header">
 
-    const currentUsername =
-        localStorage.getItem("warm_username");
+            <h2 data-es="Idioma"
 
-    const viewedUsername =
-        username || currentUsername;
+                data-en="Language">
 
-    if (!viewedUsername) return;
+                Idioma
 
-    document.getElementById("profileName").textContent =
-        "@" + viewedUsername;
+            </h2>
 
+            <button onclick="closeModal('languageModal')">
 
-    /* =========================
-       COMPROBAR DUEÑO
-    ========================= */
+                ×
 
-    const isOwner =
-        currentUsername === viewedUsername;
+            </button>
 
+        </div>
 
-    const visitorActions =
-        document.getElementById(
-            "visitorProfileActions"
-        );
+        <button onclick="changeLanguage('es')">
 
-    const ownerActions =
-        document.getElementById(
-            "ownerProfileActions"
-        );
+            🇪🇸 Español
 
+        </button>
 
-    if (isOwner) {
+        <button onclick="changeLanguage('en')">
 
-        visitorActions.style.display = "none";
-        ownerActions.style.display = "flex";
+            🇺🇸 English
 
-    } else {
+        </button>
 
-        visitorActions.style.display = "flex";
-        ownerActions.style.display = "none";
+    </div>
 
-        updateProfileFollowButton(
-            viewedUsername
-        );
-    }
+</div>
 
+<!-- =====================================================
 
-    /* =========================
-       SEGUIDORES
-    ========================= */
+     MODAL — EDITAR CUENTA
 
-    const followersData =
-        JSON.parse(
-            localStorage.getItem(
-                "warm_followers"
-            ) || "{}"
-        );
+===================================================== -->
 
+<div id="editAccountModal"
 
-    const followers =
-        followersData[viewedUsername] || 0;
+     class="modal">
 
+    <div class="modal-content">
 
-    document.getElementById(
-        "profileFollowers"
-    ).textContent = followers;
+        <div class="modal-header">
 
+            <h2 data-es="Editar cuenta"
 
-    /* =========================
-       SEGUIDOS
-    ========================= */
+                data-en="Edit account">
 
-    let following = 0;
+                Editar cuenta
 
-    if (isOwner) {
+            </h2>
 
-        following =
-            JSON.parse(
-                localStorage.getItem(
-                    "warm_following"
-                ) || "[]"
-            ).length;
-    }
+            <button onclick="closeModal('editAccountModal')">
 
+                ×
 
-    document.getElementById(
-        "profileFollowing"
-    ).textContent = following;
-}
+            </button>
 
+        </div>
 
-/* =========================
-   BOTÓN SEGUIR DEL PERFIL
-========================= */
+        <label data-es="Nombre de usuario"
 
-function updateProfileFollowButton(username) {
+               data-en="Username">
 
-    const following =
-        JSON.parse(
-            localStorage.getItem(
-                "warm_following"
-            ) || "[]"
-        );
+            Nombre de usuario
 
+        </label>
 
-    const button =
-        document.getElementById(
-            "profileFollowButton"
-        );
+        <input id="editUsername"
 
+               type="text">
 
-    if (!button) return;
+        <label data-es="Biografía"
 
+               data-en="Bio">
 
-    if (following.includes(username)) {
+            Biografía
 
-        button.classList.add("following");
+        </label>
 
-        button.textContent =
-            selectedLanguage === "en"
-            ? "Following ✓"
-            : "Siguiendo ✓";
+        <textarea id="editBio"></textarea>
 
-    } else {
+        <label data-es="Pronombres"
 
-        button.classList.remove("following");
+               data-en="Pronouns">
 
-        button.textContent =
-            selectedLanguage === "en"
-            ? "Follow"
-            : "Seguir";
-    }
-}
+            Pronombres
 
+        </label>
 
-/* =========================
-   SEGUIR DESDE PERFIL
-========================= */
+        <input id="editPronouns"
 
-function profileFollow() {
+               type="text">
 
-    const username =
-        document.getElementById(
-            "profileName"
-        ).textContent.replace("@", "");
+        <label data-es="Link"
 
+               data-en="Link">
 
-    const button =
-        document.getElementById(
-            "profileFollowButton"
-        );
+            Link
 
+        </label>
 
-    followProfile(
-        button,
-        username
-    );
+        <input id="editLink"
 
+               type="url"
 
-    updateProfileFollowers(
-        username
-    );
-}
+               placeholder="https://">
 
+        <label data-es="Foto de perfil"
 
-/* =========================
-   ACTUALIZAR SEGUIDORES
-========================= */
+               data-en="Profile photo">
 
-function updateProfileFollowers(username) {
+            Foto de perfil
 
-    const followersData =
-        JSON.parse(
-            localStorage.getItem(
-                "warm_followers"
-            ) || "{}"
-        );
+        </label>
 
+        <input id="profilePhotoInput"
 
-    document.getElementById(
-        "profileFollowers"
-    ).textContent =
-        followersData[username] || 0;
-}
+               type="file"
 
+               accept="image/*">
 
-/* =========================
-   MENSAJE
-========================= */
+        <label data-es="Foto de portada"
 
-function profileMessage() {
+               data-en="Cover photo">
 
-    const username =
-        document.getElementById(
-            "profileName"
-        ).textContent.replace("@", "");
+            Foto de portada
 
+        </label>
 
-    const followers =
-        Number(
-            localStorage.getItem(
-                "followersCount"
-            ) || 0
-        );
+        <input id="coverPhotoInput"
 
+               type="file"
 
-    if (followers < 1000) {
+               accept="image/*">
 
-        alert(
-            selectedLanguage === "en"
-            ? "🔒 Messages are unlocked at 1,000 followers."
-            : "🔒 Los mensajes se desbloquean al llegar a 1,000 seguidores."
-        );
+        <button class="main-button"
 
-        return;
-    }
+                onclick="saveProfileChanges()"
 
+                data-es="Guardar cambios"
 
-    const message =
-        prompt(
-            selectedLanguage === "en"
-            ? "Write your message to @" + username
-            : "Escribe tu mensaje para @" + username
-        );
+                data-en="Save changes">
 
+            Guardar cambios
 
-    if (!message) return;
+        </button>
 
+    </div>
 
-    alert(
-        selectedLanguage === "en"
-        ? "Message sent to @" + username
-        : "Mensaje enviado a @" + username
-    );
-}
+</div>
 
+<!-- =====================================================
 
-/* =========================
-   AJUSTES
-========================= */
+     MODAL — COLORES
+===================================================== -->
 
-function openProfileSettings() {
+<div id="colorModal"
 
-    document
-        .getElementById("profileSettingsScreen")
-        .classList.add("active");
-}
+     class="modal">
 
+    <div class="modal-content">
 
-function closeProfileSettings() {
+        <div class="modal-header">
 
-    document
-        .getElementById("profileSettingsScreen")
-        .classList.remove("active");
-}
+            <h2 data-es="Colores"
 
+                data-en="Colors">
 
-/* =========================
-   EDITAR PERFIL
-========================= */
+                Colores
 
-function editProfile() {
+            </h2>
 
-    alert(
-        selectedLanguage === "en"
-        ? "Edit profile"
-        : "Editar perfil"
-    );
-}
+            <button onclick="closeModal('colorModal')">
 
+                ×
 
-function shareProfile() {
+            </button>
 
-    alert(
-        selectedLanguage === "en"
-        ? "Profile ready to share."
-        : "Perfil listo para compartir."
-    );
-}
-</script>
+        </div>
+
+        <div class="color-options">
+
+            <button class="color-option original"
+
+                    onclick="setTheme('original')">
+
+                <span></span>
+
+                <strong data-es="Original"
+
+                        data-en="Original">
+
+                    Original
+
+                </strong>
+
+            </button>
+
+            <button class="color-option black"
+
+                    onclick="setTheme('black')">
+
+                <span></span>
+
+                <strong data-es="Negro"
+
+                        data-en="Black">
+
+                    Negro
+
+                </strong>
+
+            </button>
+
+            <button class="color-option pink"
+
+                    onclick="setTheme('pink')">
+
+                <span></span>
+
+                <strong data-es="Rosado"
+
+                        data-en="Pink">
+
+                    Rosado
+
+                </strong>
+
+            </button>
+
+            <button class="color-option olive"
+
+                    onclick="setTheme('olive')">
+
+                <span></span>
+
+                <strong data-es="Verde oliva"
+
+                        data-en="Olive green">
+
+                    Verde oliva
+
+                </strong>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+
+     MODAL — SOPORTE
+    ===================================================== -->
+
+<div id="supportModal"
+
+     class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2 data-es="Soporte"
+
+                data-en="Support">
+
+                Soporte
+
+            </h2>
+
+            <button onclick="closeModal('supportModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+        <p data-es="Escribe tu problema y el equipo de WARM podrá revisarlo."
+
+           data-en="Write your problem and the WARM team can review it.">
+
+            Escribe tu problema y el equipo de WARM podrá revisarlo.
+
+        </p>
+
+        <input id="supportSubject"
+
+               type="text"
+
+               placeholder="Asunto">
+
+        <textarea id="supportMessage"
+
+                  placeholder="Describe tu problema...">
+
+        </textarea>
+
+        <button class="main-button"
+
+                onclick="sendSupport()"
+
+                data-es="Enviar"
+
+                data-en="Send">
+
+            Enviar
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+
+     MODAL — SUSCRIPCIONES
+    ===================================================== -->
+
+<div id="subscriptionsModal"
+
+     class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2 data-es="Suscripciones"
+
+                data-en="Subscriptions">
+
+                Suscripciones
+
+            </h2>
+
+            <button onclick="closeModal('subscriptionsModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+        <div id="subscriptionLocked">
+
+            <div class="subscription-icon">
+
+                ⭐
+
+            </div>
+
+            <h3 data-es="Desbloquea esta función"
+
+                data-en="Unlock this feature">
+
+                Desbloquea esta función
+
+            </h3>
+
+            <p data-es="Necesitas 1,000 seguidores para solicitar las suscripciones."
+
+               data-en="You need 1,000 followers to request subscriptions.">
+
+                Necesitas 1,000 seguidores para solicitar las suscripciones.
+
+            </p>
+
+            <strong>
+
+                0 / 1,000
+
+            </strong>
+
+        </div>
+
+        <div id="subscriptionRequest"
+
+             style="display:none;">
+
+            <h3 data-es="Solicita las suscripciones"
+
+                data-en="Request subscriptions">
+
+                Solicita las suscripciones
+
+            </h3>
+
+            <p data-es="Cuéntanos para qué utilizarás esta herramienta."
+
+               data-en="Tell us how you will use this feature.">
+
+                Cuéntanos para qué utilizarás esta herramienta.
+
+            </p>
+
+            <textarea id="subscriptionReason"
+
+                      placeholder="Escribe tu respuesta...">
+
+            </textarea>
+
+            <button class="main-button"
+
+                    onclick="sendSubscriptionRequest()"
+
+                    data-es="Enviar solicitud"
+
+                    data-en="Send request">
+
+                Enviar solicitud
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+
+     MODAL — INFORMACIÓN
+
+===================================================== -->
+
+<div id="aboutModal"
+
+     class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2 data-es="Información sobre WARM"
+
+                data-en="About WARM">
+
+                Información sobre WARM
+
+            </h2>
+
+            <button onclick="closeModal('aboutModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+        <p data-es="WARM es una comunidad creada para conectar personas, compartir momentos y apoyar deseos."
+
+           data-en="WARM is a community created to connect people, share moments and support wishes.">
+
+            WARM es una comunidad creada para conectar personas, compartir momentos y apoyar deseos.
+
+        </p>
+
+        <p>
+
+            WARM
+
+        </p>
+
+        <p>
+
+            Version 1.0
+
+        </p>
+
+    </div>
+
+</div>
+
+<!-- =====================================================
+
+     MODAL — SOLICITUD ENVIADA
+===================================================== -->
+
+<div id="messageModal"
+
+     class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2 id="messageModalTitle">
+
+                WARM
+
+            </h2>
+
+            <button onclick="closeModal('messageModal')">
+
+                ×
+
+            </button>
+
+        </div>
+
+        <p id="messageModalText"></p>
+
+        <button class="main-button"
+
+                onclick="closeModal('messageModal')"
+
+                data-es="Aceptar"
+
+                data-en="OK">
+
+            Aceptar
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- 
+<!-- =====================================================
+     JAVASCRIPT
+     
+     El código JavaScript estará en script.js
+===================================================== -->
+
+<script src="script.js"></script>
 
 </body>
 </html>
+        

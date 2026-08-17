@@ -1,34 +1,11 @@
 /* =====================================================
    WARM — STYLE.CSS
-   DISEÑO COMPLETO
+   Diseño completo de la aplicación
 ===================================================== */
 
-
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-:root {
-
-    --primary: #f7b6c8;
-    --primary-dark: #e99caf;
-
-    --background: #fff8fa;
-    --card: #ffffff;
-
-    --text: #222222;
-    --secondary-text: #777777;
-
-    --border: #eeeeee;
-
-    --danger: #e85d75;
-
-}
-
-
-/* =====================================================
-   CONFIGURACIÓN GENERAL
-===================================================== */
+/* =========================
+   GENERAL
+========================= */
 
 * {
     box-sizing: border-box;
@@ -36,1321 +13,1050 @@
     padding: 0;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
 
-
 body {
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
-
-    background: var(--background);
-
-    color: var(--text);
-
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, Arial, sans-serif;
+    background: #f8f4f5;
+    color: #292329;
     min-height: 100vh;
-
-    overflow-x: hidden;
-
 }
-
 
 button,
 input,
 textarea,
 select {
-
     font: inherit;
-
 }
-
 
 button {
-
-    border: none;
-
     cursor: pointer;
-
+    border: none;
 }
 
-
-input,
-textarea,
-select {
-
-    outline: none;
-
+img,
+video {
+    max-width: 100%;
 }
 
+/* =========================
+   VARIABLES DE WARM
+========================= */
 
-/* =====================================================
+:root {
+    --warm-primary: #d98fa8;
+    --warm-primary-dark: #c87592;
+    --warm-secondary: #a5ad78;
+    --warm-background: #f8f4f5;
+    --warm-card: #ffffff;
+    --warm-text: #292329;
+    --warm-muted: #777177;
+    --warm-border: #e8dfe3;
+    --warm-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    --warm-radius: 20px;
+}
+
+/* =========================
    PANTALLAS
-===================================================== */
+========================= */
 
 .screen {
+    display: none;
 
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 30px 20px 100px;
+
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* =========================
+   PANTALLAS DE BIENVENIDA
+========================= */
+
+.welcome-screen {
+    justify-content: space-between;
+    background: var(--warm-background);
+}
+
+.welcome-screen > div {
+    width: 100%;
+    max-width: 500px;
+}
+
+.welcome-screen h1 {
+    margin-top: 20px;
+    margin-bottom: 25px;
+
+    font-size: 42px;
+    letter-spacing: 5px;
+    font-weight: 800;
+}
+
+.welcome-screen h2 {
+    margin: 25px 0 15px;
+
+    font-size: 24px;
+}
+
+.welcome-screen p {
+    margin: 15px auto;
+
+    max-width: 420px;
+
+    color: var(--warm-muted);
+    line-height: 1.6;
+}
+
+/* =========================
+   ESPACIOS PARA IMÁGENES
+========================= */
+
+.image-space {
+    width: 100%;
+    max-width: 420px;
+    height: 300px;
+
+    margin: 0 auto;
+
+    border-radius: 24px;
+
+    background: #eee5e8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #91858b;
+
+    overflow: hidden;
+}
+
+.image-space img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/* =========================
+   BOTONES PRINCIPALES
+========================= */
+
+.main-button {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 15px 25px;
+
+    margin-top: 20px;
+
+    border-radius: 30px;
+
+    background: var(--warm-primary);
+    color: white;
+
+    font-weight: 700;
+
+    box-shadow: var(--warm-shadow);
+
+    transition: 0.2s;
+}
+
+.main-button:hover {
+    transform: translateY(-2px);
+}
+
+.main-button:active {
+    transform: scale(0.98);
+}
+
+/* =========================
+   SELECTOR DE IDIOMA
+========================= */
+
+#language {
+    width: 100%;
+    max-width: 320px;
+
+    padding: 13px 16px;
+
+    border: 1px solid var(--warm-border);
+    border-radius: 15px;
+
+    background: white;
+    color: var(--warm-text);
+
+    outline: none;
+}
+
+/* =========================
+   FORMULARIOS
+========================= */
+
+.form-container {
+    width: 100%;
+    max-width: 430px;
+
+    margin: auto;
+}
+
+.form-container h2 {
+    margin-bottom: 25px;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid var(--warm-border);
+    border-radius: 15px;
+
+    background: white;
+
+    outline: none;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+    border-color: var(--warm-primary);
+}
+
+/* =========================
+   PANTALLA PRINCIPAL
+========================= */
+
+#screen8 {
+    display: none;
+
+    min-height: 100vh;
+
+    padding: 0 0 90px;
+
+    background: var(--warm-background);
+}
+
+#screen8.active {
+    display: block;
+}
+
+/* =========================
+   ENCABEZADO
+========================= */
+
+.home-header {
+    width: 100%;
+
+    padding: 18px 20px;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--warm-border);
+
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.home-header h1 {
+    font-size: 28px;
+    letter-spacing: 3px;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.home-tabs {
+    width: 100%;
+
+    display: flex;
+
+    background: white;
+
+    border-bottom: 1px solid var(--warm-border);
+}
+
+.home-tabs .tab {
+    flex: 1;
+
+    padding: 14px 5px;
+
+    background: transparent;
+
+    color: var(--warm-muted);
+
+    font-weight: 600;
+
+    border-bottom: 3px solid transparent;
+}
+
+.home-tabs .tab.active {
+    color: var(--warm-primary-dark);
+
+    border-bottom-color: var(--warm-primary);
+}
+
+/* =========================
+   FEED
+========================= */
+
+.feed-section {
     display: none;
 
     width: 100%;
 
-    min-height: 100vh;
+    max-width: 650px;
 
-    padding: 30px 20px 110px;
+    margin: 0 auto;
 
-    flex-direction: column;
-
-    align-items: center;
-
-    text-align: center;
-
+    padding: 20px 15px;
 }
 
+.feed-section.active {
+    display: block;
+}
 
-.screen.active {
+/* =========================
+   PUBLICACIONES
+========================= */
 
+.post-card,
+.text-post {
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    padding: 16px;
+
+    background: white;
+
+    border-radius: var(--warm-radius);
+
+    box-shadow: var(--warm-shadow);
+}
+
+.post-user {
     display: flex;
-
-}
-
-
-/* =====================================================
-   PANTALLAS DE BIENVENIDA
-===================================================== */
-
-.welcome-screen {
-
-    justify-content: space-between;
-
-    background:
-        linear-gradient(
-            180deg,
-            #fff8fa 0%,
-            #ffffff 100%
-        );
-
-}
-
-
-.welcome-content {
-
-    width: 100%;
-
-    max-width: 500px;
-
-}
-
-
-.welcome-screen h1 {
-
-    font-size: 48px;
-
-    font-weight: 800;
-
-    letter-spacing: 4px;
-
-    margin-bottom: 25px;
-
-}
-
-
-.welcome-screen h2 {
-
-    font-size: 25px;
-
-    margin: 25px 0 12px;
-
-}
-
-
-.welcome-screen p {
-
-    color: var(--secondary-text);
-
-    line-height: 1.6;
-
-    font-size: 16px;
-
-}
-
-
-/* =====================================================
-   ESPACIO PARA IMÁGENES
-===================================================== */
-
-.image-space {
-
-    width: 100%;
-
-    height: 300px;
-
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f7b6c8,
-            #fbe1e8
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: #ffffff;
-
-    font-weight: 600;
-
-    overflow: hidden;
-
-}
-
-
-.image-space img {
-
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-}
-
-
-/* =====================================================
-   BOTONES PRINCIPALES
-===================================================== */
-
-.main-button {
-
-    width: 100%;
-
-    max-width: 500px;
-
-    padding: 15px 20px;
-
-    border-radius: 14px;
-
-    background: var(--primary);
-
-    color: #ffffff;
-
-    font-weight: 700;
-
-    font-size: 16px;
-
-    transition: 0.2s;
-
-}
-
-
-.main-button:hover {
-
-    transform: translateY(-1px);
-
-}
-
-
-.main-button:active {
-
-    transform: scale(0.98);
-
-}
-
-
-.secondary-button {
-
-    width: 100%;
-
-    max-width: 500px;
-
-    padding: 14px 20px;
-
-    margin-top: 10px;
-
-    border-radius: 14px;
-
-    background: #ffffff;
-
-    color: var(--text);
-
-    border: 1px solid var(--border);
-
-    font-weight: 600;
-
-}
-
-
-/* =====================================================
-   BOTONES DE BIENVENIDA
-===================================================== */
-
-.welcome-buttons {
-
-    width: 100%;
-
-    max-width: 500px;
-
-}
-
-
-/* =====================================================
-   SELECTOR DE IDIOMA
-===================================================== */
-
-#language {
-
-    width: 100%;
-
-    max-width: 320px;
-
-    padding: 14px;
-
-    border-radius: 12px;
-
-    border: 1px solid var(--border);
-
-    background: #ffffff;
-
-    margin-top: 10px;
-
-}
-
-
-/* =====================================================
-   AUTENTICACIÓN
-===================================================== */
-
-.auth-screen {
-
-    justify-content: center;
-
-}
-
-
-.auth-card {
-
-    width: 100%;
-
-    max-width: 430px;
-
-    background: var(--card);
-
-    padding: 30px;
-
-    border-radius: 24px;
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,0.08);
-
-}
-
-
-.auth-card h1 {
-
-    font-size: 40px;
-
-    margin-bottom: 10px;
-
-}
-
-
-.auth-card h2 {
-
-    margin-bottom: 25px;
-
-}
-
-
-.auth-card input {
-
-    width: 100%;
-
-    padding: 14px;
-
-    margin-bottom: 12px;
-
-    border-radius: 12px;
-
-    border: 1px solid var(--border);
-
-    background: #ffffff;
-
-}
-
-
-.auth-card input:focus {
-
-    border-color: var(--primary);
-
-}
-
-
-/* =====================================================
-   FUNDADORES
-===================================================== */
-
-.founders-screen {
-
-    justify-content: flex-start;
-
-}
-
-
-.page-header {
-
-    max-width: 600px;
-
-    margin-bottom: 25px;
-
-}
-
-
-.page-header h1 {
-
-    font-size: 42px;
-
-    letter-spacing: 3px;
-
-}
-
-
-.page-header h2 {
-
-    margin: 15px 0 8px;
-
-}
-
-
-.page-header p {
-
-    color: var(--secondary-text);
-
-}
-
-
-.founders-list {
-
-    width: 100%;
-
-    max-width: 600px;
-
-}
-
-
-.founder-card {
-
-    display: flex;
-
     align-items: center;
 
     gap: 12px;
 
-    background: var(--card);
-
-    border-radius: 18px;
-
-    padding: 14px;
-
-    margin-bottom: 12px;
-
-    box-shadow:
-        0 5px 20px rgba(0,0,0,0.05);
-
+    margin-bottom: 14px;
 }
 
-
-.founder-avatar {
-
-    width: 52px;
-
-    height: 52px;
+.post-avatar {
+    width: 45px;
+    height: 45px;
 
     border-radius: 50%;
 
-    background: var(--primary);
+    background: #eadce2;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    color: #ffffff;
+    font-size: 11px;
+}
 
+.post-user strong {
+    font-size: 15px;
+}
+
+.post-user p {
+    margin-top: 3px;
+
+    color: var(--warm-muted);
     font-size: 12px;
-
 }
 
-
-.founder-info {
-
-    flex: 1;
-
-    text-align: left;
-
+.post-content {
+    width: 100%;
 }
 
-
-.founder-info strong {
-
-    display: block;
-
-}
-
-
-.founder-info span {
-
-    color: var(--secondary-text);
-
-    font-size: 13px;
-
-}
-
-
-.follow-button {
-
-    padding: 9px 14px;
-
-    border-radius: 12px;
-
-    background: var(--primary);
-
-    color: #ffffff;
-
-    font-weight: 600;
-
-}
-
-
-.follow-button.following {
-
-    background: #dddddd;
-
-    color: #333333;
-
-}
-
-
-/* =====================================================
-   APLICACIÓN PRINCIPAL
-===================================================== */
-
-.app-screen {
-
-    padding:
-
-        0
-        0
-        80px;
-
-    display: none;
-
-    align-items: stretch;
-
-    text-align: left;
-
-}
-
-
-.app-screen.active {
-
-    display: flex;
-
-}
-
-
-/* =====================================================
-   ENCABEZADO
-===================================================== */
-
-.app-header {
-
+.post-content img,
+.post-content video {
     width: 100%;
 
-    padding: 15px 18px;
+    max-height: 500px;
 
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+.post-text,
+.tweet-text {
+    margin: 12px 0;
+
+    line-height: 1.5;
+
+    text-align: left;
+}
+
+/* =========================
+   ACCIONES DE PUBLICACIÓN
+========================= */
+
+.post-actions {
     display: flex;
 
-    justify-content: space-between;
+    gap: 10px;
 
-    align-items: center;
-
-    background: var(--card);
-
-    border-bottom: 1px solid var(--border);
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 50;
-
+    margin-top: 12px;
 }
 
-
-.app-header h1 {
-
-    font-size: 25px;
-
-    letter-spacing: 2px;
-
-}
-
-
-.header-actions {
-
-    display: flex;
-
-    gap: 8px;
-
-}
-
-
-.header-actions button {
-
-    position: relative;
-
-    width: 42px;
-
-    height: 42px;
-
-    border-radius: 50%;
-
-    background: #f5f5f5;
-
-}
-
-
-/* =====================================================
-   NOTIFICACIONES
-===================================================== */
-
-.notification-badge {
-
-    position: absolute;
-
-    top: -3px;
-
-    right: -3px;
-
-    min-width: 18px;
-
-    height: 18px;
-
-    padding: 2px 5px;
+.post-actions button {
+    padding: 8px 13px;
 
     border-radius: 20px;
 
-    background: var(--danger);
+    background: #f5edef;
 
-    color: white;
-
-    font-size: 10px;
-
-    font-weight: 700;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
+    color: var(--warm-text);
 }
 
-
-/* =====================================================
-   PESTAÑAS
-===================================================== */
-
-.home-tabs {
-
-    display: flex;
-
-    width: 100%;
-
-    background: var(--card);
-
-    border-bottom: 1px solid var(--border);
-
+.post-actions button.liked {
+    color: #d75c7e;
 }
 
+/* =========================
+   COMENTARIOS
+========================= */
 
-.home-tabs .tab {
-
-    flex: 1;
-
-    padding: 13px 5px;
-
-    background: transparent;
-
-    color: var(--secondary-text);
-
-    font-weight: 600;
-
-    border-bottom: 2px solid transparent;
-
-}
-
-
-.home-tabs .tab.active {
-
-    color: var(--text);
-
-    border-bottom-color: var(--primary);
-
-}
-
-
-/* =====================================================
-   SECCIONES
-===================================================== */
-
-.feed-section {
-
+.comment-box {
     display: none;
 
-    width: 100%;
+    margin-top: 12px;
 
-    padding: 15px;
-
+    gap: 8px;
 }
 
-
-.feed-section.active {
-
-    display: block;
-
+.comment-box.active {
+    display: flex;
 }
 
+.comment-box input {
+    flex: 1;
 
-.feed-empty {
+    padding: 10px;
 
-    text-align: center;
+    border: 1px solid var(--warm-border);
+    border-radius: 15px;
 
-    padding: 60px 20px;
-
-    color: var(--secondary-text);
-
+    outline: none;
 }
 
+.comment-box button {
+    padding: 10px 15px;
 
-.feed-empty h2 {
+    border-radius: 15px;
 
-    color: var(--text);
-
-    margin-bottom: 10px;
-
+    background: var(--warm-primary);
+    color: white;
 }
 
+.comments {
+    margin-top: 10px;
 
-/* =====================================================
+    text-align: left;
+}
+
+.comment {
+    padding: 7px 0;
+
+    font-size: 14px;
+}
+
+/* =========================
    CREAR PUBLICACIÓN
-===================================================== */
+========================= */
 
-.create-post-card {
+.create-container {
+    width: 100%;
+    max-width: 600px;
 
-    background: var(--card);
+    margin: 20px auto;
 
-    border-radius: 18px;
+    padding: 20px;
 
-    padding: 15px;
+    background: white;
+
+    border-radius: var(--warm-radius);
+
+    box-shadow: var(--warm-shadow);
+}
+
+.create-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
 
     margin-bottom: 15px;
-
-    box-shadow:
-        0 4px 18px rgba(0,0,0,0.05);
-
 }
 
+.create-buttons button {
+    flex: 1;
 
-.create-post-card h3 {
+    min-width: 100px;
+
+    padding: 12px;
+
+    border-radius: 15px;
+
+    background: #f2e6eb;
+}
+
+.create-box {
+    display: none;
+}
+
+.create-box.active {
+    display: block;
+}
+
+.create-box textarea,
+.create-box input[type="text"] {
+    width: 100%;
+
+    min-height: 100px;
+
+    padding: 14px;
+
+    border: 1px solid var(--warm-border);
+    border-radius: 15px;
+
+    resize: vertical;
+
+    outline: none;
+}
+
+.create-box button {
+    margin-top: 10px;
+
+    padding: 12px 20px;
+
+    border-radius: 20px;
+
+    background: var(--warm-primary);
+
+    color: white;
+}
+
+/* =========================
+   GRUPOS
+========================= */
+
+.groups-container {
+    display: grid;
+
+    gap: 15px;
+}
+
+.group-card {
+    padding: 18px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: var(--warm-shadow);
+
+    text-align: left;
+}
+
+.group-card h3 {
+    margin-bottom: 8px;
+}
+
+.group-card p {
+    color: var(--warm-muted);
+
+    line-height: 1.5;
+}
+
+.group-card button {
+    margin-top: 12px;
+
+    padding: 10px 18px;
+
+    border-radius: 20px;
+
+    background: var(--warm-primary);
+
+    color: white;
+}
+
+.group-card button.joined {
+    background: var(--warm-secondary);
+}
+
+.group-message-area {
+    display: none;
+
+    margin-top: 15px;
+}
+
+.group-message-area.active {
+    display: block;
+}
+
+.group-message-area textarea {
+    width: 100%;
+
+    min-height: 70px;
+
+    padding: 12px;
+
+    border: 1px solid var(--warm-border);
+
+    border-radius: 15px;
+}
+
+.group-message-area button {
+    margin-top: 8px;
+}
+
+/* =========================
+   DESEOS
+========================= */
+
+.wishes-container {
+    width: 100%;
+}
+
+.wish-card {
+    margin-bottom: 18px;
+
+    padding: 18px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: var(--warm-shadow);
+
+    text-align: left;
+}
+
+.wish-image {
+    width: 100%;
+
+    height: 220px;
 
     margin-bottom: 12px;
 
-}
+    border-radius: 15px;
 
-
-.create-buttons {
+    background: #eee5e8;
 
     display: flex;
+    align-items: center;
+    justify-content: center;
 
-    gap: 8px;
-
+    overflow: hidden;
 }
 
+.wish-image img {
+    width: 100%;
+    height: 100%;
 
-.create-buttons button {
-
-    flex: 1;
-
-    padding: 12px 5px;
-
-    border-radius: 12px;
-
-    background: #f7f7f7;
-
+    object-fit: cover;
 }
 
-
-.create-box {
-
-    margin-top: 15px;
-
+.wish-card h3 {
+    margin-bottom: 8px;
 }
 
+.wish-description {
+    color: var(--warm-muted);
 
-.create-box input,
-.create-box textarea {
+    line-height: 1.5;
 
+    margin-bottom: 10px;
+}
+
+.wish-price {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.wish-progress {
+    width: 100%;
+    height: 10px;
+
+    background: #eee;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin: 10px 0;
+}
+
+.wish-progress-bar {
+    height: 100%;
+
+    width: 0%;
+
+    background: var(--warm-primary);
+
+    border-radius: 20px;
+}
+
+.donate-button {
     width: 100%;
 
     padding: 12px;
 
-    margin-bottom: 10px;
-
-    border-radius: 12px;
-
-    border: 1px solid var(--border);
-
-}
-
-
-.create-box textarea {
-
-    min-height: 110px;
-
-    resize: vertical;
-
-}
-
-
-/* =====================================================
-   PUBLICACIONES
-===================================================== */
-
-.text-post,
-.post-card {
-
-    background: var(--card);
-
-    border-radius: 18px;
-
-    padding: 15px;
-
-    margin-bottom: 15px;
-
-    box-shadow:
-        0 4px 18px rgba(0,0,0,0.05);
-
-}
-
-
-.post-user {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    margin-bottom: 12px;
-
-}
-
-
-.post-avatar {
-
-    width: 42px;
-
-    height: 42px;
-
-    border-radius: 50%;
-
-    background: var(--primary);
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    color: white;
-
-    font-size: 11px;
-
-}
-
-
-.post-user p {
-
-    margin-top: 2px;
-
-    font-size: 12px;
-
-    color: var(--secondary-text);
-
-}
-
-
-.tweet-text,
-.post-text {
-
-    line-height: 1.6;
-
-    margin-bottom: 12px;
-
-}
-
-
-.post-actions {
-
-    display: flex;
-
-    gap: 10px;
-
-}
-
-
-.post-actions button {
-
-    padding: 7px 12px;
-
-    border-radius: 10px;
-
-    background: #f5f5f5;
-
-}
-
-
-.post-actions button.liked {
-
-    color: var(--danger);
-
-}
-
-
-/* =====================================================
-   DESEOS
-===================================================== */
-
-.section-header {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    margin-bottom: 15px;
-
-}
-
-
-.section-header button {
-
-    width: 40px;
-
-    height: 40px;
-
-    border-radius: 50%;
-
-    background: var(--primary);
-
-    color: white;
-
-    font-size: 24px;
-
-}
-
-
-.wish-card {
-
-    background: var(--card);
-
-    border-radius: 18px;
-
-    padding: 18px;
-
-    margin-bottom: 12px;
-
-    box-shadow:
-        0 4px 18px rgba(0,0,0,0.05);
-
-}
-
-
-/* =====================================================
-   PERFIL
-===================================================== */
-
-.profile-header {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    margin-bottom: 15px;
-
-}
-
-
-.profile-header h1 {
-
-    font-size: 28px;
-
-    letter-spacing: 2px;
-
-}
-
-
-.profile-icons {
-
-    display: flex;
-
-    gap: 8px;
-
-}
-
-
-.profile-icons button {
-
-    width: 42px;
-
-    height: 42px;
-
-    border-radius: 50%;
-
-    background: #f5f5f5;
-
-    position: relative;
-
-}
-
-
-/* =====================================================
-   TARJETA DEL PERFIL
-===================================================== */
-
-.profile-card {
-
-    background: var(--card);
+    margin-top: 10px;
 
     border-radius: 20px;
 
-    overflow: hidden;
-
-    text-align: center;
-
-    box-shadow:
-        0 5px 25px rgba(0,0,0,0.06);
-
-    padding-bottom: 20px;
-
-}
-
-
-.profile-cover {
-
-    width: 100%;
-
-    height: 170px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f7b6c8,
-            #f5dfe5
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
+    background: var(--warm-primary);
 
     color: white;
 
-    overflow: hidden;
-
+    font-weight: 700;
 }
 
+/* =========================
+   BARRA INFERIOR
+========================= */
 
-.profile-cover img {
+.bottom-nav {
+    position: fixed;
 
-    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
-    height: 100%;
+    height: 72px;
 
-    object-fit: cover;
+    background: white;
 
-}
-
-
-.profile-photo {
-
-    width: 105px;
-
-    height: 105px;
-
-    border-radius: 50%;
-
-    background: var(--primary);
-
-    border: 5px solid var(--card);
-
-    margin: -52px auto 10px;
-
-    position: relative;
-
-    z-index: 2;
+    border-top: 1px solid var(--warm-border);
 
     display: flex;
 
-    align-items: center;
-
-    justify-content: center;
-
-    color: white;
-
-    overflow: hidden;
-
+    z-index: 100;
 }
 
+.nav-item {
+    flex: 1;
 
-.profile-photo img {
+    background: transparent;
 
-    width: 100%;
-
-    height: 100%;
-
-    object-fit: cover;
-
-}
-
-
-.profile-stats {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 50px;
-
-    margin: 10px 0;
-
-}
-
-
-.profile-stats div {
+    color: var(--warm-muted);
 
     display: flex;
 
     flex-direction: column;
 
-    gap: 3px;
+    align-items: center;
 
+    justify-content: center;
+
+    gap: 4px;
+
+    font-size: 11px;
 }
 
+.nav-item.active {
+    color: var(--warm-primary-dark);
+}
+
+.nav-item span:first-child {
+    font-size: 21px;
+}
+
+/* =========================
+   PERFIL
+========================= */
+
+.profile-header {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.profile-header h1 {
+    font-size: 28px;
+
+    letter-spacing: 3px;
+}
+
+.profile-icons {
+    display: flex;
+
+    gap: 8px;
+}
+
+.profile-icons button {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,.07);
+
+    position: relative;
+}
+
+/* =========================
+   TARJETA PERFIL
+========================= */
+
+.profile-card {
+    width: 100%;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    box-shadow: var(--warm-shadow);
+
+    text-align: center;
+}
+
+.profile-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 30px;
+}
+
+.profile-photo {
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    background: #eadce2;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border: 4px solid white;
+
+    box-shadow: 0 3px 12px rgba(0,0,0,.12);
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.profile-stats {
+    display: flex;
+
+    gap: 25px;
+}
+
+.profile-stats div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.profile-stats strong {
+    font-size: 20px;
+}
 
 .profile-stats span {
+    font-size: 12px;
 
-    font-size: 13px;
-
-    color: var(--secondary-text);
-
+    color: var(--warm-muted);
 }
-
 
 .profile-card h2 {
+    margin-top: 18px;
 
-    margin-top: 10px;
-
+    font-size: 20px;
 }
 
-
-#profileBio {
-
-    color: var(--secondary-text);
-
-    padding: 0 20px;
-
-    margin-top: 6px;
-
-}
-
-
-.profile-links {
-
-    margin-top: 10px;
-
-}
-
-
-.profile-links a {
-
-    color: var(--primary-dark);
-
-    text-decoration: none;
-
-}
-
-
-/* =====================================================
-   BOTONES DEL PERFIL
-===================================================== */
+/* =========================
+   ACCIONES PERFIL
+========================= */
 
 .profile-actions {
-
     display: flex;
 
     gap: 10px;
 
     margin: 15px 0;
-
 }
 
-
 .profile-action-button {
-
     flex: 1;
 
     padding: 12px;
 
-    border-radius: 12px;
+    border-radius: 20px;
 
-    background: var(--primary);
+    background: var(--warm-primary);
 
     color: white;
 
     font-weight: 600;
-
 }
-
 
 .profile-action-button.following {
-
-    background: #ddd;
-
-    color: #333;
-
+    background: var(--warm-secondary);
 }
 
-
-/* =====================================================
-   PUBLICACIONES DEL PERFIL
-===================================================== */
+/* =========================
+   PUBLICACIONES PERFIL
+========================= */
 
 .profile-posts {
-
-    margin-top: 20px;
-
+    margin-top: 25px;
 }
-
 
 .profile-posts h3 {
-
-    margin-bottom: 12px;
-
+    margin-bottom: 15px;
 }
-
 
 .empty-profile {
+    padding: 30px 15px;
 
-    text-align: center;
+    color: var(--warm-muted);
 
-    padding: 30px;
+    background: white;
 
-    background: var(--card);
-
-    border-radius: 16px;
-
-    color: var(--secondary-text);
-
+    border-radius: 18px;
 }
 
+/* =========================
+   AJUSTES
+========================= */
 
-/* =====================================================
-   BARRA INFERIOR
-===================================================== */
-
-.bottom-nav {
+.profile-settings-screen {
+    display: none;
 
     position: fixed;
 
-    bottom: 0;
+    inset: 0;
 
-    left: 0;
+    z-index: 300;
 
-    right: 0;
+    overflow-y: auto;
 
-    height: 68px;
+    background: var(--warm-background);
 
-    background: var(--card);
+    padding: 20px;
 
-    border-top: 1px solid var(--border);
-
-    display: flex;
-
-    z-index: 100;
-
+    padding-bottom: 100px;
 }
 
+.profile-settings-screen.active {
+    display: block;
+}
 
-.nav-item {
+.settings-header {
+    display: flex;
 
-    flex: 1;
+    align-items: center;
 
-    background: transparent;
+    gap: 15px;
 
-    color: var(--secondary-text);
+    margin-bottom: 25px;
+}
 
+.settings-header button {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: white;
+}
+
+.settings-header h2 {
+    font-size: 25px;
+}
+
+.settings-list {
     display: flex;
 
     flex-direction: column;
 
+    gap: 10px;
+}
+
+.settings-list button {
+    width: 100%;
+
+    padding: 17px;
+
+    background: white;
+
+    border-radius: 17px;
+
+    text-align: left;
+
+    display: flex;
+
     align-items: center;
 
-    justify-content: center;
+    gap: 13px;
 
-    gap: 3px;
-
-    font-size: 19px;
-
+    box-shadow: 0 3px 12px rgba(0,0,0,.04);
 }
 
-
-.nav-item span {
-
-    font-size: 11px;
-
+.settings-list button:hover {
+    background: #f5edf0;
 }
 
+/* =========================
+   MODALES
+========================= */
 
-.nav-item.active {
-
-    color: var(--primary-dark);
-
-}
-
-
-/* =====================================================
-   AJUSTES
-===================================================== */
-
-.settings-screen {
-
+.modal {
     display: none;
 
     position: fixed;
@@ -1359,483 +1065,395 @@ select {
 
     z-index: 500;
 
-    background: var(--background);
-
-    overflow-y: auto;
-
-    padding-bottom: 30px;
-
-}
-
-
-.settings-screen.active {
-
-    display: block;
-
-}
-
-
-.settings-header {
-
-    height: 65px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 15px;
-
-    padding: 0 18px;
-
-    background: var(--card);
-
-    border-bottom: 1px solid var(--border);
-
-}
-
-
-.settings-header button {
-
-    width: 40px;
-
-    height: 40px;
-
-    border-radius: 50%;
-
-    background: #f5f5f5;
-
-}
-
-
-.settings-list {
-
-    padding: 15px;
-
-}
-
-
-.settings-list button {
-
-    width: 100%;
-
-    min-height: 60px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    padding: 14px;
-
-    margin-bottom: 8px;
-
-    border-radius: 15px;
-
-    background: var(--card);
-
-    color: var(--text);
-
-    text-align: left;
-
-}
-
-
-.settings-list button small {
-
-    margin-left: auto;
-
-    color: var(--secondary-text);
-
-}
-
-
-/* =====================================================
-   MODALES
-===================================================== */
-
-.modal {
-
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 1000;
-
-    background:
-        rgba(0,0,0,0.45);
+    background: rgba(0,0,0,.45);
 
     padding: 20px;
 
-    align-items: flex-end;
-
+    align-items: center;
     justify-content: center;
-
 }
-
 
 .modal.active {
-
     display: flex;
-
 }
 
-
 .modal-content {
-
     width: 100%;
 
-    max-width: 520px;
+    max-width: 450px;
 
     max-height: 90vh;
 
     overflow-y: auto;
 
-    background: var(--card);
+    padding: 25px;
 
-    border-radius: 25px 25px 0 0;
+    background: white;
 
-    padding: 22px;
+    border-radius: 25px;
 
+    box-shadow: 0 15px 50px rgba(0,0,0,.2);
 }
-
 
 .modal-header {
-
     display: flex;
 
+    align-items: center;
     justify-content: space-between;
 
-    align-items: center;
-
     margin-bottom: 20px;
-
 }
 
-
-.modal-header button {
-
+.modal-close {
     width: 35px;
-
     height: 35px;
 
     border-radius: 50%;
 
-    background: #f3f3f3;
-
-    font-size: 22px;
-
+    background: #f1e8eb;
 }
 
+/* =========================
+   NOTIFICACIONES
+========================= */
 
-.modal-content > button:not(.main-button) {
-
-    width: 100%;
-
-    padding: 14px;
-
-    margin-bottom: 8px;
-
-    border-radius: 12px;
-
-    background: #f5f5f5;
-
-    text-align: left;
-
-}
-
-
-.modal-content input,
-.modal-content textarea {
-
-    width: 100%;
-
-    padding: 13px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 12px;
-
-    margin: 7px 0 14px;
-
-}
-
-
-.modal-content textarea {
-
-    min-height: 120px;
-
-    resize: vertical;
-
-}
-
-
-.modal-content label {
-
-    display: block;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    margin-top: 5px;
-
-}
-
-
-/* =====================================================
-   COLORES
-===================================================== */
-
-.color-options {
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 12px;
-
-}
-
-
-.color-option {
-
-    min-height: 100px;
-
-    border-radius: 18px;
-
-    border: 2px solid var(--border);
-
-    background: var(--card);
-
+.notifications-list {
     display: flex;
 
     flex-direction: column;
 
-    align-items: center;
+    gap: 10px;
+}
 
-    justify-content: center;
+.notification-item {
+    padding: 14px;
+
+    background: #faf5f7;
+
+    border-radius: 15px;
+
+    display: flex;
 
     gap: 10px;
 
+    align-items: center;
 }
 
+.notification-item.unread {
+    background: #f2e0e7;
 
-.color-option span {
-
-    width: 42px;
-
-    height: 42px;
-
-    border-radius: 50%;
-
+    font-weight: 600;
 }
 
+/* =========================
+   COLORES
+========================= */
 
-.color-option.original span {
+.color-options {
+    display: grid;
 
-    background: #f7b6c8;
+    grid-template-columns: repeat(2, 1fr);
 
+    gap: 12px;
 }
 
+.color-option {
+    min-height: 70px;
 
-.color-option.black span {
+    border-radius: 18px;
 
-    background: #111111;
-
-}
-
-
-.color-option.pink span {
-
-    background: #ff8fb1;
-
-}
-
-
-.color-option.olive span {
-
-    background: #78835b;
-
-}
-
-
-/* =====================================================
-   SUSCRIPCIONES
-===================================================== */
-
-.subscription-icon {
-
-    width: 70px;
-
-    height: 70px;
-
-    border-radius: 50%;
-
-    background: var(--primary);
+    padding: 12px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    font-size: 30px;
+    font-weight: 700;
 
-    margin: 0 auto 15px;
-
+    border: 2px solid transparent;
 }
 
-
-#subscriptionLocked {
-
-    text-align: center;
-
-    padding: 20px 0;
-
+.color-option:hover {
+    border-color: var(--warm-text);
 }
 
+/* =========================
+   SUSCRIPCIONES
+========================= */
 
-#subscriptionLocked strong {
+.subscription-card {
+    padding: 20px;
 
-    display: block;
+    background: white;
 
-    margin-top: 15px;
+    border-radius: 20px;
 
-    font-size: 18px;
+    box-shadow: var(--warm-shadow);
 
+    margin-bottom: 15px;
 }
 
+.subscription-card h3 {
+    margin-bottom: 10px;
+}
 
-/* =====================================================
-   TEMAS
-===================================================== */
+.subscription-card p {
+    color: var(--warm-muted);
+
+    line-height: 1.5;
+
+    margin-bottom: 15px;
+}
+
+.subscription-button {
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 20px;
+
+    background: var(--warm-primary);
+
+    color: white;
+
+    font-weight: 700;
+}
+
+/* =========================
+   SOPORTE
+========================= */
+
+.support-form textarea {
+    width: 100%;
+
+    min-height: 150px;
+
+    padding: 14px;
+
+    border: 1px solid var(--warm-border);
+
+    border-radius: 15px;
+
+    resize: vertical;
+}
+
+.support-form button {
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 13px;
+
+    border-radius: 20px;
+
+    background: var(--warm-primary);
+
+    color: white;
+}
+
+/* =========================
+   TEMA NEGRO
+========================= */
 
 body.theme-black {
-
-    --primary: #333333;
-
-    --primary-dark: #111111;
-
-    --background: #000000;
-
-    --card: #151515;
-
-    --text: #ffffff;
-
-    --secondary-text: #aaaaaa;
-
-    --border: #292929;
-
+    --warm-background: #111111;
+    --warm-card: #1d1d1d;
+    --warm-text: #ffffff;
+    --warm-muted: #aaaaaa;
+    --warm-border: #333333;
 }
 
-
-body.theme-pink {
-
-    --primary: #ff8fb1;
-
-    --primary-dark: #ed6d95;
-
-    --background: #fff1f6;
-
-    --card: #ffffff;
-
-    --text: #2b1d22;
-
-    --secondary-text: #806c73;
-
-    --border: #f3dbe3;
-
+body.theme-black,
+body.theme-black #screen8,
+body.theme-black .welcome-screen,
+body.theme-black .profile-settings-screen {
+    background: #111111;
+    color: white;
 }
 
+body.theme-black .post-card,
+body.theme-black .text-post,
+body.theme-black .profile-card,
+body.theme-black .empty-profile,
+body.theme-black .home-header,
+body.theme-black .home-tabs,
+body.theme-black .bottom-nav,
+body.theme-black .settings-list button,
+body.theme-black .modal-content {
+    background: #1d1d1d;
+    color: white;
+}
+
+body.theme-black input,
+body.theme-black textarea,
+body.theme-black select {
+    background: #222222;
+    color: white;
+    border-color: #444;
+}
+
+/* =========================
+   TEMA BLANCO
+========================= */
+
+body.theme-white {
+    --warm-background: #ffffff;
+    --warm-card: #ffffff;
+    --warm-text: #222222;
+}
+
+body.theme-white,
+body.theme-white #screen8,
+body.theme-white .welcome-screen,
+body.theme-white .profile-settings-screen {
+    background: #ffffff;
+}
+
+/* =========================
+   TEMA HUESO
+========================= */
+
+body.theme-bone {
+    --warm-background: #f3eee3;
+    --warm-card: #fffdf8;
+    --warm-text: #3d3932;
+    --warm-border: #e2dacb;
+}
+
+body.theme-bone,
+body.theme-bone #screen8,
+body.theme-bone .welcome-screen,
+body.theme-bone .profile-settings-screen {
+    background: #f3eee3;
+}
+
+body.theme-bone .post-card,
+body.theme-bone .text-post,
+body.theme-bone .profile-card,
+body.theme-bone .home-header,
+body.theme-bone .home-tabs,
+body.theme-bone .bottom-nav,
+body.theme-bone .settings-list button {
+    background: #fffdf8;
+}
+
+/* =========================
+   TEMA OLIVA
+========================= */
 
 body.theme-olive {
-
-    --primary: #78835b;
-
-    --primary-dark: #5f6847;
-
-    --background: #f3f4ec;
-
-    --card: #ffffff;
-
-    --text: #25291e;
-
-    --secondary-text: #707563;
-
-    --border: #dfe2d4;
-
+    --warm-primary: #89915d;
+    --warm-primary-dark: #6f7747;
+    --warm-secondary: #aab084;
+    --warm-background: #f1f2e7;
 }
 
+body.theme-olive,
+body.theme-olive #screen8,
+body.theme-olive .welcome-screen,
+body.theme-olive .profile-settings-screen {
+    background: #f1f2e7;
+}
 
-/* =====================================================
+/* =========================
+   TEMA ROSADO
+========================= */
+
+body.theme-pink {
+    --warm-primary: #e48baa;
+    --warm-primary-dark: #cf6f91;
+    --warm-secondary: #c99aaa;
+    --warm-background: #fff0f5;
+}
+
+body.theme-pink,
+body.theme-pink #screen8,
+body.theme-pink .welcome-screen,
+body.theme-pink .profile-settings-screen {
+    background: #fff0f5;
+}
+
+/* =========================
+   TEMA MORADO
+========================= */
+
+body.theme-purple {
+    --warm-primary: #9b7bc5;
+    --warm-primary-dark: #805faf;
+    --warm-secondary: #a99bc0;
+    --warm-background: #f4effa;
+}
+
+body.theme-purple,
+body.theme-purple #screen8,
+body.theme-purple .welcome-screen,
+body.theme-purple .profile-settings-screen {
+    background: #f4effa;
+}
+
+/* =========================
    RESPONSIVE
-===================================================== */
+========================= */
 
-@media (min-width: 700px) {
+@media (max-width: 600px) {
 
     .screen {
-
-        max-width: 650px;
-
-        margin: auto;
-
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
-    .app-screen {
-
-        max-width: 700px;
-
-        margin: auto;
-
+    .welcome-screen h1 {
+        font-size: 36px;
     }
 
-    .bottom-nav {
-
-        max-width: 700px;
-
-        left: 50%;
-
-        right: auto;
-
-        transform: translateX(-50%);
-
-        width: 100%;
-
+    .image-space {
+        height: 250px;
     }
 
+    .profile-top {
+        gap: 18px;
+    }
+
+    .profile-photo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .profile-stats {
+        gap: 15px;
+    }
+
+    .profile-stats strong {
+        font-size: 18px;
+    }
+
+    .home-tabs .tab {
+        font-size: 12px;
+    }
+
+    .color-options {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
-
-/* =====================================================
-   ANIMACIONES
-===================================================== */
-
-.screen.active {
-
-    animation: fadeIn 0.25s ease;
-
-}
-
+/* =========================
+   ANIMACIÓN
+========================= */
 
 @keyframes fadeIn {
-
     from {
-
         opacity: 0;
-
         transform: translateY(5px);
-
     }
 
     to {
-
         opacity: 1;
-
         transform: translateY(0);
-
     }
+}
 
+.screen.active,
+.feed-section.active {
+    animation: fadeIn .25s ease;
 }

@@ -124,8 +124,13 @@ function showScreen(n) {
 }
 
 function showTab(t, el) {
-  document.querySelectorAll('#s7.tab').forEach(x => x.classList.remove('active'));
+  // 1. Oculta TODOS los tabs de s7
+  document.querySelectorAll('#s7 .tab').forEach(x => x.classList.remove('active'));
+  
+  // 2. Muestra solo el que picamos
   document.getElementById(t).classList.add('active');
+
+  // 3. Marca el botón de abajo como activo
   document.querySelectorAll('.nav-item').forEach(x => x.classList.remove('active'));
   el.classList.add('active');
 }

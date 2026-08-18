@@ -166,8 +166,11 @@ const translations = {
 };
 function showScreen(n) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    // Si es número le agrega la "s" -> 1 = s1
+  // Si ya es texto lo deja igual -> 'editarPerfil' = 'editarPerfil'
   let id = typeof n === 'number' ? 's' + n : n;
   document.getElementById(id).classList.add('active');
+
   if(n == 6) loadFounders();
 }
 function showScreen(id){

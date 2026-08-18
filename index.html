@@ -93,7 +93,7 @@
 
    <!-- 8. PERFIL -->
 <div class="tab" id="perfil">
-  <!-- HEADER CON CAMPANITA Y 3 RAYAS -->
+  <!-- HEADER -->
   <div class="header">
     <h1>PEVTHON</h1>
     <div class="top-icons">
@@ -102,24 +102,43 @@
     </div>
   </div>
 
-  <!-- CAJA AMARILLA DE PERFIL -->
+  <!-- PORTADA -->
+  <div class="cover" id="portada"></div>
+
+  <!-- CAJA AMARILLA -->
   <div class="profile-box">
-    <!-- FOTO -->
+    <!-- FOTO SIN CAMARITA -->
     <div class="profile-pic">
       <img id="perfilPic" src="">
-      <input type="file" id="changePic" accept="image/*" onchange="cambiarFoto(this)" style="display:none;">
-      <div class="edit-pic" onclick="document.getElementById('changePic').click()">📷</div>
     </div>
 
-    <!-- SEGUIDORES Y SEGUIDOS ARRIBA -->
+    <!-- SEGUIDORES Y SEGUIDOS -->
     <div class="stats">
       <div><b id="seguidores">0</b> Seguidores</div>
       <div><b id="seguidos">0</b> Seguidos</div>
     </div>
 
-    <!-- NOMBRE DE USUARIO ABAJO -->
+    <!-- USUARIO HASTA ABAJO COMO LO MARCASTE -->
     <div class="username" id="nombreUsuario">Usuario</div>
   </div>
+
+  <!-- BOTONES -->
+  <div class="btn-row" id="btnPerfilPropio">
+    <button class="btn" onclick="abrirEditarPerfil()">Editar perfil</button>
+  </div>
+  
+  <div class="btn-row" id="btnPerfilOtro" style="display:none;">
+    <button class="btn" onclick="seguir()">Seguir</button>
+    <button class="btn" onclick="mensaje()">Mensaje</button>
+  </div>
+
+  <!-- BIO Y LINKS -->
+  <div class="bio" id="bioUsuario"></div>
+  <div class="links" id="linksUsuario"></div>
+
+  <!-- FEED -->
+  <div class="mi-grid" id="miFeed"></div>
+</div>
 
   <!-- BOTONES: CAMBIAN SI ES TU PERFIL O EL DE OTRO -->
   <div class="btn-row" id="btnPerfilPropio">
@@ -152,7 +171,33 @@
 <div><div class="color-option" style="background:#D98AA8;" onclick="changeColor('#D98AA8')"></div>
 <div class="color-option" style="background:#000;" onclick="changeColor('#000')"></div></div></div>
 <button class="btn" onclick="showTab('perfil')">Volver</button></div></div>
+<!-- EDITAR PERFIL -->
+<div class="screen" id="editarPerfil">
+  <h1 style="text-align:center; padding:20px;">Editar perfil</h1>
+  
+  <div class="edit-form">
+    <label>Foto de Portada</label>
+    <input type="file" id="editPortada" accept="image/*" onchange="previewPortada(this)">
+    <div class="preview-cover" id="previewCover"></div>
 
+    <label>Foto de Perfil</label>
+    <input type="file" id="editFoto" accept="image/*" onchange="previewFoto(this)">
+    <div class="preview-pic"><img id="previewPic"></div>
+
+    <label>Nombre de Usuario</label>
+    <input type="text" id="editNombre" placeholder="Tu nombre">
+
+    <label>Biografía / Descripción</label>
+    <textarea id="editBio" placeholder="Cuéntanos sobre ti..." rows="3"></textarea>
+
+    <label>Links</label>
+    <input type="url" id="editLink1" placeholder="https://instagram.com/tu">
+    <input type="url" id="editLink2" placeholder="https://tiktok.com/@tu">
+
+    <button class="btn" onclick="guardarPerfil()">Guardar cambios</button>
+    <button class="btn btn-gray" onclick="showTab('perfil')">Cancelar</button>
+  </div>
+</div>
 <script>
 let posts = [];
 function showScreen(n) {

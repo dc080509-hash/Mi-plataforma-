@@ -166,3 +166,15 @@ input,select,textarea { width:90%; padding:14px; margin:8px auto; border-radius:
 .btn-gray { background: #aaa; }
 .tab { display: none; }
 .tab.active { display: block; }
+.bottom-nav { 
+  display: none; /* Oculta en onboarding */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#s7.active .bottom-nav { 
+  display: flex; /* Solo aparece en s7 */
+}
+.tab { display: none; }
+.tab.active { display: block; padding-bottom: 80px; }

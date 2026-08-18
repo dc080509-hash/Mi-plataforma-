@@ -91,21 +91,49 @@
       <button class="btn" id="btnSubs" disabled onclick="showScreen('solicitud')">Continuar</button>
     </div>
 
-    <!-- 8. PERFIL -->
-    <div class="tab" id="perfil">
-      <div class="header">
-        <h1>PEVTHON</h1>
-        <div class="top-icons"><span onclick="showScreen('notis')">🔔</span><span onclick="showScreen('ajustes')">☰</span></div>
-      </div>
-      <div class="profile-box">
-        <div class="profile-pic"><img id="perfilPic"></div>
-        <div class="stats"><div>Seguidores: 0</div><div>Seguidos: 0</div></div>
-        <div class="username">User</div>
-      </div>
-      <div class="btn-row"><button class="btn">Seguir</button><button class="btn">Mensaje</button></div>
-      <div id="miFeed"></div>
+   <!-- 8. PERFIL -->
+<div class="tab" id="perfil">
+  <!-- HEADER CON CAMPANITA Y 3 RAYAS -->
+  <div class="header">
+    <h1>PEVTHON</h1>
+    <div class="top-icons">
+      <span onclick="showScreen('notis')">🔔</span>
+      <span onclick="showScreen('ajustes')">☰</span>
     </div>
   </div>
+
+  <!-- CAJA AMARILLA DE PERFIL -->
+  <div class="profile-box">
+    <!-- FOTO -->
+    <div class="profile-pic">
+      <img id="perfilPic" src="">
+      <input type="file" id="changePic" accept="image/*" onchange="cambiarFoto(this)" style="display:none;">
+      <div class="edit-pic" onclick="document.getElementById('changePic').click()">📷</div>
+    </div>
+
+    <!-- SEGUIDORES Y SEGUIDOS ARRIBA -->
+    <div class="stats">
+      <div><b id="seguidores">0</b> Seguidores</div>
+      <div><b id="seguidos">0</b> Seguidos</div>
+    </div>
+
+    <!-- NOMBRE DE USUARIO ABAJO -->
+    <div class="username" id="nombreUsuario">Usuario</div>
+  </div>
+
+  <!-- BOTONES: CAMBIAN SI ES TU PERFIL O EL DE OTRO -->
+  <div class="btn-row" id="btnPerfilPropio">
+    <button class="btn" onclick="editarPerfil()">Editar perfil</button>
+  </div>
+  
+  <div class="btn-row" id="btnPerfilOtro" style="display:none;">
+    <button class="btn" onclick="seguir()">Seguir</button>
+    <button class="btn" onclick="mensaje()">Mensaje</button>
+  </div>
+
+  <!-- FEED DE FOTOS Y VIDEOS -->
+  <div class="mi-grid" id="miFeed"></div>
+</div>
 
   <!-- BARRA INFERIOR NUEVA CON 6 BOTONES -->
   <div class="bottom-nav">
@@ -208,7 +236,59 @@ function publicar() {
   alert('Publicado');
   document.getElementById('postText').value='';
 }
+let esMiPerfil = true; // true = tu perfil, false = perfil de otro
 
+function mostrarPerfil(tipo){
+  esMiPerfil = tipo === 'propio';
+  document.getElementById('btnPerfilPropio').style.display = esMiPerfil? 'flex' : 'none';
+  document.getElementById('btnPerfilOtro').style.display = esMiPerfil? 'none' : 'flex';
+  showTab('perfil');
+}
+
+// Para probar: cuando le das click a un perfil de otro usuario
+function verPerfilDeOtro(){
+  mostrarPerfil('otro');
+  document.getElementById('nombreUsuario').textContent = 'Usuario2';
+}
+
+// Cuando entras a tu perfil
+function verMiPerfil(){
+  mostrarPerfil('propio');
+  document.getElementById('nombreUsuario').textContent = document.getElementById('regUser').value || 'Usuario';
+}
+
+function cambiarFoto(input){
+  if(input.files[0]){
+    document.getElementById('perfilPic').src = URL.createObjectURL(input.files[0]);
+  }
+}
+
+function editarPerfil(){
+  alert('Aquí abrimos para cambiar nombre, bio, foto');
+}
+
+function seguir(){ alert('Ya sigues a este usuario'); document.getElementById('seguidores').textContent = parseInt(document.getElementById('seguidores').textContent)+1 }
+function mensaje(){ alert('Abrir chat'); }
+
+// Cambia tu función renderPosts para que llene mi-grid
+function renderPosts() {
+  let grid = '';
+  posts.forEach(p => {
+    if(p.url){
+      if(p.isVideo){
+        grid += `<video src="${p.url}" controls></video>`;
+      } else {
+        grid += `<img src="${p.url}">`;
+      }
+    }
+  });
+  document.getElementById('miFeed').innerHTML = grid;
+  
+  // Para ti sigue igual con posts completos
+  let html = '';
+  posts.forEach(p => { /*... tu codigo anterior... */ });
+  document.getElementById('para-ti').innerHTML = html || `<p style="text-align:center; color:#888; padding:20px;">${translations[currentLang].noPosts}</p>`;
+}
 </script>
 </body>
 </html>

@@ -164,7 +164,12 @@ const translations = {
   es: { navHome: "Inicio", navWishes: "Deseos", navCreate: "Crear", navMsg: "Mensajes", navSubs: "Suscripciones", navProfile: "Perfil", tabForYou: "Para ti", tabDiscover: "Descubrir", tabIntl: "Internacional", noPosts: "Aún no hay publicaciones" },
   en: { navHome: "Home", navWishes: "Wishes", navCreate: "Create", navMsg: "Messages", navSubs: "Subscriptions", navProfile: "Profile", tabForYou: "For you", tabDiscover: "Discover", tabIntl: "International", noPosts: "No posts yet" }
 };
-
+function showScreen(n) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  let id = typeof n === 'number' ? 's' + n : n;
+  document.getElementById(id).classList.add('active');
+  if(n == 6) loadFounders();
+}
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(typeof id === 'number'? 's'+id : id).classList.add('active');

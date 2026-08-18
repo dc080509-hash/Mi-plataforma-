@@ -4,85 +4,67 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PEVTHON</title>
-<link rel="stylesheet" href="styles.css"> <!-- ESTA LINEA ES LA IMPORTANTE -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- PANTALLA 1 -->
+<!-- P1 IDIOMA -->
 <div class="screen active onboard" id="s1">
-  <div>
-    <h1>PEVTHON</h1>
-    <div class="image-box"></div>
-    <h2>Selecciona tu idioma</h2>
-    <select id="idioma">
-      <option>🇪🇸 Español</option>
-      <option>🇬🇧 English</option>
-    </select>
-  </div>
+  <div><h1>PEVTHON</h1><div class="image-box"></div>
+  <h2>Selecciona tu idioma</h2>
+  <select><option>🇪🇸 Español</option><option>🇬🇧 English</option></select></div>
   <button class="btn" onclick="showScreen(2)">Continuar</button>
 </div>
 
-<!-- PANTALLA 2 -->
-<div class="screen onboard" id="s2">
-  <div><h1>PEVTHON</h1><div class="image-box"></div>
-  <h2>Conecta con personas</h2><p>de todo el mundo</p></div>
-  <button class="btn" onclick="showScreen(3)">Continuar</button>
-</div>
+<!-- P2 -->
+<div class="screen onboard" id="s2"><div><h1>PEVTHON</h1><div class="image-box"></div>
+<h2>Conecta con personas</h2><p>de todo el mundo</p></div>
+<button class="btn" onclick="showScreen(3)">Continuar</button></div>
 
-<!-- PANTALLA 3 -->
-<div class="screen onboard" id="s3">
-  <div><h1>PEVTHON</h1><div class="image-box"></div>
-  <h2>Comparte lo que deseas</h2><p>cumple tus sueños</p></div>
-  <button class="btn" onclick="showScreen(4)">Continuar</button>
-</div>
+<!-- P3 -->
+<div class="screen onboard" id="s3"><div><h1>PEVTHON</h1><div class="image-box"></div>
+<h2>Comparte lo que deseas</h2><p>cumple tus sueños</p></div>
+<button class="btn" onclick="showScreen(4)">Continuar</button></div>
 
-<!-- PANTALLA 4 -->
-<div class="screen onboard" id="s4">
-  <div><h1>PEVTHON</h1><div class="image-box"></div></div>
-  <button class="btn" onclick="showScreen(5)">Continuar</button>
-</div>
+<!-- P4 -->
+<div class="screen onboard" id="s4"><div><h1>PEVTHON</h1><div class="image-box"></div></div>
+<button class="btn" onclick="showScreen(5)">Continuar</button></div>
 
-<!-- PANTALLA 5 -->
-<div class="screen onboard" id="s5">
-  <div><h1>PEVTHON</h1>
-  <input type="text" placeholder="Usuario">
-  <input type="email" placeholder="Email">
-  <input type="date">
-  <input type="password" placeholder="Contraseña">
-  </div>
-  <button class="btn" onclick="showScreen(6)">Continuar</button>
-</div>
+<!-- P5 REGISTRO -->
+<div class="screen onboard" id="s5"><div><h1>PEVTHON</h1>
+<input placeholder="Usuario"><input placeholder="Email">
+<input type="date"><input type="password" placeholder="Contraseña">
+</div><button class="btn" onclick="showScreen(6)">Continuar</button></div>
 
-<!-- PANTALLA 6 -->
-<div class="screen" id="s6">
-  <div style="padding:20px; text-align:center;">
-    <h1>PEVTHON</h1>
-    <p>Sigue a los fundadores</p>
-  </div>
-  <div id="founders"></div>
-  <button class="btn" onclick="showApp()">Continuar</button>
-</div>
+<!-- P6 FUNDADORES -->
+<div class="screen" id="s6"><div style="padding:20px; text-align:center;"><h1>PEVTHON</h1>
+<p>Sigue a los fundadores</p></div>
+<div id="founders"></div>
+<button class="btn" onclick="showApp()">Continuar</button></div>
 
-<!-- PANTALLA 7 APP -->
+<!-- P7 APP -->
 <div class="screen" id="s7">
   <div class="app-header">
-    <span class="active" onclick="showAppTab('para-ti')">Para ti</span>
-    <span onclick="showAppTab('descubrir')">Descubrir</span>
-    <span onclick="showAppTab('internacional')">Internacional</span>
+    <span class="active" onclick="showTab('para-ti')">Para ti</span>
+    <span onclick="showTab('descubrir')">Descubrir</span>
+    <span onclick="showTab('internacional')">Internacional</span>
   </div>
   <div class="app-content">
     <div class="tab active" id="para-ti"></div>
     <div class="tab" id="descubrir"></div>
-    <div class="tab" id="internacional"><div class="post"><b>Grupo Corazones</b></div></div>
-    <div class="tab" id="deseos"><input type="file"><textarea></textarea><button class="btn">Donar</button></div>
+    <div class="tab" id="internacional"><div class="post"><b>Grupo Corazones</b><button class="btn" style="width:100px;" onclick="alert('Te uniste')">Unirse</button></div></div>
+    <div class="tab" id="deseos">
+      <input type="file"><textarea placeholder="Describe tu deseo"></textarea>
+      <input placeholder="$"><button class="btn" onclick="alert('Donado')">Donar</button>
+    </div>
     <div class="tab" id="crear">
       <input type="file" id="postFile">
-      <textarea id="postText"></textarea>
+      <textarea id="postText" placeholder="Escribe algo"></textarea>
       <button class="btn" onclick="publicar()">Publicar</button>
     </div>
     <div class="tab" id="perfil">
       <h1>PEVTHON</h1>
-      <div class="profile-box"><div class="profile-pic"></div></div>
+      <div class="profile-box"><div class="profile-pic"></div><div style="position:absolute; bottom:10px; left:15px;">User</div></div>
       <button class="btn" onclick="showScreen('ajustes')">Ajustes</button>
       <div id="miFeed"></div>
     </div>
@@ -95,32 +77,24 @@
 </div>
 
 <!-- AJUSTES -->
-<div class="screen" id="ajustes">
-  <h1>PEVTHON</h1>
-  <div class="settings">
-    <h2>Ajustes</h2>
-    <div class="setting-item">Colores
-      <div>
-        <div class="color-option" style="background:#D98AA8;" onclick="changeColor('#D98AA8')"></div>
-        <div class="color-option" style="background:#000;" onclick="changeColor('#000')"></div>
-      </div>
-    </div>
-    <button class="btn" onclick="showTab('perfil')">Volver</button>
-  </div>
-</div>
+<div class="screen" id="ajustes"><h1>PEVTHON</h1>
+<div class="settings"><h2>Ajustes</h2>
+<div class="setting-item">Colores
+<div><div class="color-option" style="background:#D98AA8;" onclick="changeColor('#D98AA8')"></div>
+<div class="color-option" style="background:#000;" onclick="changeColor('#000')"></div></div></div>
+<button class="btn" onclick="showTab('perfil')">Volver</button></div></div>
 
 <script>
 let posts = [];
 function showScreen(n) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('s' + n).classList.add('active');
-  if(n == 6) loadFounders();
+  document.getElementById(typeof n === 'number'? 's'+n : n).classList.add('active');
+  if(n==6) loadFounders();
 }
 function showTab(t) {
   document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
   document.getElementById(t).classList.add('active');
 }
-function showAppTab(t) { showTab(t); }
 function showApp() { showScreen(7); }
 function loadFounders() {
   document.getElementById('founders').innerHTML = '<div class="founder"><span>@fundador1</span><button class="btn" style="width:100px;">Seguir</button></div>'
@@ -129,6 +103,7 @@ function publicar() {
   let text = document.getElementById('postText').value;
   posts.push({user:'@tu', text});
   document.getElementById('para-ti').innerHTML += `<div class="post"><b>@tu</b><p>${text}</p></div>`;
+  document.getElementById('postText').value='';
 }
 function changeColor(c) {
   document.documentElement.style.setProperty('--main', c);

@@ -234,3 +234,11 @@ input,select,textarea { width:90%; padding:14px; margin:8px auto; border-radius:
 
 .tab { display: none; }
 .tab.active { display: block; }
+/* OCULTAR TODO LO QUE NO ESTE ACTIVO */
+.screen { display: none !important; }
+.screen.active { display: block !important; }
+
+.tab { display: none !important; }
+.tab.active { display: block !important; }
+
+html, body { overflow: hidden !important; }

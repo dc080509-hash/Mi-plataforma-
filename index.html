@@ -295,7 +295,9 @@ function guardarPerfil(){
   if(l2) linksHtml += `<a href="${l2}" target="_blank">${l2}</a>`;
   document.getElementById('linksUsuario').innerHTML = linksHtml;
   alert('Perfil actualizado!');
-  showTab('perfil');
+  showScreen(7); // 7 = s7 que es la app
+showTab('perfil', document.querySelector('.nav-item:last-
+child')); // y que se quede en el tab perfil
 }
 
 function seguir(){

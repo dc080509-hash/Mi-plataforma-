@@ -1,3 +1,13 @@
+.screen {
+  display: none !important; /* !important para que sí se oculte */
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+.screen.active {
+  display: flex !important; /* flex para centrar bonito */
+  flex-direction: column;
+  justify-content: space-between;
+}
 :root {
   --main: #D98AA8;
 }

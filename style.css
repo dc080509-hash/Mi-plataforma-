@@ -271,3 +271,8 @@ body > h1 { display: none !important; }
 .screen.active { display: block !important; }
 #s7 .tab { display: none !important; }
 #s7 .tab.active { display: block !important; }
+#s7 .tab { display: none !important; }
+#s7 .tab.active { display: block !important; }
+
+/* Para que solo se vea 1 tab a la vez */
+#s7 .app-content { padding-bottom: 80px; }

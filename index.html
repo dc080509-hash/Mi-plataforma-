@@ -50,58 +50,67 @@
     <span onclick="showAppTab('internacional')" data-key="tabIntl">Internacional</span>
   </div>
 
-  <div class="app-content">
-    <!-- 1. PARA TI = AQUI SALE EL FEED -->
-    <div class="tab active" id="para-ti"></div>
-    
-    <!-- 2. DESCUBRIR -->
-    <div class="tab" id="descubrir"><p style="text-align:center; padding:20px;">Aquí van tendencias</p></div>
-    
-    <!-- 3. INTERNACIONAL -->
-    <div class="tab" id="internacional">
-      <div class="post"><b>Grupo Corazones 💖</b><p>Sube fotos y videos en forma de corazón</p><button class="btn" style="width:100px; padding:8px;" onclick="alert('Te uniste al grupo')">Unirse</button></div>
-    </div>
-
-    <!-- 4. DESEOS = DONAR -->
-    <div class="tab" id="deseos">
-      <h2 style="text-align:center; margin:10px;" data-key="wishes">Deseos</h2>
-      <input type="file" id="wishImg" accept="image/*">
-      <textarea id="wishDesc" data-key="wishPlaceholder" placeholder="Describe lo que deseas" rows="3"></textarea>
-      <input type="number" id="wishGoal" placeholder="Cantidad a recaudar $" oninput="updateProgress()">
-      <div class="progress-bar"><div class="progress" id="wishProgress" style="width: 0%;"></div></div>
-      <button class="btn" onclick="donar()" data-key="donate">$10 Donar</button>
-    </div>
-
-    <!-- 5. CREAR -->
-    <div class="tab" id="crear">
-      <h2 style="text-align:center; margin:10px;" data-key="create">Crear</h2>
-      <input type="file" id="postFile" accept="image/*,video/*">
-      <textarea id="postText" data-key="postPlaceholder" placeholder="Escribe algo..." rows="3"></textarea>
-      <button class="btn" onclick="publicar()" data-key="btnPublish">Publicar</button>
-    </div>
-
-    <!-- 6. MENSAJES -->
-    <div class="tab" id="mensajes">
-      <p style="text-align:center; padding:50px;" data-key="msgLocked">Se desbloquea a los 1,000 seguidores</p>
-    </div>
-
-    <!-- 7. SUSCRIPCIONES -->
-    <div class="tab" id="suscripciones">
-      <p style="text-align:center; padding:20px;" data-key="subsLocked">Se desbloquea a los 5,000 seguidores</p>
-      <button class="btn" id="btnSubs" disabled onclick="showScreen('solicitud')">Continuar</button>
-    </div>
-
-   <!-- 8. PERFIL - SOLO AQUI VA EL BOTON EDITAR -->
-<div class="tab" id="perfil">
-  <!-- HEADER -->
-  <div class="header">
-    <h1>PEVTHON</h1>
-    <div class="top-icons">
-      <span onclick="showScreen('notis')">🔔</span>
-      <span onclick="showScreen('ajustes')">☰</span>
-    </div>
+<div class="app-content">
+  <!-- 1. PARA TI -->
+  <div class="tab active" id="para-ti"></div>
+  
+  <!-- 2. DESCUBRIR -->
+  <div class="tab" id="descubrir"><p style="text-align:center; padding:20px;">Aquí van tendencias</p></div>
+  
+  <!-- 3. INTERNACIONAL -->
+  <div class="tab" id="internacional">
+    <div class="post"><b>Grupo Corazones 💖</b><button class="btn" style="width:100px; padding:8px;">Unirse</button></div>
   </div>
 
+  <!-- 4. DESEOS -->
+  <div class="tab" id="deseos">
+    <h2 style="text-align:center;">Deseos</h2>
+    <input type="file" id="wishImg">
+    <textarea id="wishDesc" placeholder="Describe lo que deseas"></textarea>
+    <input type="number" id="wishGoal" placeholder="Cantidad $">
+    <button class="btn" onclick="donar()">Donar</button>
+  </div>
+
+  <!-- 5. CREAR -->
+  <div class="tab" id="crear">
+    <h2 style="text-align:center;">Crear</h2>
+    <input type="file" id="postFile">
+    <textarea id="postText" placeholder="Escribe algo"></textarea>
+    <button class="btn" onclick="publicar()">Publicar</button>
+  </div>
+
+  <!-- 6. MENSAJES -->
+  <div class="tab" id="mensajes"><p style="text-align:center; padding:50px;">Se desbloquea a los 1,000 seguidores</p></div>
+
+  <!-- 7. SUSCRIPCIONES -->
+  <div class="tab" id="suscripciones"><p style="text-align:center; padding:20px;">Se desbloquea a los 5,000 seguidores</p></div>
+
+  <!-- 8. PERFIL - AQUI SOLO VA EL BOTON EDITAR -->
+  <div class="tab" id="perfil">
+    <div class="header">
+      <h1>PEVTHON</h1>
+      <div class="top-icons">
+        <span onclick="showScreen('notis')">🔔</span>
+        <span onclick="showScreen('ajustes')">☰</span>
+      </div>
+    </div>
+    <div class="cover" id="portada"></div>
+    <div class="profile-box">
+      <div class="profile-pic"><img id="perfilPic" src=""></div>
+      <div class="stats">
+        <div><b id="seguidores">0</b> Seguidores</div>
+        <div><b id="seguidos">0</b> Seguidos</div>
+      </div>
+      <div class="username" id="nombreUsuario">Usuario</div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" onclick="abrirEditarPerfil()">Editar perfil</button>
+    </div>
+    <div class="bio" id="bioUsuario"></div>
+    <div class="links" id="linksUsuario"></div>
+    <div class="mi-grid" id="miFeed"></div>
+  </div>
+</div>
   <!-- PORTADA -->
   <div class="cover" id="portada"></div>
 

@@ -276,3 +276,15 @@ body > h1 { display: none !important; }
 
 /* Para que solo se vea 1 tab a la vez */
 #s7 .app-content { padding-bottom: 80px; }
+/* BOMBA NUCLEAR: SOLO 1 TAB VISIBLE */
+#s7 .tab {
+  display: none;
+}
+#s7 .tab.active {
+  display: block;
+}
+
+/* Que el perfil no se salga */
+#s7 #perfil {
+  width: 100%;
+}

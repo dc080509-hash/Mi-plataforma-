@@ -8,343 +8,44 @@
 </head>
 <body>
 
-<!-- P1 IDIOMA -->
-<div class="screen active onboard" id="s1">
-  <div><h1>PEVTHON</h1><div class="image-box"></div>
-  <h2>Selecciona tu idioma</h2>
-  <select><option>🇪🇸 Español</option><option>🇬🇧 English</option></select></div>
-  <button class="btn" onclick="showScreen(2)">Continuar</button>
-</div>
+<!-- PANTALLAS ONBOARDING -->
+<div class="screen active" id="s1"> <h1>PEVTHON</h1> <button class="btn" onclick="showScreen(2)">Continuar</button> </div>
+<div class="screen" id="s2"> <h1>PEVTHON</h1> <button class="btn" onclick="showScreen(3)">Continuar</button> </div>
+<div class="screen" id="s3"> <h1>PEVTHON</h1> <button class="btn" onclick="showScreen(4)">Continuar</button> </div>
+<div class="screen" id="s4"> <h1>PEVTHON</h1> <button class="btn" onclick="showScreen(5)">Continuar</button> </div>
+<div class="screen" id="s5"> <h1>PEVTHON</h1> <button class="btn" onclick="showScreen(6)">Continuar</button> </div>
+<div class="screen" id="s6"> <h1>PEVTHON</h1> <button class="btn" onclick="showApp()">Entrar</button> </div>
 
-<!-- P2 -->
-<div class="screen onboard" id="s2"><div><h1>PEVTHON</h1><div class="image-box"></div>
-<h2>Conecta con personas</h2><p>de todo el mundo</p></div>
-<button class="btn" onclick="showScreen(3)">Continuar</button></div>
-
-<!-- P3 -->
-<div class="screen onboard" id="s3"><div><h1>PEVTHON</h1><div class="image-box"></div>
-<h2>Comparte lo que deseas</h2><p>cumple tus sueños</p></div>
-<button class="btn" onclick="showScreen(4)">Continuar</button></div>
-
-<!-- P4 -->
-<div class="screen onboard" id="s4"><div><h1>PEVTHON</h1><div class="image-box"></div></div>
-<button class="btn" onclick="showScreen(5)">Continuar</button></div>
-
-<!-- P5 REGISTRO -->
-<div class="screen onboard" id="s5"><div><h1>PEVTHON</h1>
-<input placeholder="Usuario"><input placeholder="Email">
-<input type="date"><input type="password" placeholder="Contraseña">
-</div><button class="btn" onclick="showScreen(6)">Continuar</button></div>
-
-<!-- P6 FUNDADORES -->
-<div class="screen" id="s6"><div style="padding:20px; text-align:center;"><h1>PEVTHON</h1>
-<p>Sigue a los fundadores</p></div>
-<div id="founders"></div>
-<button class="btn" onclick="showApp()">Continuar</button></div>
-
-<!-- P7 APP -->
+<!-- APP PRINCIPAL -->
 <div class="screen" id="s7">
   <div class="app-header">
-    <span class="active" onclick="showAppTab('para-ti')" data-key="tabForYou">Para ti</span>
-    <span onclick="showAppTab('descubrir')" data-key="tabDiscover">Descubrir</span>
-    <span onclick="showAppTab('internacional')" data-key="tabIntl">Internacional</span>
+    <span class="active" onclick="showAppTab('para-ti')">Para ti</span>
+    <span onclick="showAppTab('descubrir')">Descubrir</span>
+    <span onclick="showAppTab('internacional')">Internacional</span>
   </div>
 
   <div class="app-content">
-    <!-- 1. PARA TI -->
     <div class="tab active" id="para-ti"></div>
-    
-    <!-- 2. DESCUBRIR -->
-    <div class="tab" id="descubrir"><p style="text-align:center; padding:20px;">Aquí van tendencias</p></div>
-    
-    <!-- 3. INTERNACIONAL -->
-    <div class="tab" id="internacional">
-      <div class="post"><b>Grupo Corazones 💖</b><button class="btn" style="width:100px; padding:8px;">Unirse</button></div>
-    </div>
-
-    <!-- 4. DESEOS -->
-    <div class="tab" id="deseos">
-      <h2 style="text-align:center;">Deseos</h2>
-      <input type="file" id="wishImg">
-      <textarea id="wishDesc" placeholder="Describe lo que deseas"></textarea>
-      <input type="number" id="wishGoal" placeholder="Cantidad $">
-      <button class="btn" onclick="donar()">Donar</button>
-    </div>
-
-    <!-- 5. CREAR -->
-    <div class="tab" id="crear">
-      <h2 style="text-align:center;">Crear</h2>
-      <input type="file" id="postFile">
-      <textarea id="postText" placeholder="Escribe algo"></textarea>
-      <button class="btn" onclick="publicar()">Publicar</button>
-    </div>
-
-    <!-- 6. MENSAJES -->
-    <div class="tab" id="mensajes"><p style="text-align:center; padding:50px;">Se desbloquea a los 1,000 seguidores</p></div>
-
-    <!-- 7. SUSCRIPCIONES -->
-    <div class="tab" id="suscripciones"><p style="text-align:center; padding:20px;">Se desbloquea a los 5,000 seguidores</p></div>
-
-    <!-- 8. PERFIL -->
-    <div class="tab" id="perfil">
-      <div class="header">
-        <h1>PEVTHON</h1>
-        <div class="top-icons">
-          <span onclick="showScreen('notis')">🔔</span>
-          <span onclick="showScreen('ajustes')">☰</span>
-        </div>
-      </div>
-      <div class="cover" id="portada"></div>
-      <div class="profile-box">
-        <div class="profile-pic"><img id="perfilPic" src=""></div>
-        <div class="stats">
-          <div><b id="seguidores">0</b> Seguidores</div>
-          <div><b id="seguidos">0</b> Seguidos</div>
-        </div>
-        <div class="username" id="nombreUsuario">Usuario</div>
-      </div>
-      <div class="btn-row">
-        <button class="btn" onclick="abrirEditarPerfil()">Editar perfil</button>
-      </div>
-      <div class="bio" id="bioUsuario"></div>
-      <div class="links" id="linksUsuario"></div>
-    
-    </div>
-  </div> <!-- CIERRA app-content -->
-
-  <!-- BARRA INFERIOR - DENTRO DE S7 -->
-  <div class="bottom-nav">
-    <div class="nav-item active" onclick="showTab('para-ti')">🏠<br><span data-key="navHome">Inicio</span></div>
-    <div class="nav-item" onclick="showTab('deseos')">🎁<br><span data-key="navWishes">Deseos</span></div>
-    <div class="nav-item" onclick="showTab('crear')">➕<br><span data-key="navCreate">Crear</span></div>
-    <div class="nav-item" onclick="showTab('mensajes')">💌<br><span data-key="navMsg">Mensajes</span></div>
-    <div class="nav-item" onclick="showTab('suscripciones')">💎<br><span data-key="navSubs">Suscripciones</span></div>
-    <div class="nav-item" onclick="verMiPerfil()">👤<br><span data-key="navProfile">Perfil</span></div>
+    <div class="tab" id="descubrir">Tendencias</div>
+    <div class="tab" id="internacional">Grupos</div>
+    <div class="tab" id="deseos">Deseos</div>
+    <div class="tab" id="crear">Crear</div>
+    <div class="tab" id="mensajes">Mensajes</div>
+    <div class="tab" id="suscripciones">Suscripciones</div>
+    <div class="tab" id="perfil">MI PERFIL</div>
   </div>
 
-
-  
-<!-- AJUSTES -->
-<div class="screen" id="ajustes"><h1>PEVTHON</h1>
-<div class="settings"><h2>Ajustes</h2>
-<div class="setting-item">Colores
-<div><div class="color-option" style="background:#D98AA8;" onclick="changeColor('#D98AA8')"></div>
-<div class="color-option" style="background:#000;" onclick="changeColor('#000')"></div></div></div>
-<button class="btn" onclick="showTab('perfil')">Volver</button></div></div>
-<!-- EDITAR PERFIL -->
-<div class="screen" id="editarPerfil">
-  <h1 style="text-align:center; padding:20px;">Editar perfil</h1>
-  
-  <div class="edit-form">
-    <label>Foto de Portada</label>
-    <input type="file" id="editPortada" accept="image/*" onchange="previewPortada(this)">
-    <div class="preview-cover" id="previewCover"></div>
-
-    <label>Foto de Perfil</label>
-    <input type="file" id="editFoto" accept="image/*" onchange="previewFoto(this)">
-    <div class="preview-pic"><img id="previewPic"></div>
-
-    <label>Nombre de Usuario</label>
-    <input type="text" id="editNombre" placeholder="Tu nombre">
-
-    <label>Biografía / Descripción</label>
-    <textarea id="editBio" placeholder="Cuéntanos sobre ti..." rows="3"></textarea>
-
-    <label>Links</label>
-    <input type="url" id="editLink1" placeholder="https://instagram.com/tu">
-    <input type="url" id="editLink2" placeholder="https://tiktok.com/@tu">
-
-    <button class="btn" onclick="guardarPerfil()">Guardar cambios</button>
-    <button class="btn btn-gray" onclick="showTab('perfil')">Cancelar</button>
+  <!-- SOLO 1 BARRA INFERIOR -->
+  <div class="bottom-nav">
+    <div class="nav-item active" onclick="showTab('para-ti')">🏠</div>
+    <div class="nav-item" onclick="showTab('deseos')">🎁</div>
+    <div class="nav-item" onclick="showTab('crear')">➕</div>
+    <div class="nav-item" onclick="showTab('mensajes')">💌</div>
+    <div class="nav-item" onclick="showTab('suscripciones')">💎</div>
+    <div class="nav-item" onclick="showTab('perfil')">👤</div>
   </div>
 </div>
-<script>
 
-let posts = [];
-function showScreen(n) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(typeof n === 'number'? 's'+n : n).classList.add('active');
-  if(n==6) loadFounders();
-}
-function showTab(t) {
-  // SOLO DENTRO DE S7
-  document.querySelectorAll('#s7 .tab').forEach(x => x.classList.remove('active'));
-  document.getElementById(t).classList.add('active');
-
-  // Marcar botón de abajo activo
-  document.querySelectorAll('.bottom-nav .nav-item').forEach(x => x.classList.remove('active'));
-  event.currentTarget.classList.add('active');
-}
-
-function showApp() { showScreen(7); }
-function loadFounders() {
-  document.getElementById('founders').innerHTML = '<div class="founder"><span>@fundador1</span><button class="btn" style="width:100px;">Seguir</button></div>'
-}
-function publicar() {
-  let text = document.getElementById('postText').value;
-  posts.push({user:'@tu', text});
-  document.getElementById('para-ti').innerHTML += `<div class="post"><b>@tu</b><p>${text}</p></div>`;
-  document.getElementById('postText').value='';
-}
-function changeColor(c) {
-  document.documentElement.style.setProperty('--main', c);
-}
-function updateProgress(){
-  let goal = document.getElementById('wishGoal').value || 100;
-  let current = 30; // ejemplo, luego lo conectamos a donaciones reales
-  let percent = (current/goal)*100;
-  document.getElementById('wishProgress').style.width = percent + '%';
-}
-
-function donar(){
-  let p = document.getElementById('wishProgress');
-  let w = parseInt(p.style.width) || 0;
-  p.style.width = (w + 10) + '%';
-  alert('Gracias por donar $10!');
-}
-
-// Actualiza traducciones:
-translations.es.navWishes = "Deseos";
-translations.es.navMsg = "Mensajes";
-translations.es.navSubs = "Suscripciones";
-translations.en.navWishes = "Wishes";
-translations.en.navMsg = "Messages";
-translations.en.navSubs = "Subscriptions";
-
-function renderPosts() {
-  if(posts.length==0){
-    document.getElementById('para-ti').innerHTML = `<p style="text-align:center; color:#888; padding:20px;">${translations[currentLang].noPosts}</p>`;
-    document.getElementById('miFeed').innerHTML = '';
-    return;
-  }
-  let html = '';
-  posts.forEach(p => {
-    let media = '';
-    if(p.url){
-      if(p.isVideo){
-        media = `<video src="${p.url}" controls class="post-media heart"></video>`;
-      } else {
-        media = `<img src="${p.url}" class="post-media heart">`;
-      }
-    }
-    html += `<div class="post">
-      <div class="post-user">${p.user}</div>
-      <p>${p.text}</p>
-      ${media}
-      <div class="post-actions"><span class="like" onclick="darLike(${p.id})">❤️ ${likes[p.id]||0}</span></div>
-    </div>`;
-  });
-  document.getElementById('para-ti').innerHTML = html;
-  document.getElementById('miFeed').innerHTML = html;
-}
-
-function publicar() {
-  let file = document.getElementById('postFile').files[0];
-  let text = document.getElementById('postText').value;
-  let url = file? URL.createObjectURL(file) : '';
-  let isVideo = file && file.type.includes('video');
-  posts.unshift({user:'@tu', text, url, isVideo, id:Date.now()});
-  renderPosts();
-  alert('Publicado');
-  document.getElementById('postText').value='';
-}
-let esMiPerfil = true; // true = tu perfil, false = perfil de otro
-
-function mostrarPerfil(tipo){
-  esMiPerfil = tipo === 'propio';
-  document.getElementById('btnPerfilPropio').style.display = esMiPerfil? 'flex' : 'none';
-  document.getElementById('btnPerfilOtro').style.display = esMiPerfil? 'none' : 'flex';
-  showTab('perfil');
-}
-
-// Para probar: cuando le das click a un perfil de otro usuario
-function verPerfilDeOtro(){
-  mostrarPerfil('otro');
-  document.getElementById('nombreUsuario').textContent = 'Usuario2';
-}
-
-// Cuando entras a tu perfil
-function verMiPerfil(){
-  mostrarPerfil('propio');
-  document.getElementById('nombreUsuario').textContent = document.getElementById('regUser').value || 'Usuario';
-}
-
-function cambiarFoto(input){
-  if(input.files[0]){
-    document.getElementById('perfilPic').src = URL.createObjectURL(input.files[0]);
-  }
-}
-
-function abrirEditarPerfil(){
-  // Cargar datos actuales
-  document.getElementById('editNombre').value = document.getElementById('nombreUsuario').textContent;
-  document.getElementById('editBio').value = document.getElementById('bioUsuario').textContent;
-  showScreen('editarPerfil');
-}
-
-function previewPortada(input){
-  if(input.files[0]){
-    let url = URL.createObjectURL(input.files[0]);
-    document.getElementById('previewCover').style.backgroundImage = `url(${url})`;
-  }
-}
-
-function previewFoto(input){
-  if(input.files[0]){
-    document.getElementById('previewPic').src = URL.createObjectURL(input.files[0]);
-  }
-}
-
-function guardarPerfil(){
-  // Nombre
-  let nombre = document.getElementById('editNombre').value;
-  document.getElementById('nombreUsuario').textContent = nombre;
-  
-  // Bio
-  let bio = document.getElementById('editBio').value;
-  document.getElementById('bioUsuario').textContent = bio;
-  
-  // Foto perfil
-  let foto = document.getElementById('editFoto').files[0];
-  if(foto) document.getElementById('perfilPic').src = URL.createObjectURL(foto);
-  
-  // Portada
-  let portada = document.getElementById('editPortada').files[0];
-  if(portada) document.getElementById('portada').style.backgroundImage = `url(${URL.createObjectURL(portada)})`;
-  
-  // Links
-  let l1 = document.getElementById('editLink1').value;
-  let l2 = document.getElementById('editLink2').value;
-  let linksHtml = '';
-  if(l1) linksHtml += `<a href="${l1}" target="_blank">${l1}</a>`;
-  if(l2) linksHtml += `<a href="${l2}" target="_blank">${l2}</a>`;
-  document.getElementById('linksUsuario').innerHTML = linksHtml;
-  
-  alert('Perfil actualizado!');
-  showTab('perfil');
-}
-function seguir(){ alert('Ya sigues a este usuario'); document.getElementById('seguidores').textContent = parseInt(document.getElementById('seguidores').textContent)+1 }
-function mensaje(){ alert('Abrir chat'); }
-
-// Cambia tu función renderPosts para que llene mi-grid
-function renderPosts() {
-  let grid = '';
-  posts.forEach(p => {
-    if(p.url){
-      if(p.isVideo){
-        grid += `<video src="${p.url}" controls></video>`;
-      } else {
-        grid += `<img src="${p.url}">`;
-      }
-    }
-  });
-  document.getElementById('miFeed').innerHTML = grid;
-  
-  // Para ti sigue igual con posts completos
-  let html = '';
-  posts.forEach(p => { /*... tu codigo anterior... */ });
-  document.getElementById('para-ti').innerHTML = html || `<p style="text-align:center; color:#888; padding:20px;">${translations[currentLang].noPosts}</p>`;
-}
-</script>
+<script src="script.js"></script>
 </body>
 </html>

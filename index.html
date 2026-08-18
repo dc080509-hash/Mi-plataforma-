@@ -194,6 +194,13 @@ function showTab(t) {
   document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
   document.getElementById(t).classList.add('active');
 }
+function showAppTab(t) {
+  showTab(t); // hace lo mismo
+  
+  // Marcar Para ti / Descubrir / Internacional arriba
+  document.querySelectorAll('#s7 .app-header span').forEach(x => x.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+}
 function showApp() { showScreen(7); }
 function loadFounders() {
   document.getElementById('founders').innerHTML = '<div class="founder"><span>@fundador1</span><button class="btn" style="width:100px;">Seguir</button></div>'

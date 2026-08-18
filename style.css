@@ -1,3 +1,14 @@
+.screen {
+  display: none !important;  /* TODAS OCULTAS POR DEFECTO */
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.screen.active {
+  display: block !important; /* SOLO LA ACTIVA SE VE */
+}
+
 html, body {
   height: 100%;
   width: 100%;
@@ -287,4 +298,10 @@ body > h1 { display: none !important; }
 /* Que el perfil no se salga */
 #s7 #perfil {
   width: 100%;
+}
+#s7 .tab {
+  display: none !important; 
+}
+#s7 .tab.active {
+  display: block !important; 
 }

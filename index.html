@@ -172,6 +172,18 @@
   </div>
 </div>
 <script>
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  
+  // NUEVO: Oculta perfil si no estamos en s7
+  if(id !== 's7'){
+    document.getElementById('perfil').style.display = 'none';
+  } else {
+    document.getElementById('perfil').style.display = 'block';
+  }
+}
+
 let posts = [];
 function showScreen(n) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));

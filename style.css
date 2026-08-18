@@ -242,3 +242,10 @@ input,select,textarea { width:90%; padding:14px; margin:8px auto; border-radius:
 .tab.active { display: block !important; }
 
 html, body { overflow: hidden !important; }
+/* MATA AL PERFIL FANTASMA */
+#perfil, #portada, .profile-box, .btn-row { display: none !important; }
+
+#s7.active #perfil { display: block !important; }
+#s7.active #portada { display: block !important; }
+#s7.active .profile-box { display: block !important; }
+#s7.active .btn-row { display: flex !important; }

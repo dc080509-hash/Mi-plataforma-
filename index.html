@@ -116,7 +116,7 @@
 
   <!-- BARRA INFERIOR - SOLO 1 VEZ -->
   <div class="bottom-nav">
-    <div class="nav-item active" onclick="showTab('para-ti')">🏠<br><span data-key="navHome">Inicio</span></div>
+      <div class="nav-item active" onclick="showTab('para-ti')"<🏠<br><span data-key="navHome">Inicio</span></div>
     <div class="nav-item" onclick="showTab('deseos')">🎁<br><span data-key="navWishes">Deseos</span></div>
     <div class="nav-item" onclick="showTab('crear')">➕<br><span data-key="navCreate">Crear</span></div>
     <div class="nav-item" onclick="showTab('mensajes')">💌<br><span data-key="navMsg">Mensajes</span></div>
@@ -176,12 +176,15 @@ function showScreen(id){
   if(id==6) loadFounders();
 }
 
-function showTab(t) {
-  document.querySelectorAll('#s7.tab').forEach(x => x.classList.remove('active'));
+function showTab(t, el) {
+  // 1. Oculta TODOS los tabs
+  document.querySelectorAll('#s7 .tab').forEach(x => x.classList.remove('active'));
+  // 2. Muestra solo el que picamos
   document.getElementById(t).classList.add('active');
 
+  // 3. Marca el botón de abajo como activo
   document.querySelectorAll('.nav-item').forEach(x => x.classList.remove('active'));
-  event.currentTarget.classList.add('active');
+  el.classList.add('active'); // ahora usamos "el" en vez de event
 }
 
 function showAppTab(t) {

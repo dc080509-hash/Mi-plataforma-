@@ -159,17 +159,6 @@
   </div>
 </div>
 <script>
-function showScreen(id){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  
-  // NUEVO: Oculta perfil si no estamos en s7
-  if(id !== 's7'){
-    document.getElementById('perfil').style.display = 'none';
-  } else {
-    document.getElementById('perfil').style.display = 'block';
-  }
-}
 
 let posts = [];
 function showScreen(n) {
@@ -178,16 +167,15 @@ function showScreen(n) {
   if(n==6) loadFounders();
 }
 function showTab(t) {
-  document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+  // SOLO DENTRO DE S7
+  document.querySelectorAll('#s7 .tab').forEach(x => x.classList.remove('active'));
   document.getElementById(t).classList.add('active');
-}
-function showAppTab(t) {
-  showTab(t); // hace lo mismo
-  
-  // Marcar Para ti / Descubrir / Internacional arriba
-  document.querySelectorAll('#s7 .app-header span').forEach(x => x.classList.remove('active'));
+
+  // Marcar botón de abajo activo
+  document.querySelectorAll('.bottom-nav .nav-item').forEach(x => x.classList.remove('active'));
   event.currentTarget.classList.add('active');
 }
+
 function showApp() { showScreen(7); }
 function loadFounders() {
   document.getElementById('founders').innerHTML = '<div class="founder"><span>@fundador1</span><button class="btn" style="width:100px;">Seguir</button></div>'

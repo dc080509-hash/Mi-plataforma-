@@ -311,7 +311,54 @@ function cambiarFoto(input){
 function editarPerfil(){
   alert('Aquí abrimos para cambiar nombre, bio, foto');
 }
+function abrirEditarPerfil(){
+  // Cargar datos actuales
+  document.getElementById('editNombre').value = document.getElementById('nombreUsuario').textContent;
+  document.getElementById('editBio').value = document.getElementById('bioUsuario').textContent;
+  showScreen('editarPerfil');
+}
 
+function previewPortada(input){
+  if(input.files[0]){
+    let url = URL.createObjectURL(input.files[0]);
+    document.getElementById('previewCover').style.backgroundImage = `url(${url})`;
+  }
+}
+
+function previewFoto(input){
+  if(input.files[0]){
+    document.getElementById('previewPic').src = URL.createObjectURL(input.files[0]);
+  }
+}
+
+function guardarPerfil(){
+  // Nombre
+  let nombre = document.getElementById('editNombre').value;
+  document.getElementById('nombreUsuario').textContent = nombre;
+  
+  // Bio
+  let bio = document.getElementById('editBio').value;
+  document.getElementById('bioUsuario').textContent = bio;
+  
+  // Foto perfil
+  let foto = document.getElementById('editFoto').files[0];
+  if(foto) document.getElementById('perfilPic').src = URL.createObjectURL(foto);
+  
+  // Portada
+  let portada = document.getElementById('editPortada').files[0];
+  if(portada) document.getElementById('portada').style.backgroundImage = `url(${URL.createObjectURL(portada)})`;
+  
+  // Links
+  let l1 = document.getElementById('editLink1').value;
+  let l2 = document.getElementById('editLink2').value;
+  let linksHtml = '';
+  if(l1) linksHtml += `<a href="${l1}" target="_blank">${l1}</a>`;
+  if(l2) linksHtml += `<a href="${l2}" target="_blank">${l2}</a>`;
+  document.getElementById('linksUsuario').innerHTML = linksHtml;
+  
+  alert('Perfil actualizado!');
+  showTab('perfil');
+}
 function seguir(){ alert('Ya sigues a este usuario'); document.getElementById('seguidores').textContent = parseInt(document.getElementById('seguidores').textContent)+1 }
 function mensaje(){ alert('Abrir chat'); }
 

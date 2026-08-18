@@ -30,5 +30,87 @@ input,select,textarea { width:90%; padding:14px; margin:8px auto; border-radius:
 .heart { border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; } /* forma de corazón */
 .post-actions { display: flex; gap: 15px; margin-top: 8px; }
 .like { cursor: pointer; font-size: 16px; }
+.header { 
+  text-align: center; 
+  padding: 15px; 
+  position: relative; 
+}
+.top-icons { 
+  position: absolute; 
+  right: 15px; 
+  top: 15px; 
+  font-size: 24px; 
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.top-icons span { cursor: pointer; }
+
+.profile-box { 
+  background: #F5F1D5; 
+  margin: 0 10px; 
+  border-radius: 8px; 
+  padding: 15px; 
+  position: relative; 
+  height: 180px; 
+}
+.profile-pic { 
+  width: 120px; 
+  height: 120px; 
+  background: var(--main); 
+  border-radius: 50%; 
+  position: absolute; 
+  top: 20px; 
+  left: 15px; 
+  overflow: hidden;
+}
+.profile-pic img { width: 100%; height: 100%; object-fit: cover; }
+.edit-pic { 
+  position: absolute; 
+  bottom: 0; 
+  right: 0; 
+  background: #000; 
+  color: #fff; 
+  border-radius: 50%; 
+  width: 30px; 
+  height: 30px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  cursor: pointer; 
+}
+.stats { 
+  position: absolute; 
+  top: 30px; 
+  left: 150px; 
+  font-size: 14px; 
+  line-height: 1.8; 
+}
+.username { 
+  position: absolute; 
+  bottom: 15px; 
+  left: 15px; 
+  font-size: 22px; 
+  font-weight: 700; 
+  background: #fff;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.btn-row { display: flex; margin: 10px; gap: 10px; }
+.btn-row.btn { flex: 1; }
+.mi-grid { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 3px; 
+  padding: 10px; 
+  padding-bottom: 80px;
+}
+.mi-grid img,.mi-grid video { 
+  width: 100%; 
+  aspect-ratio: 1/1; 
+  object-fit: cover; 
+  border-radius: 5px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; /* forma corazón */
+}
 
 

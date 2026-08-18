@@ -45,37 +45,78 @@
 <!-- P7 APP -->
 <div class="screen" id="s7">
   <div class="app-header">
-    <span class="active" onclick="showTab('para-ti')">Para ti</span>
-    <span onclick="showTab('descubrir')">Descubrir</span>
-    <span onclick="showTab('internacional')">Internacional</span>
+    <span class="active" onclick="showAppTab('para-ti')" data-key="tabForYou">Para ti</span>
+    <span onclick="showAppTab('descubrir')" data-key="tabDiscover">Descubrir</span>
+    <span onclick="showAppTab('internacional')" data-key="tabIntl">Internacional</span>
   </div>
+
   <div class="app-content">
+    <!-- 1. PARA TI = AQUI SALE EL FEED -->
     <div class="tab active" id="para-ti"></div>
-    <div class="tab" id="descubrir"></div>
-    <div class="tab" id="internacional"><div class="post"><b>Grupo Corazones</b><button class="btn" style="width:100px;" onclick="alert('Te uniste')">Unirse</button></div></div>
+    
+    <!-- 2. DESCUBRIR -->
+    <div class="tab" id="descubrir"><p style="text-align:center; padding:20px;">Aquí van tendencias</p></div>
+    
+    <!-- 3. INTERNACIONAL -->
+    <div class="tab" id="internacional">
+      <div class="post"><b>Grupo Corazones 💖</b><p>Sube fotos y videos en forma de corazón</p><button class="btn" style="width:100px; padding:8px;" onclick="alert('Te uniste al grupo')">Unirse</button></div>
+    </div>
+
+    <!-- 4. DESEOS = DONAR -->
     <div class="tab" id="deseos">
-      <input type="file"><textarea placeholder="Describe tu deseo"></textarea>
-      <input placeholder="$"><button class="btn" onclick="alert('Donado')">Donar</button>
+      <h2 style="text-align:center; margin:10px;" data-key="wishes">Deseos</h2>
+      <input type="file" id="wishImg" accept="image/*">
+      <textarea id="wishDesc" data-key="wishPlaceholder" placeholder="Describe lo que deseas" rows="3"></textarea>
+      <input type="number" id="wishGoal" placeholder="Cantidad a recaudar $" oninput="updateProgress()">
+      <div class="progress-bar"><div class="progress" id="wishProgress" style="width: 0%;"></div></div>
+      <button class="btn" onclick="donar()" data-key="donate">$10 Donar</button>
     </div>
+
+    <!-- 5. CREAR -->
     <div class="tab" id="crear">
-      <input type="file" id="postFile">
-      <textarea id="postText" placeholder="Escribe algo"></textarea>
-      <button class="btn" onclick="publicar()">Publicar</button>
+      <h2 style="text-align:center; margin:10px;" data-key="create">Crear</h2>
+      <input type="file" id="postFile" accept="image/*,video/*">
+      <textarea id="postText" data-key="postPlaceholder" placeholder="Escribe algo..." rows="3"></textarea>
+      <button class="btn" onclick="publicar()" data-key="btnPublish">Publicar</button>
     </div>
+
+    <!-- 6. MENSAJES -->
+    <div class="tab" id="mensajes">
+      <p style="text-align:center; padding:50px;" data-key="msgLocked">Se desbloquea a los 1,000 seguidores</p>
+    </div>
+
+    <!-- 7. SUSCRIPCIONES -->
+    <div class="tab" id="suscripciones">
+      <p style="text-align:center; padding:20px;" data-key="subsLocked">Se desbloquea a los 5,000 seguidores</p>
+      <button class="btn" id="btnSubs" disabled onclick="showScreen('solicitud')">Continuar</button>
+    </div>
+
+    <!-- 8. PERFIL -->
     <div class="tab" id="perfil">
-      <h1>PEVTHON</h1>
-      <div class="profile-box"><div class="profile-pic"></div><div style="position:absolute; bottom:10px; left:15px;">User</div></div>
-      <button class="btn" onclick="showScreen('ajustes')">Ajustes</button>
+      <div class="header">
+        <h1>PEVTHON</h1>
+        <div class="top-icons"><span onclick="showScreen('notis')">🔔</span><span onclick="showScreen('ajustes')">☰</span></div>
+      </div>
+      <div class="profile-box">
+        <div class="profile-pic"><img id="perfilPic"></div>
+        <div class="stats"><div>Seguidores: 0</div><div>Seguidos: 0</div></div>
+        <div class="username">User</div>
+      </div>
+      <div class="btn-row"><button class="btn">Seguir</button><button class="btn">Mensaje</button></div>
       <div id="miFeed"></div>
     </div>
   </div>
+
+  <!-- BARRA INFERIOR NUEVA CON 6 BOTONES -->
   <div class="bottom-nav">
-    <div class="nav-item active" onclick="showTab('para-ti')">🏠<br>Inicio</div>
-    <div class="nav-item" onclick="showTab('crear')">➕<br>Crear</div>
-    <div class="nav-item" onclick="showTab('perfil')">👤<br>Perfil</div>
+    <div class="nav-item active" onclick="showTab('para-ti')">🏠<br><span data-key="navHome">Inicio</span></div>
+    <div class="nav-item" onclick="showTab('deseos')">🎁<br><span data-key="navWishes">Deseos</span></div>
+    <div class="nav-item" onclick="showTab('crear')">➕<br><span data-key="navCreate">Crear</span></div>
+    <div class="nav-item" onclick="showTab('mensajes')">💌<br><span data-key="navMsg">Mensajes</span></div>
+    <div class="nav-item" onclick="showTab('suscripciones')">💎<br><span data-key="navSubs">Suscripciones</span></div>
+    <div class="nav-item" onclick="showTab('perfil')">👤<br><span data-key="navProfile">Perfil</span></div>
   </div>
 </div>
-
 <!-- AJUSTES -->
 <div class="screen" id="ajustes"><h1>PEVTHON</h1>
 <div class="settings"><h2>Ajustes</h2>
@@ -108,6 +149,66 @@ function publicar() {
 function changeColor(c) {
   document.documentElement.style.setProperty('--main', c);
 }
+function updateProgress(){
+  let goal = document.getElementById('wishGoal').value || 100;
+  let current = 30; // ejemplo, luego lo conectamos a donaciones reales
+  let percent = (current/goal)*100;
+  document.getElementById('wishProgress').style.width = percent + '%';
+}
+
+function donar(){
+  let p = document.getElementById('wishProgress');
+  let w = parseInt(p.style.width) || 0;
+  p.style.width = (w + 10) + '%';
+  alert('Gracias por donar $10!');
+}
+
+// Actualiza traducciones:
+translations.es.navWishes = "Deseos";
+translations.es.navMsg = "Mensajes";
+translations.es.navSubs = "Suscripciones";
+translations.en.navWishes = "Wishes";
+translations.en.navMsg = "Messages";
+translations.en.navSubs = "Subscriptions";
+
+function renderPosts() {
+  if(posts.length==0){
+    document.getElementById('para-ti').innerHTML = `<p style="text-align:center; color:#888; padding:20px;">${translations[currentLang].noPosts}</p>`;
+    document.getElementById('miFeed').innerHTML = '';
+    return;
+  }
+  let html = '';
+  posts.forEach(p => {
+    let media = '';
+    if(p.url){
+      if(p.isVideo){
+        media = `<video src="${p.url}" controls class="post-media heart"></video>`;
+      } else {
+        media = `<img src="${p.url}" class="post-media heart">`;
+      }
+    }
+    html += `<div class="post">
+      <div class="post-user">${p.user}</div>
+      <p>${p.text}</p>
+      ${media}
+      <div class="post-actions"><span class="like" onclick="darLike(${p.id})">❤️ ${likes[p.id]||0}</span></div>
+    </div>`;
+  });
+  document.getElementById('para-ti').innerHTML = html;
+  document.getElementById('miFeed').innerHTML = html;
+}
+
+function publicar() {
+  let file = document.getElementById('postFile').files[0];
+  let text = document.getElementById('postText').value;
+  let url = file? URL.createObjectURL(file) : '';
+  let isVideo = file && file.type.includes('video');
+  posts.unshift({user:'@tu', text, url, isVideo, id:Date.now()});
+  renderPosts();
+  alert('Publicado');
+  document.getElementById('postText').value='';
+}
+
 </script>
 </body>
 </html>

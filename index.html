@@ -91,7 +91,7 @@
       <button class="btn" id="btnSubs" disabled onclick="showScreen('solicitud')">Continuar</button>
     </div>
 
-   <!-- 8. PERFIL -->
+   <!-- 8. PERFIL - SOLO AQUI VA EL BOTON EDITAR -->
 <div class="tab" id="perfil">
   <!-- HEADER -->
   <div class="header">
@@ -107,22 +107,15 @@
 
   <!-- CAJA AMARILLA -->
   <div class="profile-box">
-    <!-- FOTO SIN CAMARITA -->
-    <div class="profile-pic">
-      <img id="perfilPic" src="">
-    </div>
-
-    <!-- SEGUIDORES Y SEGUIDOS -->
+    <div class="profile-pic"><img id="perfilPic" src=""></div>
     <div class="stats">
       <div><b id="seguidores">0</b> Seguidores</div>
       <div><b id="seguidos">0</b> Seguidos</div>
     </div>
-
-    <!-- USUARIO HASTA ABAJO COMO LO MARCASTE -->
     <div class="username" id="nombreUsuario">Usuario</div>
   </div>
 
-  <!-- BOTONES -->
+  <!-- SOLO 1 BOTON AQUI -->
   <div class="btn-row" id="btnPerfilPropio">
     <button class="btn" onclick="abrirEditarPerfil()">Editar perfil</button>
   </div>
@@ -139,7 +132,6 @@
   <!-- FEED -->
   <div class="mi-grid" id="miFeed"></div>
 </div>
-
   <!-- BOTONES: CAMBIAN SI ES TU PERFIL O EL DE OTRO -->
   <div class="btn-row" id="btnPerfilPropio">
     <button class="btn" onclick="editarPerfil()">Editar perfil</button>

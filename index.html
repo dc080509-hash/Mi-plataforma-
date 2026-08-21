@@ -3,154 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PEVTHON</title>
-  <link rel="stylesheet" href="style.css">
+  <title>App con Pestañas y Feed</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- PANTALLA 1: IDIOMA -->
-<div class="screen active" id="s1">
-  <div class="onboard">
-    <h1>PEVTHON</h1>
-    <div class="image-box"></div>
-    <h2 data-key="selectLang">Selecciona tu idioma</h2>
-    <select id="langSelect" onchange="changeLang()">
-      <option value="es">🇪🇸 Español</option>
-      <option value="en">🇺🇸 English</option>
-      <option value="pt">🇧🇷 Português</option>
-    </select>
-    <button class="btn" onclick="showScreen(2)">Continuar</button> <!-- AQUÍ ESTABA EL ERROR -->
-  </div>
-</div>
+  <!-- Navegación Superior -->
+  <nav class="navbar">
+    <button class="nav-btn active" data-target="screen-para-ti">Para ti</button>
+    <button class="nav-btn" data-target="screen-descubrir">Descubrir</button>
+    <button class="nav-btn" data-target="screen-internacional">Internacional</button>
+    <button class="nav-btn" data-target="screen-crear">Crear</button>
+  </nav>
 
-<!-- PANTALLA 2 A 5: ONBOARDING -->
-<div class="screen" id="s2">
-  <div class="onboard">
-    <h2 data-key="onb2title">Conecta con creadores</h2>
-    <p data-key="onb2text">Sigue a tus artistas favoritos</p>
-    <button class="btn" onclick="showScreen(3)">Continuar</button>
-  </div>
-</div>
-<div class="screen" id="s3">
-  <div class="onboard">
-    <h2 data-key="onb3title">Apoya con propinas</h2>
-    <p data-key="onb3text">Envía estrellas y regalos</p>
-    <button class="btn" onclick="showScreen(4)">Continuar</button>
-  </div>
-</div>
-<div class="screen" id="s4">
-  <div class="onboard">
-    <h2 data-key="onb4title">Gana dinero</h2>
-    <p data-key="onb4text">Monetiza tu contenido</p>
-    <button class="btn" onclick="showScreen(5)">Continuar</button>
-  </div>
-</div>
-<div class="screen" id="s5">
-  <div class="onboard">
-    <h2 data-key="onb5title">¡Listo!</h2>
-    <p data-key="onb5text">Vamos a crear tu cuenta</p>
-    <button class="btn" onclick="showScreen(6)">Continuar</button>
-  </div>
-</div>
-
-<!-- PANTALLA 6: FUNDADORES -->
-<div class="screen" id="s6">
-  <h2 style="text-align:center; padding:20px;">Fundadores</h2>
-  <div id="foundersList"></div>
-  <button class="btn" onclick="showScreen(7)">Entrar a la App</button>
-</div>
-
-<!-- PANTALLA 7: APP -->
-<div class="screen" id="s7">
-  <div class="app-header">
-    <span class="active">Para ti</span><span>Siguiendo</span>
-  </div>
-  <div class="app-content">
-    <div class="tab active" id="para-ti">
-      <div id="feed"></div>
-    </div>
-    <div class="tab" id="deseos"><h2>Deseos</h2></div>
-    <div class="tab" id="crear"><h2>Crear Post</h2></div>
-    <div class="tab" id="mensajes"><h2>Mensajes</h2></div>
-    <div class="tab" id="suscripciones"><h2>Suscripciones</h2></div>
-    <div class="tab" id="perfil">
-      <div class="cover" id="coverPreview"></div>
-      <div class="profile-box">
-        <div class="profile-pic"><img id="profilePreview" src="https://i.imgur.com/8Km9tLL.png"></div>
-        <h2 class="username" id="nombreUsuario">Usuario</h2>
+  <!-- Contenedor Principal de Pantallas -->
+  <main class="main-content">
+    
+    <!-- Pantalla 1: Para ti -->
+    <section id="screen-para-ti" class="screen-content active">
+      <h2>Feed Para Ti</h2>
+      <div id="para-ti-feed" class="feed-grid">
+        <!-- Las publicaciones se insertarán aquí dinámicamente -->
       </div>
-      <button id="btnPerfilPropio" class="btn" onclick="showScreen('editarPerfil')">Editar Perfil</button>
-    </div>
-  </div>
-  <div class="bottom-nav">
-    <div class="nav-item active" onclick="showTab('para-ti', this)">🏠<br>Inicio</div>
-    <div class="nav-item" onclick="showTab('deseos', this)">🎁<br>Deseos</div>
-    <div class="nav-item" onclick="showTab('crear', this)">➕<br>Crear</div>
-    <div class="nav-item" onclick="showTab('mensajes', this)">💌<br>Mensajes</div>
-    <div class="nav-item" onclick="showTab('suscripciones', this)">💎<br>Subs</div>
-    <div class="nav-item" onclick="verMiPerfil(this)">👤<br>Perfil</div>
-  </div>
-</div>
+    </section>
 
-<!-- PANTALLA 8: EDITAR PERFIL -->
-<div class="screen" id="editarPerfil">
-  <h2 style="text-align:center; padding:20px;">Editar perfil</h2>
-  <div class="edit-form">
-    <label>Nombre de Usuario</label>
-    <input type="text" id="editUsername">
-    <button class="btn" onclick="guardarPerfil()">Guardar cambios</button>
-    <button class="btn btn-gray" onclick="showScreen(7)">Cancelar</button>
-  </div>
-</div>
+    <!-- Pantalla 2: Descubrir -->
+    <section id="screen-descubrir" class="screen-content hidden">
+      <h2>Descubrir</h2>
+      <p>Contenido sugerido y tendencias actuales.</p>
+    </section>
 
-<script>
-const translations = {
-  es: { selectLang: "Selecciona tu idioma", onb2title: "Conecta con creadores" },
-  en: { selectLang: "Select your language", onb2title: "Connect with creators" },
-  pt: { selectLang: "Selecione seu idioma", onb2title: "Conecte-se com criadores" }
-};
-function changeLang() {
-  const lang = document.getElementById('langSelect').value;
-  document.querySelectorAll('[data-key]').forEach(el => {
-    el.textContent = translations[lang][el.dataset.key];
-  });
-}
+    <!-- Pantalla 3: Internacional -->
+    <section id="screen-internacional" class="screen-content hidden">
+      <h2>Internacional</h2>
+      <p>Novedades y tendencias globales.</p>
+    </section>
 
-function showScreen(n) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  let id = typeof n === 'number'? 's' + n : n;
-  document.getElementById(id).classList.add('active');
-  if(n == 6) loadFounders();
-}
+    <!-- Pantalla 4: Crear Publicación -->
+    <section id="screen-crear" class="screen-content hidden">
+      <h2>Nueva Publicación</h2>
+      <form id="create-post-form" class="create-form">
+        <label for="post-image-input">Selecciona una imagen:</label>
+        <input type="file" id="post-image-input" accept="image/*" required>
+        <button type="submit" class="submit-btn">Publicar</button>
+      </form>
+    </section>
 
-function showTab(t, el) {
-  // 1. Oculta TODOS los tabs de s7
-  document.querySelectorAll('#s7 .tab').forEach(x => x.classList.remove('active'));
-  
-  // 2. Muestra solo el que picamos
-  document.getElementById(t).classList.add('active');
+  </main>
 
-  // 3. Marca el botón de abajo como activo
-  document.querySelectorAll('.nav-item').forEach(x => x.classList.remove('active'));
-  el.classList.add('active');
-}
-
-function verMiPerfil(el){
-  document.getElementById('nombreUsuario').textContent = document.getElementById('editUsername').value || 'Usuario';
-  showTab('perfil', el);
-}
-
-function guardarPerfil(){
-  document.getElementById('nombreUsuario').textContent = document.getElementById('editUsername').value;
-  alert('Perfil actualizado!');
-  showScreen(7);
-  showTab('perfil', document.querySelector('.nav-item:last-child'));
-}
-
-function loadFounders(){
-  document.getElementById('foundersList').innerHTML = '<div class="founder"><span>Admin</span></div>';
-}
-
-</script>
+  <script src="script.js"></script>
 </body>
 </html>

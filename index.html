@@ -50,6 +50,76 @@
     </section>
 
   </main>
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Selección de elementos de la interfaz
+  const navButtons = document.querySelectorAll('.nav-btn');
+  const screens = document.querySelectorAll('.screen-content');
+  const createForm = document.getElementById('create-post-form');
+  const imageInput = document.getElementById('post-image-input');
+  const paraTiFeed = document.getElementById('para-ti-feed');
+
+  // 2. Control de Navegación de Pestañas
+  navButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetScreenId = button.getAttribute('data-target');
+
+      // Ocultar todas las pantallas y desactivar botones
+      navButtons.forEach(btn => btn.classList.remove('active'));
+      screens.forEach(screen => {
+        screen.classList.add('hidden');
+        screen.classList.remove('active');
+      });
+
+      // Activar el botón seleccionado y mostrar su pantalla
+      button.classList.add('active');
+      const targetScreen = document.getElementById(targetScreenId);
+      if (targetScreen) {
+        targetScreen.classList.remove('hidden');
+        targetScreen.classList.add('active');
+      }
+    });
+  });
+
+  // 3. Publicación de Contenido en el Feed "Para ti"
+  if (createForm) {
+    createForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const files = imageInput.files;
+      if (!files || files.length === 0) return;
+
+      const file = files[0];
+      const reader = new FileReader();
+
+      reader.onload = (event) => {
+        // Crear la tarjeta de la publicación
+        const postCard = document.createElement('article');
+        postCard.className = 'post-card';
+
+        const imgElement = document.createElement('img');
+        imgElement.src = event.target.result;
+        imgElement.alt = 'Nueva publicación';
+        imgElement.className = 'post-image';
+
+        postCard.appendChild(imgElement);
+
+        // Insertar al inicio del feed "Para ti"
+        if (paraTiFeed) {
+          paraTiFeed.prepend(postCard);
+        }
+
+        // Reiniciar formulario y redirigir a la pestaña "Para ti"
+        createForm.reset();
+        const paraTiBtn = document.querySelector('[data-target="screen-para-ti"]');
+        if (paraTiBtn) {
+          paraTiBtn.click();
+        }
+      };
+
+      reader.readAsDataURL(file);
+    });
+  }
+});
 
   <script src="script.js"></script>
 </body>

@@ -1,126 +1,134 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>App con Pestañas y Feed</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#171717">
+  <meta name="description" content="PEVTHON - conecta, descubre, comparte deseos y comunidades.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <title>PEVTHON</title>
   <link rel="stylesheet" href="styles.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"></script>
 </head>
 <body>
+<div id="app">
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- Navegación Superior -->
-  <nav class="navbar">
-    <button class="nav-btn active" data-target="screen-para-ti">Para ti</button>
-    <button class="nav-btn" data-target="screen-descubrir">Descubrir</button>
-    <button class="nav-btn" data-target="screen-internacional">Internacional</button>
-    <button class="nav-btn" data-target="screen-crear">Crear</button>
-  </nav>
-
-  <!-- Contenedor Principal de Pantallas -->
-  <main class="main-content">
-    
-    <!-- Pantalla 1: Para ti -->
-    <section id="screen-para-ti" class="screen-content active">
-      <h2>Feed Para Ti</h2>
-      <div id="para-ti-feed" class="feed-grid">
-        <!-- Las publicaciones se insertarán aquí dinámicamente -->
+  <main id="onboarding" class="screen">
+    <section id="step-1" class="onboard-step active">
+      <div class="brand">PEVTHON</div>
+      <div class="onboard-content">
+        <h1 data-i18n="selectLanguage">Selecciona un idioma</h1>
+        <div id="languageList" class="language-list"></div>
+        <button class="primary" id="continueLanguage" data-i18n="continue">Continuar</button>
       </div>
     </section>
 
-    <!-- Pantalla 2: Descubrir -->
-    <section id="screen-descubrir" class="screen-content hidden">
-      <h2>Descubrir</h2>
-      <p>Contenido sugerido y tendencias actuales.</p>
+    <section id="step-2" class="onboard-step">
+      <div class="brand">PEVTHON</div>
+      <div class="onboard-content">
+        <img class="onboard-image screen2-image" src="assets/screen2.jpeg" alt="PEVTHON">
+        <p class="lead" data-i18n="introConnect">Conecta y conoce a personas de todo el mundo.</p>
+        <button class="primary next-step" data-next="3" data-i18n="continue">Continuar</button>
+      </div>
     </section>
 
-    <!-- Pantalla 3: Internacional -->
-    <section id="screen-internacional" class="screen-content hidden">
-      <h2>Internacional</h2>
-      <p>Novedades y tendencias globales.</p>
+    <section id="step-3" class="onboard-step">
+      <div class="brand">PEVTHON</div>
+      <div class="onboard-content">
+        <img class="onboard-image screen3-image" src="assets/screen3.jpeg" alt="PEVTHON">
+        <p class="lead" data-i18n="introDonate">Haz donaciones y cumple tus deseos.</p>
+        <button class="primary next-step" data-next="4" data-i18n="continue">Continuar</button>
+      </div>
     </section>
 
-    <!-- Pantalla 4: Crear Publicación -->
-    <section id="screen-crear" class="screen-content hidden">
-      <h2>Nueva Publicación</h2>
-      <form id="create-post-form" class="create-form">
-        <label for="post-image-input">Selecciona una imagen:</label>
-        <input type="file" id="post-image-input" accept="image/*" required>
-        <button type="submit" class="submit-btn">Publicar</button>
-      </form>
+    <section id="step-4" class="onboard-step">
+      <div class="brand">PEVTHON</div>
+      <div class="onboard-content">
+        <img class="onboard-image screen4-image" src="assets/screen4.jpeg" alt="PEVTHON">
+        <button class="primary next-step" data-next="5" data-i18n="continue">Continuar</button>
+      </div>
     </section>
 
+    <section id="step-5" class="onboard-step">
+      <div class="brand">PEVTHON</div>
+      <div class="onboard-content form">
+        <h1 data-i18n="createAccount">Crear cuenta / Iniciar sesión</h1>
+        <input id="signupUsername" data-i18n-placeholder="username" placeholder="Nombre de usuario" autocomplete="username">
+        <input id="signupEmail" data-i18n-placeholder="email" placeholder="Correo electrónico" type="email" autocomplete="email">
+        <input id="signupPassword" data-i18n-placeholder="password" placeholder="Contraseña" type="password" autocomplete="current-password">
+        <button class="primary" id="supabaseAuthBtn" data-i18n="create):">Continuar con Supabase</button>
+      </div>
+    </section>
   </main>
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Selección de elementos de la interfaz
-  const navButtons = document.querySelectorAll('.nav-btn');
-  const screens = document.querySelectorAll('.screen-content');
-  const createForm = document.getElementById('create-post-form');
-  const imageInput = document.getElementById('post-image-input');
-  const paraTiFeed = document.getElementById('para-ti-feed');
 
-  // 2. Control de Navegación de Pestañas
-  navButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const targetScreenId = button.getAttribute('data-target');
+  <div id="mainInterface" class="hidden">
+    <header class="topbar">
+      <div class="brand-top">PEVTHON</div>
+    </header>
 
-      // Ocultar todas las pantallas y desactivar botones
-      navButtons.forEach(btn => btn.classList.remove('active'));
-      screens.forEach(screen => {
-        screen.classList.add('hidden');
-        screen.classList.remove('active');
-      });
+    <main class="views-container">
+      <section id="view-desires" class="view active">
+        <div class="section-head"><h2 data-i18n="desires">Deseos</h2></div>
+        <div id="desiresContainer"></div>
+        <div id="paypal-button-container" class="paypal-container hidden"></div>
+      </section>
 
-      // Activar el botón seleccionado y mostrar su pantalla
-      button.classList.add('active');
-      const targetScreen = document.getElementById(targetScreenId);
-      if (targetScreen) {
-        targetScreen.classList.remove('hidden');
-        targetScreen.classList.add('active');
-      }
-    });
-  });
+      <section id="view-create" class="view">
+        <div class="section-head"><h2 data-i18n="create">Crear</h2></div>
+        <div class="card form">
+          <input id="createTitle" placeholder="Objeto o deseo">
+          <textarea id="createDescription" placeholder="¿Para qué lo quieres?"></textarea>
+          <input id="createPrice" type="number" placeholder="Precio meta ($)">
+          <div class="media-picker" id="mediaPickerTrigger">
+            <span class="placeholder-text" data-i18n="photoVideo">＋ Foto o video</span>
+          </div>
+          <input type="file" id="supabaseFileInput" accept="image/*,video/*" class="hidden">
+          <button class="primary" id="publishBtn" data-i18n="publish">Publicar</button>
+        </div>
+      </section>
 
-  // 3. Publicación de Contenido en el Feed "Para ti"
-  if (createForm) {
-    createForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+      <section id="view-messages" class="view">
+        <button class="view-close" data-close-view="messages" aria-label="Cerrar">×</button>
+        <div class="section-head"><h2 data-i18n="messages">Mensajes</h2></div>
+        <div id="messageArea" class="card form">
+          <div id="conversation" class="conversation"></div>
+          <div class="composer">
+            <input id="messageInput" placeholder="Escribe un mensaje...">
+            <button class="primary" id="sendMessage">➤</button>
+          </div>
+        </div>
+      </section>
 
-      const files = imageInput.files;
-      if (!files || files.length === 0) return;
+      <section id="view-balance" class="view">
+        <button class="view-close" data-close-view="balance" aria-label="Cerrar">×</button>
+        <div class="section-head"><h2 data-i18n="balance">Saldo y Retiros PayPal</h2></div>
+        <div id="balanceContent" class="card">
+          <p>Saldo disponible: <b id="userBalance">$0.00 USD</b></p>
+          <button class="primary" id="withdrawPayPalBtn">Retirar por PayPal</button>
+        </div>
+      </section>
 
-      const file = files[0];
-      const reader = new FileReader();
+      <section id="view-profile" class="view">
+        <button class="view-close" data-close-view="profile" aria-label="Cerrar">×</button>
+        <div class="profile-main">
+          <h2 id="profileUsername">@usuario</h2>
+          <button class="primary" id="logoutSupabaseBtn">Cerrar sesión</button>
+        </div>
+      </section>
+    </main>
 
-      reader.onload = (event) => {
-        // Crear la tarjeta de la publicación
-        const postCard = document.createElement('article');
-        postCard.className = 'post-card';
+    <nav class="bottom-nav">
+      <button data-view="desires">♡<span data-i18n="desires">Deseos</span></button>
+      <button data-view="create">＋<span data-i18n="create">Crear</span></button>
+      <button data-view="messages">☵<span data-i18n="messages">Mensajes</span></button>
+      <button data-view="profile">◉<span data-i18n="profile">Perfil</span></button>
+    </nav>
+  </div>
+</div>
 
-        const imgElement = document.createElement('img');
-        imgElement.src = event.target.result;
-        imgElement.alt = 'Nueva publicación';
-        imgElement.className = 'post-image';
-
-        postCard.appendChild(imgElement);
-
-        // Insertar al inicio del feed "Para ti"
-        if (paraTiFeed) {
-          paraTiFeed.prepend(postCard);
-        }
-
-        // Reiniciar formulario y redirigir a la pestaña "Para ti"
-        createForm.reset();
-        const paraTiBtn = document.querySelector('[data-target="screen-para-ti"]');
-        if (paraTiBtn) {
-          paraTiBtn.click();
-        }
-      };
-
-      reader.readAsDataURL(file);
-    });
-  }
-});
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
